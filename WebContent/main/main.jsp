@@ -58,6 +58,7 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">학적변동</li>
                 <li><a href="#">휴학신청</a></li>
+                <li><a href="#">복학신청</a></li>
                 <li><a href="#">전과신청</a></li>
                 <li><a href="#">자퇴신청</a></li>
                 <li class="divider"></li>
