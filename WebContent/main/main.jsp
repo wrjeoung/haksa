@@ -12,9 +12,15 @@
     
     <!-- Custom styles for this template -->
     <link href="dist/customcss/starter-template.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+    	function isLogin() {
+    		alert("로그인 후 사용 가능 합니다.")
+    	}
+    </script>
   </head>
   <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -76,7 +82,17 @@
             <li><a href="#contact">수강신청</a></li>
             <li><a href="#contact">수강과목철회</a></li>
           </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="학번" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="비밀번호" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
         </div><!--/.nav-collapse -->
+        
       </div>
     </div>
 
