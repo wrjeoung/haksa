@@ -20,6 +20,9 @@
     </script>
   </head>
   <body>
+              ####
+  	${loginCheck } ###
+  	${memId }
      <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -83,12 +86,12 @@
             <li><a href="#contact">수강과목철회</a></li>
             <li><a href="#contact">공지사항</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" action="loginPro.do" method="post">
             <div class="form-group">
-              <input type="text" placeholder="학번" class="form-control">
+              <input type="text" placeholder="학번" class="form-control" name="studentNumber">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="비밀번호" class="form-control">
+              <input type="password" placeholder="비밀번호" class="form-control" name="password">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
