@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>학사정보시스템</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -12,9 +12,15 @@
     
     <!-- Custom styles for this template -->
     <link href="dist/customcss/starter-template.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+    	function isLogin() {
+    		alert("로그인 후 사용 가능 합니다.")
+    	}
+    </script>
   </head>
   <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -58,6 +64,7 @@
               <ul class="dropdown-menu">
                 <li class="dropdown-header">학적변동</li>
                 <li><a href="#">휴학신청</a></li>
+                <li><a href="#">복학신청</a></li>
                 <li><a href="#">전과신청</a></li>
                 <li><a href="#">자퇴신청</a></li>
                 <li class="divider"></li>
@@ -72,11 +79,21 @@
                 <li><a href="#">학점포기신청</a></li>
               </ul>
             </li>            
-            <li><a href="#contact">공지사항</a></li>
-            <li><a href="#contact">수강신청</a></li>
+            <li><a href="registerclass.do">수강신청</a></li>
             <li><a href="#contact">수강과목철회</a></li>
+            <li><a href="#contact">공지사항</a></li>
           </ul>
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="학번" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="비밀번호" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
         </div><!--/.nav-collapse -->
+        
       </div>
     </div>
 
