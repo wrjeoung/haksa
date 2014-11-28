@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>학사정보시스템</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -73,9 +73,9 @@
                 <li><a href="#">학점포기신청</a></li>
               </ul>
             </li>            
-            <li><a href="#contact">공지사항</a></li>
             <li><a href="#contact">수강신청</a></li>
             <li><a href="#contact">수강과목철회</a></li>
+            <li><a href="#contact">공지사항</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
