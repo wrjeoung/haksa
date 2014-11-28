@@ -72,7 +72,7 @@
                 <li><a href="#">학점포기신청</a></li>
               </ul>
             </li>            
-            <li><a href="#contact">수강신청</a></li>
+            <li><a href="registerclass.do">수강신청</a></li>
             <li><a href="#contact">수강과목철회</a></li>
             <li><a href="#contact">공지사항</a></li>
           </ul>
