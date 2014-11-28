@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import dao.MemberDao;
@@ -41,18 +40,19 @@ public class MainController {
 		int getCount=memberDao.loginCheck(params);
 		System.out.println("getCount : "+getCount);
 		
-		if(memberDao.loginCheck(params)!=0)
+		int loginCheck = memberDao.loginCheck(params);
+		if(loginCheck==1)
 		{
-			/* 세션 설정 */
+			session.setAttribute("memId", memberDto.getStudentNumber());
+		}
+		else
+		{
 			if((String)session.getAttribute("memId")!=null)
 				session.removeAttribute("memId");
-			else
-				session.setAttribute("memId", memberDto.getStudentNumber());
 		}
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("memberDto",memberDto.getStudentNumber());
-		mv.addObject("loginCheck",1111);
+		mv.addObject("loginCheck",loginCheck);
 		mv.setViewName("/main/main.jsp");
 		return mv;
 	}
