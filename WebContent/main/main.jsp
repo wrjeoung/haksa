@@ -91,7 +91,7 @@
 		          </ul>
 	          </c:if>
 	          
-	          <form class="navbar-form navbar-right" action="loginPro.do" method="post">
+	          <form class="navbar-form navbar-right" action="loginOutPro.do" method="post">
 	          	<c:if test="${memId == null}">
 		            <div class="form-group">
 		              <input type="text" placeholder="학번" class="form-control" name="studentNumber">

@@ -27,7 +27,7 @@ public class MainController {
 		return "/main/main.jsp";
 	}
 	
-	@RequestMapping(value="/loginPro.do", method=RequestMethod.POST)
+	@RequestMapping(value="/loginOutPro.do", method=RequestMethod.POST)
 	public ModelAndView formPro(HttpServletRequest request, 
 								HttpSession session,
 								HttpServletResponse response,
