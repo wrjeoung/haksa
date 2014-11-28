@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ÇÐ»çÁ¤º¸½Ã½ºÅÛ</title>
+    <title>í•™ì‚¬ì •ë³´ì‹œìŠ¤í…œ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- ºÎÆ®½ºÆ®·¦ -->
+    <!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž© -->
     <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
     
     <!-- Custom styles for this template -->
@@ -15,7 +15,7 @@
     
     <script type="text/javascript">
     	function isLogin() {
-    		alert("·Î±×ÀÎ ÈÄ »ç¿ë °¡´É ÇÕ´Ï´Ù.")
+    		alert("ë¡œê·¸ì¸ í›„ ì‚¬ìš© ê°€ëŠ¥ í•©ë‹ˆë‹¤.")
     	}
     </script>
   </head>
@@ -33,62 +33,62 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">MyÈ¨ <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Myí™ˆ <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-header">ÇÐ»ýÁ¤º¸</li>
-                <li><a href="#">°³ÀÎÁ¤º¸º¯°æ</a></li>
-                <li><a href="#">ºñ¹Ð¹øÈ£º¯°æ</a></li>
+                <li class="dropdown-header">í•™ìƒì •ë³´</li>
+                <li><a href="#">ê°œì¸ì •ë³´ë³€ê²½</a></li>
+                <li><a href="#">ë¹„ë°€ë²ˆí˜¸ë³€ê²½</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">¼ºÀûÁ¶È¸ / Á¹¾÷»çÁ¤Á¶È¸</li>
-                <li><a href="#">ÇÐ±âº° ¼ºÀûÁ¶È¸</a></li>
-                <li><a href="#">Á¹¾÷»çÁ¤ Á¶È¸</a></li>
-                <li><a href="#">ÇÊ¼ö°ú¸ñÀÌ¼öÁ¶È¸</a></li>
+                <li class="dropdown-header">ì„±ì ì¡°íšŒ / ì¡¸ì—…ì‚¬ì •ì¡°íšŒ</li>
+                <li><a href="#">í•™ê¸°ë³„ ì„±ì ì¡°íšŒ</a></li>
+                <li><a href="#">ì¡¸ì—…ì‚¬ì • ì¡°íšŒ</a></li>
+                <li><a href="#">í•„ìˆ˜ê³¼ëª©ì´ìˆ˜ì¡°íšŒ</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">µî·ÏÀåÇÐ</li>
-                <li><a href="#">µî·Ï±Ý³»¿ª Á¶È¸</a></li>
-                <li><a href="#">ÀåÇÐ±Ý¼öÇý³»¿ª Á¶È¸</a></li>
+                <li class="dropdown-header">ë“±ë¡ìž¥í•™</li>
+                <li><a href="#">ë“±ë¡ê¸ˆë‚´ì—­ ì¡°íšŒ</a></li>
+                <li><a href="#">ìž¥í•™ê¸ˆìˆ˜í˜œë‚´ì—­ ì¡°íšŒ</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">¼ö¾÷ <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">ìˆ˜ì—… <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-header">±³À°°úÁ¤ Á¶È¸</li>
-                <li><a href="#">±³°ú¸ñ Á¶È¸</a></li>
+                <li class="dropdown-header">êµìœ¡ê³¼ì • ì¡°íšŒ</li>
+                <li><a href="#">êµê³¼ëª© ì¡°íšŒ</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">°­ÀÇ Æò°¡</li>
-                <li><a href="#">°­ÀÇ ¿ì¼ö°­»ç Á¶È¸</a></li>
+                <li class="dropdown-header">ê°•ì˜ í‰ê°€</li>
+                <li><a href="#">ê°•ì˜ ìš°ìˆ˜ê°•ì‚¬ ì¡°íšŒ</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">½ÅÃ» <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">ì‹ ì²­ <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-header">ÇÐÀûº¯µ¿</li>
-                <li><a href="#">ÈÞÇÐ½ÅÃ»</a></li>
-                <li><a href="#">º¹ÇÐ½ÅÃ»</a></li>
-                <li><a href="#">Àü°ú½ÅÃ»</a></li>
-                <li><a href="#">ÀÚÅð½ÅÃ»</a></li>
+                <li class="dropdown-header">í•™ì ë³€ë™</li>
+                <li><a href="#">íœ´í•™ì‹ ì²­</a></li>
+                <li><a href="#">ë³µí•™ì‹ ì²­</a></li>
+                <li><a href="#">ì „ê³¼ì‹ ì²­</a></li>
+                <li><a href="#">ìží‡´ì‹ ì²­</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">Àü°ø°ü¸®</li>
-                <li><a href="#">ÁÖÀü°ø¹èÁ¤½ÅÃ»</a></li>
-                <li><a href="#">Àü°ø½ÅÃ»/Æ÷±â</a></li>
+                <li class="dropdown-header">ì „ê³µê´€ë¦¬</li>
+                <li><a href="#">ì£¼ì „ê³µë°°ì •ì‹ ì²­</a></li>
+                <li><a href="#">ì „ê³µì‹ ì²­/í¬ê¸°</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">µî·ÏÀåÇÐ</li>
-                <li><a href="#">±³³»ÀåÇÐ±Ý½ÅÃ»</a></li>
+                <li class="dropdown-header">ë“±ë¡ìž¥í•™</li>
+                <li><a href="#">êµë‚´ìž¥í•™ê¸ˆì‹ ì²­</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">ÇÐÁ¡ÀÎÁ¤/Æ÷±â¼±Ã»</li>
-                <li><a href="#">ÇÐÁ¡Æ÷±â½ÅÃ»</a></li>
+                <li class="dropdown-header">í•™ì ì¸ì •/í¬ê¸°ì„ ì²­</li>
+                <li><a href="#">í•™ì í¬ê¸°ì‹ ì²­</a></li>
               </ul>
             </li>            
-            <li><a href="registerclass.do">¼ö°­½ÅÃ»</a></li>
-            <li><a href="#contact">¼ö°­°ú¸ñÃ¶È¸</a></li>
-            <li><a href="#contact">°øÁö»çÇ×</a></li>
+            <li><a href="registerclass.do">ìˆ˜ê°•ì‹ ì²­</a></li>
+            <li><a href="#contact">ìˆ˜ê°•ê³¼ëª©ì² íšŒ</a></li>
+            <li><a href="#contact">ê³µì§€ì‚¬í•­</a></li>
           </ul>
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" placeholder="ÇÐ¹ø" class="form-control">
+              <input type="text" placeholder="í•™ë²ˆ" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="ºñ¹Ð¹øÈ£" class="form-control">
+              <input type="password" placeholder="ë¹„ë°€ë²ˆí˜¸" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
@@ -104,12 +104,12 @@
       </div>
     </div><!-- /.container -->
  
-    <!-- jQuery (ºÎÆ®½ºÆ®·¦ÀÇ ÀÚ¹Ù½ºÅ©¸³Æ® ÇÃ·¯±×ÀÎÀ» À§ÇØ ÇÊ¿äÇÑ) -->
+    <!-- jQuery (ë¶€íŠ¸ìŠ¤íŠ¸ëž©ì˜ ìžë°”ìŠ¤í¬ë¦½íŠ¸ í”ŒëŸ¬ê·¸ì¸ì„ ìœ„í•´ í•„ìš”í•œ) -->
     <script src="//code.jquery.com/jquery.js"></script>
-    <!-- ¸ðµç ÇÕÃÄÁø ÇÃ·¯±×ÀÎÀ» Æ÷ÇÔÇÏ°Å³ª (¾Æ·¡) ÇÊ¿äÇÑ °¢°¢ÀÇ ÆÄÀÏµéÀ» Æ÷ÇÔÇÏ¼¼¿ä -->
+    <!-- ëª¨ë“  í•©ì³ì§„ í”ŒëŸ¬ê·¸ì¸ì„ í¬í•¨í•˜ê±°ë‚˜ (ì•„ëž˜) í•„ìš”í•œ ê°ê°ì˜ íŒŒì¼ë“¤ì„ í¬í•¨í•˜ì„¸ìš” -->
     <script src="dist/js/bootstrap.min.js"></script>
     
-    <!-- Respond.js À¸·Î IE8 ¿¡¼­ ¹ÝÀÀÇü ±â´ÉÀ» È°¼ºÈ­ÇÏ¼¼¿ä (https://github.com/scottjehl/Respond) -->
+    <!-- Respond.js ìœ¼ë¡œ IE8 ì—ì„œ ë°˜ì‘í˜• ê¸°ëŠ¥ì„ í™œì„±í™”í•˜ì„¸ìš” (https://github.com/scottjehl/Respond) -->
     <!-- <script src="js/respond.js"></script> -->
     
   </body>
