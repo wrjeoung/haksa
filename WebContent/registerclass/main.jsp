@@ -14,67 +14,9 @@
 <link href="dist/customcss/starter-template.css" rel="stylesheet">
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Univ.</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">My홈 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="dropdown-header">학생정보</li>
-							<li><a href="#">개인정보변경</a></li>
-							<li><a href="#">비밀번호변경</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">성적조회 / 졸업사정조회</li>
-							<li><a href="#">학기별 성적조회</a></li>
-							<li><a href="#">졸업사정 조회</a></li>
-							<li><a href="#">필수과목이수조회</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">등록장학</li>
-							<li><a href="#">등록금내역 조회</a></li>
-							<li><a href="#">장학금수혜내역 조회</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">수업 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="dropdown-header">교육과정 조회</li>
-							<li><a href="#">교과목 조회</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">강의 평가</li>
-							<li><a href="#">강의 우수강사 조회</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">신청 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="dropdown-header">학적변동</li>
-							<li><a href="#">휴학신청</a></li>
-							<li><a href="#">복학신청</a></li>
-							<li><a href="#">전과신청</a></li>
-							<li><a href="#">자퇴신청</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">전공관리</li>
-							<li><a href="#">주전공배정신청</a></li>
-							<li><a href="#">전공신청/포기</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">등록장학</li>
-							<li><a href="#">교내장학금신청</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">학점인정/포기선청</li>
-							<li><a href="#">학점포기신청</a></li>
-						</ul></li>
-					<li><a href="registerclass.do">수강신청</a></li>
-					<li><a href="#contact">수강과목철회</a></li>
-					<li><a href="#contact">공지사항</a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div>
+	<!-- header -->
+	<%@ include file="/common/header.jsp"%>
+	<!-- end of header -->
 
 	<div class="container">
 		<div class="page-header">
@@ -172,9 +114,27 @@
 		          </tr>
 		        </tbody>
 	      </table>
-			
-			
-			
+	      <div class="text-center">
+				<ul class="pagination pagination-sm">
+				<li class="disabled"><span>«</span></li>
+				<li class="active">
+					<a href="#">1</a>
+				</li>
+				<li>
+					<a href="#">2</a>
+				</li>
+				<li>
+					<a href="#">3</a>
+				</li>
+				<li>
+					<a href="#">4</a>
+				</li>
+				<li>
+					<a href="#">5</a>
+				</li>
+				<li><span>&raquo;</span></li>
+				</ul>
+			</div>
 		</form>
 	</div>
 	<!-- /.container -->
