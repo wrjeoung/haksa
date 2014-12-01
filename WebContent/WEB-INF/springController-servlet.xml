@@ -51,13 +51,16 @@
       <property name="dataSource" ref="dataSource"></property>
        </bean>
        
-       <bean id="main" class="main.controller.MainController">
+       <bean id="loginOut" class="loginout.controller.LogInOutController">
         <property name="memberDao" ref="memberDao"></property>
        </bean>
        
-       <!--  
+       <bean id="main" class="main.controller.MainController"/>
+       
+       
+       <!--    
        <context:component-scan base-package="main.controller"/>
-      -->
+       -->
        <context:component-scan base-package="registerclass.controller" />
        <context:component-scan base-package="notice.controller" />
        <context:component-scan base-package="hakgi.controller" />
