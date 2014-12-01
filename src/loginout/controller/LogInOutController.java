@@ -35,7 +35,10 @@ public class LogInOutController {
 		int getCount=memberDao.loginCheck(params);
 		System.out.println("getCount : "+getCount);
 		
-		int loginCheck = memberDao.loginCheck(params);
+		System.out.println("loginCheck : "+loginCheck);
+		int loginState=loginCheck;
+		loginCheck = memberDao.loginCheck(params);
+		
 		if(loginCheck==1)
 		{
 			session.setAttribute("memId", memberDto.getStudentNumber());
@@ -45,16 +48,13 @@ public class LogInOutController {
 			if((String)session.getAttribute("memId")!=null)
 				session.removeAttribute("memId");
 		}
-		System.out.println("loginCheck : "+loginCheck);
+		
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("loginCheck",loginCheck);
+		mv.addObject("loginState",loginState);
 		mv.setViewName("/loginout/loginout.jsp");
 		return mv;
-	}
-
-	public int getLoginCheck() {
-		return loginCheck;
 	}
 
 	public MemberDao getMemberDao() {
