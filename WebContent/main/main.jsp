@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Univ.</a>
+          <a class="navbar-brand" href="/haksa/main.do">Univ.</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -39,8 +39,8 @@
                 <li><a href="#">개인정보변경</a></li>
                 <li><a href="#">비밀번호변경</a></li>
                 <li class="divider"></li>
-                <li class="dropdown-header">성적조회 / 졸업사정조회</li>
-                <li><a href="#">학기별 성적조회</a></li>
+                <li class="dropdown-header"><font size="1.8">성적조회 / 졸업사정조회</font></li>
+                <li><a href="/haksa/hakgi.do">학기별 성적조회</a></li>
                 <li><a href="#">졸업사정 조회</a></li>
                 <li><a href="#">필수과목이수조회</a></li>
                 <li class="divider"></li>
