@@ -81,9 +81,9 @@
 			<table class="table table-bordered">
 				<thead>
 		          <tr>
-		            <th>No</th>
 		            <th>학수번호</th>
 		            <th>과목명</th>
+		            <th>교과과정</th>
 		            <th>이수</th>
 		            <th>학점</th>
 		            <th>정원</th>
@@ -97,9 +97,9 @@
 		        </thead>
 		        <tbody>
 		          <tr>
-		            <td>Mark</td>
-		            <td>Otto</td>
+		            <td>A</td>
 		            <td>@TwBootstrap</td>
+		            <td>교양</td>
 		            <td>Mark</td>
 		            <td>Otto</td>
 		            <td>@TwBootstrap</td>

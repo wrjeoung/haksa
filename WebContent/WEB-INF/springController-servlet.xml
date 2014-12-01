@@ -64,11 +64,18 @@
        </bean>  
        <bean id="main" class="main.controller.MainController"/>
        
+       <bean id="registerclassDao" class="dao.impl.RegisterclassDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="registerclass" class="registerclass.controller.RegisterclassMainController">
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       </bean>
        
        <!--    
        <context:component-scan base-package="main.controller"/>
-       -->
        <context:component-scan base-package="registerclass.controller" />
+       -->
        <context:component-scan base-package="hakgi.controller" />
        <context:component-scan base-package="graduation.controller" />
        
