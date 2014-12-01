@@ -136,7 +136,7 @@
 		                <li><a href="feelsu.do">필수과목이수조회</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">등록장학</li>
-		                <li><a href="#">등록금내역 조회</a></li>
+		                <li><a href="#">등록금내역 조s회</a></li>
 		                <li><a href="#">장학금수혜내역 조회</a></li>
 		              </ul>
 		            </li>

@@ -18,6 +18,12 @@
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
 
+<script type="text/javascript">
+var loginCheck='${loginCheck}';
+var loginState='${loginState}';
+</script>
+
+
 	<div class="container">
 		<div class="page-header">
 		  <h3>>학기별 성적조회</h3>

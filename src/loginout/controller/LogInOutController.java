@@ -2,19 +2,15 @@ package loginout.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import model.Member;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import dao.MemberDao;
 
 @Controller
@@ -31,7 +27,7 @@ public class LogInOutController {
 		params.put("id", memberDto.getStudentNumber());
 		params.put("pw", memberDto.getPassword());
 		
-		System.out.println("파라미터id = "+memberDto.getStudentNumber());
+		System.out.println("login-id = "+memberDto.getStudentNumber());
 		int getCount=memberDao.loginCheck(params);
 		System.out.println("getCount : "+getCount);
 		
