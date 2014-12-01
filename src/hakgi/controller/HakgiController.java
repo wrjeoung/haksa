@@ -9,13 +9,7 @@ public class HakgiController {
 	@RequestMapping("hakgi.do")
 	public String form() {
 		
-		
-		
 		return "/hakgisung/hakgi.jsp";
-		
-		
-		
-		
 		
 	}
 }
