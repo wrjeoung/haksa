@@ -1,13 +1,15 @@
-package main.controller;
+package graduation.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MainController {
-		
-	@RequestMapping("main.do")
+public class  GraduationController{
+	
+	@RequestMapping("graduation.do")
 	public String form() {
-		return "/main/main.jsp";
+		
+		return "/graduation/graduation.jsp";
+		
 	}
 }
