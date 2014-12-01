@@ -61,6 +61,7 @@
        <context:component-scan base-package="registerclass.controller" />
        <context:component-scan base-package="notice.controller" />
        <context:component-scan base-package="hakgi.controller" />
+       <context:component-scan base-package="graduation.controller" />
        
        
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

@@ -40,7 +40,7 @@
 						<li class="divider"></li>
 						<li class="dropdown-header">성적조회 / 졸업사정조회</li>
 						<li><a href="hakgi.do">학기별 성적조회</a></li>
-						<li><a href="#">졸업사정 조회</a></li>
+						<li><a href="graduation.do">졸업사정 조회</a></li>
 						<li><a href="#">필수과목이수조회</a></li>
 						<li class="divider"></li>
 						<li class="dropdown-header">등록장학</li>
