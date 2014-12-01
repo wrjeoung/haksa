@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,22 +98,24 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		          <tr>
-		            <td>A</td>
-		            <td>@TwBootstrap</td>
-		            <td>교양</td>
-		            <td>Mark</td>
-		            <td>Otto</td>
-		            <td>@TwBootstrap</td>
-		            <td>Mark</td>
-		            <td>Otto</td>
-		            <td>@TwBootstrap</td>
-		            <td>Mark</td>
-		            <td>Otto</td>
-		            <td>
-		            	<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href=''"/>
-		            </td>
-		          </tr>
+		        	<c:forEach var="list" items="${list}">
+		        		<td>${list.subjectnum}</td>
+		        		<td>${list.subjectname}</td>
+		        		<td>${list.curriculum}</td>
+		        		<td>${list.course}</td>
+		        		<td>${list.credit}</td>
+		        		<td>${list.fixednum}</td>
+		        		<td>${list.fixednum}</td>
+		        		<td>${list.lecturetime}</td>
+		        		<td>${list.professor}</td>
+		        		<td>${list.classroom}</td>
+		        		<td>${list.etc}</td>
+		        		<td>
+			            	<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href=''"/>
+			            </td>
+		        	</c:forEach>
+		        	
+		        	
 		        </tbody>
 	      </table>
 	      <div class="text-center">

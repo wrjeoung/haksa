@@ -7,5 +7,5 @@ import org.springframework.dao.DataAccessException;
 
 public interface RegisterclassDao {
 
-	List getRegisterclassList(HashMap params) throws DataAccessException;
+	public List getRegisterclassList(HashMap params) throws DataAccessException;
 }

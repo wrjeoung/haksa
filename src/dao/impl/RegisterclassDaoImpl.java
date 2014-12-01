@@ -21,18 +21,14 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		// TODO Auto-generated method stub
 		RowMapper rowMapper = new RegisterclassRowMapper();
 		
-		HashMap hash = new HashMap();
-		
-		hash.put("major", "영어학과");
-		hash.put("grade", "1");
-		
+		String sql = "SELECT * FROM registerclass where major='"
+				+ params.get("major") +"' AND grade='" + params.get("grade") + "'";
 		/*
-		String sql = "SELECT FROME registerclass where major='"
-				+ hash.get("major") +"' AND grade='" + hash.get("grade") + "'";
-		*/
 		String sql = "SELECT * FROME registerclass where major='"
 				+ "영어학과" +"' AND grade='" + "1" + "'";
-		return getJdbcTemplate().query(sql, rowMapper);
+		*/
+		//return getJdbcTemplate().queryForList(sql);
+		return getJdbcTemplate().query(sql,rowMapper);
 	}
 	
 	protected class RegisterclassRowMapper implements RowMapper{
@@ -65,6 +61,4 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		
 	}
 	
-	
-
 }
