@@ -46,76 +46,29 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<c:forEach var="list" items="${list}">
+						<tr class="active" style="cursor:pointer;" onclick="javascript:location.href='adminGongjiModifyAction.action?num=${list.num}';">
 						<td>
-							1
+							<c:out value="${list.num}"/>
 						</td>
+						<td>${list.subject}</td>
 						<td>
-							TB - Monthly
+							<c:if test="${list.isToday eq true }">
+								<fmt:formatDate value="${list.reg_date}" pattern="HH:mm"/>
+							</c:if>
+							<c:if test="${list.isToday eq false }">
+								<fmt:formatDate value="${list.reg_date}" pattern="yyyy-MM-dd"/>
+							</c:if>
 						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Default
-						</td>
-					</tr>
-					<tr class="active">
-						<td>
-							1
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							01/04/2012
-						</td>
-						<td>
-							Approved
-						</td>
-					</tr>
-					<tr class="success">
-						<td>
-							2
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							02/04/2012
-						</td>
-						<td>
-							Declined
-						</td>
-					</tr>
-					<tr class="warning">
-						<td>
-							3
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							03/04/2012
-						</td>
-						<td>
-							Pending
-						</td>
-					</tr>
-					<tr  class="danger">
-						<td>
-							4
-						</td>
-						<td>
-							TB - Monthly
-						</td>
-						<td>
-							04/04/2012
-						</td>
-						<td>
-							Call in to confirm
-						</td>
-					</tr>
+						<td>${list.readcount}</td>
+			      	    </tr>			
+					</c:forEach>
+					
+					<c:if test="list.size() <= 0">
+						<tr class="warning">
+							<td colspan="4">등록된 게시물이 없습니다.</td>
+						</tr>						
+					</c:if>						
 				</tbody>
 			</table>
 		
@@ -138,23 +91,7 @@
   				
 			<div class="text-center">
 				<ul class="pagination pagination-sm">
-				<li class="disabled"><span>«</span></li>
-				<li class="active">
-					<a href="#">1</a>
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-				<li>
-					<a href="#">5</a>
-				</li>
-				<li><span>&raquo;</span></li>
+				${pagingHtml}
 				</ul>
 			</div>
 		</form>
