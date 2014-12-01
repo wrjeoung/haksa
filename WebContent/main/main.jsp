@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>학사정보시스템</title>
+    <title>�����낫�����/title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- 부트스트랩 -->
+    <!-- 遺���ㅽ���-->
     <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
     
     <!-- Custom styles for this template -->
@@ -16,7 +16,7 @@
     
     <script type="text/javascript">
     	function isLogin() {
-    		alert("로그인 후 사용 가능 합니다.")
+    		alert("濡�렇�����ъ� 媛�� �⑸���")
     	}
     </script>
   </head>
@@ -39,65 +39,65 @@
 		        <c:if test="${memId != null}">
 		          <ul class="nav navbar-nav">
 		            <li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My홈 <b class="caret"></b></a>
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My��<b class="caret"></b></a>
 		              <ul class="dropdown-menu">
-		                <li class="dropdown-header">학생정보</li>
-		                <li><a href="#">개인정보변경</a></li>
-		                <li><a href="#">비밀번호변경</a></li>
+		                <li class="dropdown-header">�����낫</li>
+		                <li><a href="#">媛����낫蹂�꼍</a></li>
+		                <li><a href="#">鍮��踰��蹂�꼍</a></li>
 		                <li class="divider"></li>
-		                <li class="dropdown-header">성적조회 / 졸업사정조회</li>
-		                <li><a href="hakgi.do">학기별 성적조회</a></li>
-		                <li><a href="#">졸업사정 조회</a></li>
-		                <li><a href="#">필수과목이수조회</a></li>
+		                <li class="dropdown-header">�깆�議고� / 議몄��ъ�議고�</li>
+		                <li><a href="hakgi.do">��린蹂��깆�議고�</a></li>
+		                <li><a href="#">議몄��ъ� 議고�</a></li>
+		                <li><a href="#">���怨쇰ぉ�댁�議고�</a></li>
 		                <li class="divider"></li>
-		                <li class="dropdown-header">등록장학</li>
-		                <li><a href="#">등록금내역 조회</a></li>
-		                <li><a href="#">장학금수혜내역 조회</a></li>
+		                <li class="dropdown-header">�깅��ν�</li>
+		                <li><a href="#">�깅�湲����議고�</a></li>
+		                <li><a href="#">�ν�湲�������議고�</a></li>
 		              </ul>
 		            </li>
 		            <li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">수업 <b class="caret"></b></a>
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">��� <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
-		                <li class="dropdown-header">교육과정 조회</li>
-		                <li><a href="#">교과목 조회</a></li>
+		                <li class="dropdown-header">援��怨쇱� 議고�</li>
+		                <li><a href="#">援�낵紐�議고�</a></li>
 		                <li class="divider"></li>
-		                <li class="dropdown-header">강의 평가</li>
-		                <li><a href="#">강의 우수강사 조회</a></li>
+		                <li class="dropdown-header">媛�� ���</li>
+		                <li><a href="#">媛�� �곗�媛�� 議고�</a></li>
 		              </ul>
 		            </li>
 		            <li class="dropdown">
-		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">신청 <b class="caret"></b></a>
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">��껌 <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
-		                <li class="dropdown-header">학적변동</li>
-		                <li><a href="#">휴학신청</a></li>
-		                <li><a href="#">복학신청</a></li>
-		                <li><a href="#">전과신청</a></li>
-		                <li><a href="#">자퇴신청</a></li>
+		                <li class="dropdown-header">���蹂��</li>
+		                <li><a href="#">�댄���껌</a></li>
+		                <li><a href="#">蹂듯���껌</a></li>
+		                <li><a href="#">��낵��껌</a></li>
+		                <li><a href="#">�����껌</a></li>
 		                <li class="divider"></li>
-		                <li class="dropdown-header">전공관리</li>
-		                <li><a href="#">주전공배정신청</a></li>
-		                <li><a href="#">전공신청/포기</a></li>
+		                <li class="dropdown-header">��났愿�━</li>
+		                <li><a href="#">二쇱�怨듬같���泥�/a></li>
+		                <li><a href="#">��났��껌/�ш린</a></li>
 		                <li class="divider"></li>
-		                <li class="dropdown-header">등록장학</li>
-		                <li><a href="#">교내장학금신청</a></li>
+		                <li class="dropdown-header">�깅��ν�</li>
+		                <li><a href="#">援���ν�湲��泥�/a></li>
 		                <li class="divider"></li>
-		                <li class="dropdown-header">학점인정/포기선청</li>
-		                <li><a href="#">학점포기신청</a></li>
+		                <li class="dropdown-header">����몄�/�ш린��껌</li>
+		                <li><a href="#">����ш린��껌</a></li>
 		              </ul>
 		            </li>            
-		            <li><a href="registerclass.do">수강신청</a></li>
-		            <li><a href="#contact">수강과목철회</a></li>
-		            <li><a href="noticeList.do">공지사항</a></li>
+		            <li><a href="registerclass.do">�����껌</a></li>
+		            <li><a href="#contact">���怨쇰ぉ泥��</a></li>
+		            <li><a href="noticeList.do">怨듭��ы�</a></li>
 		          </ul>
 	          </c:if>
 	          
 	          <form class="navbar-form navbar-right" action="loginOutPro.do" method="post">
 	          	<c:if test="${memId == null}">
 		            <div class="form-group">
-		              <input type="text" placeholder="학번" class="form-control" name="studentNumber">
+		              <input type="text" placeholder="���" class="form-control" name="studentNumber">
 		            </div>
 		            <div class="form-group">
-		              <input type="password" placeholder="비밀번호" class="form-control" name="password">
+		              <input type="password" placeholder="鍮��踰��" class="form-control" name="password">
 		            </div>
 	            </c:if>
 	            <c:choose>
@@ -121,12 +121,12 @@
       </div>
     </div><!-- /.container -->
  
-    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+    <!-- jQuery (遺���ㅽ��⑹� ����ㅽ�由쏀� ���洹몄������ ����� -->
     <script src="//code.jquery.com/jquery.js"></script>
-    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+    <!-- 紐⑤� �⑹�吏����洹몄����ы���굅��(���) �����媛��������ㅼ� �ы������-->
     <script src="dist/js/bootstrap.min.js"></script>
     
-    <!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
+    <!-- Respond.js �쇰� IE8 ��� 諛����湲곕����������몄� (https://github.com/scottjehl/Respond) -->
     <!-- <script src="js/respond.js"></script> -->
     
   </body>
