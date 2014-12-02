@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript">
 var loginCheck='${loginCheck}';
 var loginState='${loginState}';
+var memId ='${memId}';
 
-
-// loginCheck = 1 - id, pass ·Î±×ÀÎ Á¤º¸ ÀÏÄ¡.
-// loginState = 1 - ÇöÀç ·Î±×ÀÎ »óÅÂ.
-alert("loginState : "+loginState+" loginCheck : "+loginCheck);
+//alert("loginState : "+loginState+" loginCheck : "+loginCheck+" memId : "+memId);
+// loginCheck = 1 - id, pass ë¡œê·¸ì¸ ì •ë³´ ì¼ì¹˜.
+// loginState = 1 - í˜„ì¬ ë¡œê·¸ì¸ ìƒíƒœ.
 if(loginCheck!=1 && loginState!=1)
 {
-	alert("°èÁ¤ ¹× ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.\n´Ù½Ã È®ÀÎÇØ ÁÖ¼¼¿ä.");
+	alert("ê³„ì • ë° ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.\në‹¤ì‹œ í™•ì¸í•´ ì£¼ì„¸ìš”.");
 }
 location.href="main.do";
 </script>

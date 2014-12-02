@@ -51,7 +51,7 @@
 		              <ul class="dropdown-menu">
 		                <li class="dropdown-header">학생정보</li>
 		                <li><a href="#">개인정보변경</a></li>
-		                <li><a href="#">비밀번호변경</a></li>
+		                <li><a href="pwCheck.do">비밀번호변경</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">성적조회 / 졸업사정조회</li>
 		                <li><a href="#">학기별 성적조회</a></li>

@@ -57,6 +57,13 @@
        
        <bean id="main" class="main.controller.MainController"/>
        
+       <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
+       	<property name="memberDao" ref="memberDao"></property>
+       </bean>
+       
+       <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
+        <property name="memberDao" ref="memberDao"></property>
+       </bean>
        
        <!--    
        <context:component-scan base-package="main.controller"/>
