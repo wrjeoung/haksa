@@ -64,7 +64,7 @@
 			</div>
 			
 			<p></p>			
-			
+			<!--  
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>전공/교양</strong></p>
 			</div>
@@ -74,11 +74,13 @@
 				  <option>교양</option>
 				</select>
 			</div>
+			
 			<div class="form-group" style="margin-right:30px;">
 				<input class="btn btn-primary" type="button" name="list" value="조회" onclick="javascript:location.href=''"/>
 			</div>
+			-->
 			<p></p>
-			<p class="text-success"><strong>[개설교과목 List]</strong></p>
+			<p class="text-success"><strong>[전공 개설교과목 List]</strong></p>
 			
 			<table class="table table-bordered">
 				<thead>

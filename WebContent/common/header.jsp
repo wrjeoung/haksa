@@ -92,8 +92,15 @@
 		                <li class="dropdown-header">학점인정/포기선청</li>
 		                <li><a href="#">학점포기신청</a></li>
 		              </ul>
-		            </li>            
-		            <li><a href="registerclass.do">수강신청</a></li>
+		            </li>
+		            <li class="dropdown">
+		            	<a href="#" class="dropdown-toggle" data-toggle="dropdown">수강신청<b class="caret"></b></a>
+		            	<ul class="dropdown-menu">
+		            		<li class="dropdown-header">신청</li>
+		            		<li><a href="registerclass.do">전공신청</a></li>
+		                	<li><a href="#">교양신청</a></li>
+		            	</ul>
+		            </li>
 		            <li><a href="#contact">수강과목철회</a></li>
 		            <li><a href="noticeList.do">공지사항</a></li>
 		          </ul>
