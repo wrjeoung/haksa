@@ -62,6 +62,10 @@
        <bean id="notice" class="notice.controller.NoticeController">
         <property name="noticeDao" ref="noticeDao"></property>
        </bean>  
+
+       <bean id="noticeWrite" class="notice.controller.NoticeWriteController">
+        <property name="noticeDao" ref="noticeDao"></property>
+       </bean>        
        <bean id="main" class="main.controller.MainController"/>
        
        <bean id="registerclassDao" class="dao.impl.RegisterclassDaoImpl">

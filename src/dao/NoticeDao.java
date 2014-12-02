@@ -8,4 +8,7 @@ import org.springframework.dao.DataAccessException;
 
 public interface NoticeDao {
 	public List getNoticeList() throws DataAccessException;
+	public Notice getNotice(int num) throws DataAccessException;
+	public void insertNotice(Notice notice) throws DataAccessException;
+	public void updateReadCount(int num) throws DataAccessException;
 }
