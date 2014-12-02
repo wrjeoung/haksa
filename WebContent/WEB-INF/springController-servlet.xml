@@ -55,21 +55,33 @@
         <property name="memberDao" ref="memberDao"></property>
        </bean>
        
+       <bean id="noticeDao" class="dao.impl.NoticeDaoImpl">
+	   	<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="notice" class="notice.controller.NoticeController">
+        <property name="noticeDao" ref="noticeDao"></property>
+       </bean>  
        <bean id="main" class="main.controller.MainController"/>
        
+       <bean id="registerclassDao" class="dao.impl.RegisterclassDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="registerclass" class="registerclass.controller.RegisterclassMainController">
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       </bean>
+
        <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
        </bean>
-       
+
        <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
         <property name="memberDao" ref="memberDao"></property>
-       </bean>
-       
-       <!--    
+       </bean>       <!--    
        <context:component-scan base-package="main.controller"/>
-       -->
        <context:component-scan base-package="registerclass.controller" />
-       <context:component-scan base-package="notice.controller" />
+       -->
        <context:component-scan base-package="hakgi.controller" />
        <context:component-scan base-package="graduation.controller" />
        
