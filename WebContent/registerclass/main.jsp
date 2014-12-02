@@ -99,20 +99,22 @@
 		        </thead>
 		        <tbody>
 		        	<c:forEach var="list" items="${list}">
-		        		<td>${list.subjectnum}</td>
-		        		<td>${list.subjectname}</td>
-		        		<td>${list.curriculum}</td>
-		        		<td>${list.course}</td>
-		        		<td>${list.credit}</td>
-		        		<td>${list.fixednum}</td>
-		        		<td>${list.fixednum}</td>
-		        		<td>${list.lecturetime}</td>
-		        		<td>${list.professor}</td>
-		        		<td>${list.classroom}</td>
-		        		<td>${list.etc}</td>
-		        		<td>
-			            	<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href=''"/>
-			            </td>
+		        		<tr>
+		        			<td>${list.subjectnum}</td>
+			        		<td>${list.subjectname}</td>
+			        		<td>${list.curriculum}</td>
+			        		<td>${list.course}</td>
+			        		<td>${list.credit}</td>
+			        		<td>${list.fixednum}</td>
+			        		<td>${list.fixednum}</td>
+			        		<td>${list.lecturetime}</td>
+			        		<td>${list.professor}</td>
+			        		<td>${list.classroom}</td>
+			        		<td>${list.etc}</td>
+			        		<td>
+				            	<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href=''"/>
+				            </td>
+		        		</tr>
 		        	</c:forEach>
 		        	
 		        	
@@ -120,6 +122,8 @@
 	      </table>
 	      <div class="text-center">
 				<ul class="pagination pagination-sm">
+				${pagingHtml}
+				<!--  
 				<li class="disabled"><span>«</span></li>
 				<li class="active">
 					<a href="#">1</a>
@@ -138,6 +142,7 @@
 				</li>
 				<li><span>&raquo;</span></li>
 				</ul>
+				-->
 			</div>
 		</form>
 	</div>
