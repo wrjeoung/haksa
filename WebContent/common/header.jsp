@@ -98,7 +98,9 @@
 		            	<ul class="dropdown-menu">
 		            		<li class="dropdown-header">신청</li>
 		            		<li><a href="registerclass.do">전공신청</a></li>
-		                	<li><a href="#">교양신청</a></li>
+		                	<li><a href="culturalclass.do">교양신청</a></li>
+		                	<li class="dropdown-header">내역</li>
+		                	<li><a href="">수강신청내역</a></li>
 		            	</ul>
 		            </li>
 		            <li><a href="#contact">수강과목철회</a></li>

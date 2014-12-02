@@ -31,6 +31,16 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		return getJdbcTemplate().query(sql,rowMapper);
 	}
 	
+	@Override
+	public List getCulturalClassList(String major) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "SELECT * FROM registerclass where major ='"
+				+ major + "'";
+		
+		return getJdbcTemplate().queryForList(sql);
+	}	
+
+	
 	protected class RegisterclassRowMapper implements RowMapper{
 
 		private List registerclassList = new ArrayList();
@@ -60,5 +70,4 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		}
 		
 	}
-	
 }
