@@ -31,7 +31,7 @@
 
    <div align="center" style="margin-top: 100px">
 	<form class="form-signin" style="width: 30%" action="pwCheckPro.do" method="post" onsubmit="return pwcheck();"  >
-        <h2 class="form-signin-heading">비밀번호 변경</h2>
+        <h2 class="form-signin-heading">현재 비밀번호를 입력하세요.</h2>
         <input type="password" name="password" id="password" class="form-control" placeholder="Password">
         <button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 10px">확인</button>
     </form>
