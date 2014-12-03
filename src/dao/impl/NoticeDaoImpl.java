@@ -32,7 +32,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         }
 
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-           //ResultSet¿¡¼­ ¿ÀºêÁ§Æ®·Î ´Ù½Ã Ã¤¿ö³ÖÀ½
+           //ResultSetï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ù½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         	Notice notice = new Notice();
         	cal.setTime(new java.util.Date());
         	int year  = cal.get(Calendar.YEAR);
@@ -57,6 +57,6 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         	
             return notice;
         }
-    };	
+    }	
 
 }
