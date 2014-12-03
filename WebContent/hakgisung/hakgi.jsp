@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +19,7 @@
 	<!-- header -->
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
-
-<script type="text/javascript">
-var loginCheck='${loginCheck}';
-var loginState='${loginState}';
-</script>
-
+ 
 
 	<div class="container">
 		<div class="page-header">
@@ -104,15 +101,18 @@ var loginState='${loginState}';
 		          </tr>
 		        </thead>
 		        <tbody>
-		          <tr>
-		            <td>AA00001</td>
-		            <td>01</td>
-		            <td>네트워크프로그래밍</td>
-		            <td>전선</td>
-		            <td>3.0</td>
-		            <td><font color="red">미입력</font></td>
-		            <td>  </td>
+		        <tr>
+		          <c:forEach var="list" items="${list}"> 
+		            <td>${list.gwamokcode}</td>
+		            <td>${list.ban}</td> 
+		            <td>${list.gwamok_nm}</td>
+		            <td>${list.isugubun}</td>
+		            <td>${list.hakjum}</td>
+		            <td>${list.levels}</td>
+		            <td>${list.bigo}  </td>
+		          
 		          </tr>
+		            </c:forEach>
 		        </tbody>
 	      </table>
 	      <div class="text-center">
@@ -140,7 +140,6 @@ var loginState='${loginState}';
 		
 				</form>
 		</div>
-		
 		<!-- /.container -->
 
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
@@ -154,4 +153,3 @@ var loginState='${loginState}';
 		</body>
 		</html>
 	
-		

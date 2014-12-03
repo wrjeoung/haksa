@@ -1,10 +1,10 @@
 package dao;
 
 import java.util.List;
-import java.util.Map;
-
+import java.util.HashMap;
 import org.springframework.dao.DataAccessException;
 
 public interface HakgiDao {
-	public List sungjuklist(Map params) throws DataAccessException;
+	public List getSungjuklist(HashMap params) throws DataAccessException;
+
 }

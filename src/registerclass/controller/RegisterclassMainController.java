@@ -2,15 +2,11 @@ package registerclass.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import model.Registerclass;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import dao.RegisterclassDao;
 
 @Controller
@@ -24,7 +20,7 @@ public class RegisterclassMainController {
 		HashMap params = new HashMap();
 		int totalCount;
 		
-		params.put("major", "¿µ¾îÇÐ°ú");
+		params.put("major", "ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½");
 		params.put("grade", "1");
 		
 		list = registerclassDao.getRegisterclassList(params);

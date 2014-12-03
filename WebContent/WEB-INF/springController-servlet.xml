@@ -72,13 +72,17 @@
        		<property name="registerclassDao" ref="registerclassDao"></property>
        </bean>
        
-       <!--    
-       <context:component-scan base-package="main.controller"/>
-       <context:component-scan base-package="registerclass.controller" />
-       -->
-       <context:component-scan base-package="hakgi.controller" />
-       <context:component-scan base-package="graduation.controller" />
-       <context:component-scan base-package="feelsu.controller" />
+       <bean id="hakgiDao" class="dao.impl.HakgiDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="hakgi" class="hakgi.controller.HakgiController">
+       		<property name="hakgiDao" ref="hakgiDao"></property>
+       </bean>
+       
+       
+
+    <!--  <context:component-scan base-package="*" /> -->
        
        
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
