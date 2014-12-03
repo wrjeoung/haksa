@@ -2,14 +2,16 @@ package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 import java.util.List;
 import java.util.Map;
 
 import model.Member;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import dao.MemberDao;
@@ -25,12 +27,64 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 	}
 
 	@Override
-	public List pwCheck(Map params) throws DataAccessException {
+	public List selectMembers(Map params) throws DataAccessException {
 		String sql = "SELECT * FROM student_members "
 				+ "WHERE stnumber='"+params.get("id")+"' AND pw='"+params.get("pw")+"'";
 			return getJdbcTemplate().queryForList(sql);
 	}
 	
+	@Override
+	public Member selectMember(String memId) throws DataAccessException {
+				
+			return (Member)getJdbcTemplate().query(
+					new MemberPreparedStatementCreator(memId),
+					new MemberResultSetExtractor());
+	}
+	
+	protected class MemberPreparedStatementCreator implements PreparedStatementCreator {
+
+		private String memId;
+		
+		public MemberPreparedStatementCreator(String memId) {
+			this.memId=memId;
+		}
+		
+		@Override
+		public PreparedStatement createPreparedStatement(Connection con)
+				throws SQLException {
+			final String sql = "SELECT * FROM student_members "
+					+ "WHERE stnumber=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, this.memId);
+			return ps;
+		}
+	}
+	
+	protected class MemberResultSetExtractor implements ResultSetExtractor {
+		@Override
+		public Object extractData(ResultSet rs) throws SQLException,	DataAccessException {
+			//SQL 결과가 적어도 1건 있을까
+			if(rs.next()) {
+				Member member = new Member();
+				member.setStudentNumber(rs.getString("stnumber"));
+				member.setPassword(rs.getString("pw"));
+				member.setName(rs.getString("name"));
+				member.setBirthday(rs.getString("birthday"));
+				member.setMajor(rs.getString("major"));
+				member.setGrade(rs.getString("grade"));
+				member.setEntrace_date((rs.getDate("entrance_date")));
+				member.setTel(rs.getString("tel"));
+				member.setCellphone(rs.getString("cellphone"));
+				member.setEmail(rs.getString("email"));
+				member.setAddress(rs.getString("address"));
+				member.setState(rs.getString("state"));
+				return member;
+			}
+			else
+				return null;
+		}
+	}
+
 	/*
 	@Override
 	public int changePw(Member params) throws DataAccessException {

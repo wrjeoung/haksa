@@ -72,7 +72,7 @@
        		<property name="registerclassDao" ref="registerclassDao"></property>
        </bean>
 
-       <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
+       <bean id="infomodify" class="studentinfo.controller.InfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
        </bean>
 
