@@ -1,145 +1,74 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>스트럿츠2 게시판</title>
-	<link rel="stylesheet" href="/StrutsBoard/board/common/css/css.css" type="text/css">
-	<script type="text/javascript">
-		function open_win_noresizable (url, name) {
-			var oWin = window.open(url, name, "scrollbars=no,status=no,resizable=no,width=300,height=150");
-		}
-	</script>
+	<title>학사정보시스템</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 </head>
-  
+   
   <body>
-  
-  	<table width="600" border="0" cellspacing="0" cellpadding="2">
-  		<tr>
-  			<td align="center"><h2>스트럿츠2 게시판</h2></td>
-  		</tr>
-  		<tr>
-  			<td height="20"></td>
-  		</tr>
-  	</table>
+	<!-- header -->
+	<%@ include file="/common/header.jsp"%>
+	<!-- end of header -->
+	
+	
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
 		
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-      
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>
-      </tr>
+			<div id="dummy" style="height:100px;">
+			</div>
 			
-      <tr>
-        <td bgcolor="#F4F4F4">  번호 </td>
-        <td bgcolor="#FFFFFF">
-          &nbsp;&nbsp;<s:property value="resultClass.no" />
-        </td>
-      </tr>
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>	
-      </tr>
-      
-      <tr>
-        <td width="100" bgcolor="#F4F4F4">  제목</td>
-        <td width="500" bgcolor="#FFFFFF">
-          &nbsp;&nbsp;<s:property value="resultClass.subject" />
-        </td>
-      </tr>
-      							
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>
-      </tr>
-      
-      <tr>
-        <td bgcolor="#F4F4F4">  글쓴이 </td>
-        <td bgcolor="#FFFFFF">
-          &nbsp;&nbsp;<s:property value="resultClass.name" />
-        </td>
-      </tr>
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>	
-      </tr>
-      
-      <tr>
-        <td bgcolor="#F4F4F4">  내용 </td>
-        <td bgcolor="#FFFFFF">
-          &nbsp;&nbsp;<s:property value="resultClass.content" />
-        </td>
-      </tr>
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>
-      </tr>
-      
-      <tr>
-        <td bgcolor="#F4F4F4">  조회수 </td>
-        <td bgcolor="#FFFFFF">
-          &nbsp;&nbsp;<s:property value="resultClass.readhit" />
-        </td>
-      </tr>
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>	
-      </tr>
-      
-      <tr>
-        <td bgcolor="#F4F4F4">  등록날짜 </td>
-        <td bgcolor="#FFFFFF">
-          &nbsp;&nbsp;<s:property value="resultClass.regdate" />
-        </td>
-      </tr>
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>	
-      </tr>
-      
-      <tr>
-        <td bgcolor="#F4F4F4">  첨부파일 </td>
-        <td bgcolor="#FFFFFF">
-          &nbsp;&nbsp;
-          
-          <s:url id="download" action="fileDownloadAction">
-          	<s:param name="no">
-				<s:property value="no" />
-			</s:param>
-          </s:url>
-					
-          <s:a href="%{download}"><s:property value="resultClass.file_orgname" /></s:a> 
-         </td>
-      </tr>
-      <tr bgcolor="#777777">
-        <td height="1" colspan="2"></td>	
-      </tr>
-      
-      <tr>
-        <td height="10" colspan="2"></td>
-      </tr>
-      
-      
-      <tr>
-        <td align="right" colspan="2">
-        
-	        <s:url id="modifyURL" action="modifyForm" >
-				<s:param name="no">
-					<s:property value="no" />
-				</s:param>
-	        </s:url>
-					
-	        <s:url id="deleteURL" action="deleteAction" >
-				<s:param name="no">
-					<s:property value="no" />
-				</s:param>
-	        </s:url>
+			<form class="form-inline" role="form">
+				<table class="table table-bordered" style="font: normal 15px/150% Arial, Helvetica, sans-serif;">
+					<colgroup>
+						<col width="90px" />
+						<col width="245px" />
+						<col width="90px" />
+						<col width="245px" />
+					</colgroup>
 				
-	<input name="list" type="button" value="수정" class="inputb" onClick="javascript:open_win_noresizable('checkForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />','modify')">
-					
-	<input name="list" type="button" value="삭제" class="inputb" onClick="javascript:open_win_noresizable('checkForm.action?no=<s:property value="resultClass.no" />&currentPage=<s:property value="currentPage" />','delete')">
-
-	<input name="list" type="button" value="목록" class="inputb" onClick="javascript:location.href='listAction.action?currentPage=<s:property value="currentPage" />'">
-
-        </td>
-      </tr>
-
-  </table>
- </body>
+					<thead class="text-center">
+						<tr>
+						  <td scope="row" abbr="제목" bgcolor="#F4F4F4">  제목</td>
+						  <td >
+						    &nbsp;&nbsp;${notice.subject}
+						  </td>
+						  <td scope="row" bgcolor="#F4F4F4">  등록날짜</td>
+						  <td scope="row">
+						    &nbsp;&nbsp;<fmt:formatDate value="${notice.reg_date}" pattern="yyyy-MM-dd HH:mm"/>
+						  </td>					  
+						</tr>
+					</thead>
+					<tbody>					
+						<tr style="height:100px;">
+						  <td scope="row" colspan="4">
+						    &nbsp;&nbsp;${notice.content}
+						</td>
+						</tr >
+					</tbody>
+				</table>
+				
+				<c:url var="viewURL" value="noticeList.do">
+					<c:param name="currentPage" value="${currentPage}" />
+				</c:url>				
+				
+				<div align="right">
+  					<button type="button" class="btn btn-primary" onclick="javascript:location.href='${viewURL}'";>목록</button>
+				</div>
+				
+			</form>
+			
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+    <script src="dist/js/bootstrap.min.js"></script>
+   </body>
 </html>
 

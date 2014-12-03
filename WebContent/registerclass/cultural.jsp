@@ -22,7 +22,7 @@
 
 	<div class="container">
 		<div class="page-header">
-		  <h3>>전공 수강신청</h3>
+		  <h3>>교양 수강신청</h3>
 		</div>
 		
 		<form class="form-inline" role="form">
@@ -121,8 +121,6 @@
 				            </td>
 		        		</tr>
 		        	</c:forEach>
-		        	
-		        	
 		        </tbody>
 	      </table>
 	      <div class="text-center">

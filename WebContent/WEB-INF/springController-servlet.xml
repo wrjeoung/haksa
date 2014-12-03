@@ -62,6 +62,10 @@
        <bean id="notice" class="notice.controller.NoticeController">
         <property name="noticeDao" ref="noticeDao"></property>
        </bean>  
+
+       <bean id="noticeWrite" class="notice.controller.NoticeWriteController">
+        <property name="noticeDao" ref="noticeDao"></property>
+       </bean>        
        <bean id="main" class="main.controller.MainController"/>
        
        <bean id="registerclassDao" class="dao.impl.RegisterclassDaoImpl">
@@ -72,23 +76,45 @@
        		<property name="registerclassDao" ref="registerclassDao"></property>
        </bean>
        
-       <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
+       <bean id="culturalclass" class="registerclass.controller.CulturalClassController">
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       </bean>
+	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
-       
-       
-       <bean id="huhak" class="huhak.controller.InsertHuhakController">
+	   <bean id="huhak" class="huhak.controller.InsertHuhakController">
        		<property name="huhakDao" ref="huhakDao"></property>
        </bean>
-       
-       <bean id="bokhakDao" class="dao.impl.BokhakDaoImple">
+	   <bean id="bokhakDao" class="dao.impl.BokhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+
+	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
+	   		<property name="bokhakDao" ref="bokhakDao"></property>
+	   </bean
+
+
+       <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
+       	<property name="memberDao" ref="memberDao"></property>
+       </bean>
+	   <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
+        <property name="memberDao" ref="memberDao"></property>
+	   </bean>       <!--    
+<<<<<<< .mine
        </bean>
 
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
 	   </bean>
        <!--    
+=======
+
+
+
+
+
+
+>>>>>>> .theirs
        <context:component-scan base-package="main.controller"/>
        <context:component-scan base-package="registerclass.controller" />
        -->

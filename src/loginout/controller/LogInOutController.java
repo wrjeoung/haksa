@@ -31,10 +31,6 @@ public class LogInOutController {
 		params.put("id", memberDto.getStudentNumber());
 		params.put("pw", memberDto.getPassword());
 		
-		System.out.println("파라미터id = "+memberDto.getStudentNumber());
-		int getCount=memberDao.loginCheck(params);
-		System.out.println("getCount : "+getCount);
-		
 		System.out.println("loginCheck : "+loginCheck);
 		int loginState=loginCheck;
 		loginCheck = memberDao.loginCheck(params);
@@ -48,7 +44,6 @@ public class LogInOutController {
 			if((String)session.getAttribute("memId")!=null)
 				session.removeAttribute("memId");
 		}
-		
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("loginCheck",loginCheck);

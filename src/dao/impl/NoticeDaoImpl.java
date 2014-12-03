@@ -1,5 +1,7 @@
 package dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,12 +11,60 @@ import java.util.List;
 import model.Notice;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import dao.NoticeDao;
 
 public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
+
+	@Override
+	public void updateReadCount(int num) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE notice set readcount=readcount+1 where num = "+num;
+		getJdbcTemplate().update(sql);
+	}	
+	
+	@Override
+	public Notice getNotice(int num) throws DataAccessException {
+        return (Notice)getJdbcTemplate().query(
+        		new NoticePreparedStatementCreator(num), 
+        		new NoticeResultSetExtractor());
+	};
+
+    protected class NoticePreparedStatementCreator implements PreparedStatementCreator {
+
+        private Integer num;
+
+        public NoticePreparedStatementCreator(Integer id) {
+            this.num = id;
+        }
+
+        public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+            final String sql = 
+            	"SELECT * FROM notice where num = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, this.num);
+            return ps;
+        }
+    }
+	
+    protected class	NoticeResultSetExtractor implements ResultSetExtractor {
+        public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+            if (rs.next()) {
+            	Notice notice = new Notice();
+            	notice.setNum(rs.getInt("num"));
+            	notice.setSubject(rs.getString("subject"));   
+            	notice.setContent(rs.getString("content"));
+            	notice.setReg_date(rs.getTimestamp("reg_date"));
+                return notice;
+            } else {
+                return null;
+            }
+        }
+    } 
 	
 	@Override	
 	public List getNoticeList() throws DataAccessException{
@@ -32,7 +82,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         }
 
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-           //ResultSet���� ������Ʈ�� �ٽ� ä������
+           //ResultSet???? ????????? ??? a??????
         	Notice notice = new Notice();
         	cal.setTime(new java.util.Date());
         	int year  = cal.get(Calendar.YEAR);
@@ -43,6 +93,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         	notice.setSubject(rs.getString("subject"));   
         	notice.setContent(rs.getString("content"));
         	notice.setReg_date(rs.getTimestamp("reg_date"));
+        	notice.setReadcount(rs.getInt("readcount"));
         	cal.setTime(notice.getReg_date());
         	
         	if(year == cal.get(Calendar.YEAR)
@@ -57,6 +108,32 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         	
             return notice;
         }
+<<<<<<< .mine
     }	
 
+=======
+    }
+    
+>>>>>>> .theirs
+    public Integer getMaxNum()  throws DataAccessException {
+    	Integer maxId =  (Integer)getJdbcTemplate().query("SELECT max(num) as num FROM notice",new NoticeMaxNumExtractor());
+       	return maxId;
+    }
+    
+    protected class NoticeMaxNumExtractor implements ResultSetExtractor {
+        public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+            if (rs.next()) {
+                return rs.getInt(1);
+            } else {
+                return 0;
+            }
+        }
+    }    
+
+	@Override
+	public void insertNotice(Notice notice) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO notice(num,subject,content,readcount) VALUES(?, ?, ? ,?)";
+		getJdbcTemplate().update(sql, new Object[]{getMaxNum()+1,notice.getSubject(),notice.getContent(),0});
+	}
 }

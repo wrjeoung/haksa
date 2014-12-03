@@ -47,7 +47,12 @@
 				</thead>
 				<tbody>
 					<c:forEach var="list" items="${list}">
-						<tr class="active" style="cursor:pointer;" onclick="javascript:location.href='adminGongjiModifyAction.action?num=${list.num}';">
+						<c:url var="viewURL" value="noticeView.do">
+							<c:param name="num" value="${list.num}" />
+							<c:param name="currentPage" value="${currentPage}" />
+						</c:url>
+						
+						<tr class="active" style="cursor:pointer;" onclick="javascript:location.href='${viewURL}'";>
 						<td>
 							<c:out value="${list.num}"/>
 						</td>
@@ -64,7 +69,7 @@
 			      	    </tr>			
 					</c:forEach>
 					
-					<c:if test="list.size() <= 0">
+					<c:if test="${totalCount <= 0}">
 						<tr class="warning">
 							<td colspan="4">등록된 게시물이 없습니다.</td>
 						</tr>						
@@ -87,6 +92,13 @@
 	  			<div class="form-group" style="margin-left:50px;">
 	  				<button type="button" class="btn btn-default" onclick="javascript:location.href='main.do';">검색</button>
 	  			</div>
+	  			
+	  			<div class="form-group" style="margin-left:50px;">
+					<c:url var="viewURL" value="noticeWrite.do">
+						<c:param name="currentPage" value="${currentPage}" />
+					</c:url>
+	  				<button type="button" class="btn btn-default" onclick="javascript:location.href='${viewURL}'";>글쓰기</button>
+	  			</div>	  			
   			</div>	
   				
 			<div class="text-center">
