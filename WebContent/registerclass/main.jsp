@@ -158,16 +158,15 @@
 							<!-- 닫기(x) 버튼 -->
 					        <button type="button" class="close" data-dismiss="modal">×</button>
 					        <!-- header title -->
-					    <h4 class="modal-title">Header</h4>
+					    	<h4 class="modal-title">수강신청</h4>
 				    	</div>
 					    <!-- body -->
 					    <div class="modal-body">
-					    	Body
+					    	수강 신청 하시겠습니까?
 					    </div>
 					    <!-- Footer -->
 					    <div class="modal-footer">
-					    	Footer
-					    	<button type="button" class="btn btn-primary">저장</button>
+					    	<button type="button" class="btn btn-primary">신청</button>
 					        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 					    </div>
 				    </div>
