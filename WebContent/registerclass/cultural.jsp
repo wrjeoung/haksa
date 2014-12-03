@@ -22,7 +22,7 @@
 
 	<div class="container">
 		<div class="page-header">
-		  <h3>>전공 수강신청</h3>
+		  <h3>>교양 수강신청</h3>
 		</div>
 		
 		<form class="form-inline" role="form">
@@ -121,8 +121,6 @@
 				            </td>
 		        		</tr>
 		        	</c:forEach>
-		        	
-		        	
 		        </tbody>
 	      </table>
 	      <div class="text-center">
@@ -158,15 +156,16 @@
 							<!-- 닫기(x) 버튼 -->
 					        <button type="button" class="close" data-dismiss="modal">×</button>
 					        <!-- header title -->
-					    	<h4 class="modal-title">수강신청</h4>
+					    <h4 class="modal-title">Header</h4>
 				    	</div>
 					    <!-- body -->
 					    <div class="modal-body">
-					    	수강 신청 하시겠습니까?
+					    	Body
 					    </div>
 					    <!-- Footer -->
 					    <div class="modal-footer">
-					    	<button type="button" class="btn btn-primary">신청</button>
+					    	Footer
+					    	<button type="button" class="btn btn-primary">저장</button>
 					        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 					    </div>
 				    </div>

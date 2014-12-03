@@ -82,7 +82,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         }
 
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-           //ResultSet에서 오브젝트로 다시 채워넣음
+           //ResultSet???? ????????? ??? a??????
         	Notice notice = new Notice();
         	cal.setTime(new java.util.Date());
         	int year  = cal.get(Calendar.YEAR);
@@ -108,8 +108,8 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         	
             return notice;
         }
-    }
-    
+
+    }	
     public Integer getMaxNum()  throws DataAccessException {
     	Integer maxId =  (Integer)getJdbcTemplate().query("SELECT max(num) as num FROM notice",new NoticeMaxNumExtractor());
        	return maxId;
