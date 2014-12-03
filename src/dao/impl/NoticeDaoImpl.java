@@ -108,13 +108,8 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         	
             return notice;
         }
-<<<<<<< .mine
-    }	
 
-=======
-    }
-    
->>>>>>> .theirs
+    }	
     public Integer getMaxNum()  throws DataAccessException {
     	Integer maxId =  (Integer)getJdbcTemplate().query("SELECT max(num) as num FROM notice",new NoticeMaxNumExtractor());
        	return maxId;

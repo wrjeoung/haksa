@@ -91,7 +91,7 @@
 
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
-	   </bean
+	   </bean>
 
 
        <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
@@ -99,22 +99,14 @@
        </bean>
 	   <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
         <property name="memberDao" ref="memberDao"></property>
-	   </bean>       <!--    
-<<<<<<< .mine
+	   </bean>       
+	   <!--    
        </bean>
 
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
 	   </bean>
-       <!--    
-=======
 
-
-
-
-
-
->>>>>>> .theirs
        <context:component-scan base-package="main.controller"/>
        <context:component-scan base-package="registerclass.controller" />
        -->
