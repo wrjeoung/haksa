@@ -154,8 +154,8 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">신청 <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
 		                <li class="dropdown-header">학적변동</li>
-		                <li><a href="#">휴학신청</a></li>
-		                <li><a href="#">복학신청</a></li>
+		                <li><a href="insertHuhakForm.do">휴학신청</a></li>
+		                <li><a href="insertBokhakForm.do">복학신청</a></li>
 		                <li><a href="#">전과신청</a></li>
 		                <li><a href="#">자퇴신청</a></li>
 		                <li class="divider"></li>
