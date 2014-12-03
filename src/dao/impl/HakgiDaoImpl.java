@@ -49,10 +49,3 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 		
 	}
 }
-
-
-
-
-
-
-

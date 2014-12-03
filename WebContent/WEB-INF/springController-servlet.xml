@@ -83,15 +83,17 @@
        <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
        </bean>
+       
+       
 
        <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
         <property name="memberDao" ref="memberDao"></property>
-       </bean>       <!--    
-       <context:component-scan base-package="main.controller"/>
-       <context:component-scan base-package="registerclass.controller" />
-       -->
-       <context:component-scan base-package="hakgi.controller" />
+       </bean>              <context:component-scan base-package="hakgi.controller" />
        <context:component-scan base-package="graduation.controller" />
+       
+       <bean id="hakgiDao" class="dao.impl.HakgiDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
        
        <bean id="hakgi" class="hakgi.controller.HakgiController">
        		<property name="hakgiDao" ref="hakgiDao"></property>
