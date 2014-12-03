@@ -77,8 +77,8 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">신청 <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
 		                <li class="dropdown-header">학적변동</li>
-		                <li><a href="#">휴학신청</a></li>
-		                <li><a href="#">복학신청</a></li>
+		                <li><a href="insertHuhakForm.do">휴학신청</a></li>
+		                <li><a href="insertBokhakForm.do">복학신청</a></li>
 		                <li><a href="#">전과신청</a></li>
 		                <li><a href="#">자퇴신청</a></li>
 		                <li class="divider"></li>
@@ -98,7 +98,9 @@
 		            	<ul class="dropdown-menu">
 		            		<li class="dropdown-header">신청</li>
 		            		<li><a href="registerclass.do">전공신청</a></li>
-		                	<li><a href="#">교양신청</a></li>
+		                	<li><a href="culturalclass.do">교양신청</a></li>
+		                	<li class="dropdown-header">내역</li>
+		                	<li><a href="">수강신청내역</a></li>
 		            	</ul>
 		            </li>
 		            <li><a href="#contact">수강과목철회</a></li>

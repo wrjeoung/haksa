@@ -4,149 +4,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>공지사항</title>
-	<link rel="stylesheet" href="/StrutsBoard/board/common/css/css.css" type="text/css">
-	
-	<SCRIPT type="text/javascript">
-		function validation() {
-		
-			var frm = document.forms(0);
-			
-			if(frm.subject.value == "") {
-				alert("제목을 입력해주세요.");
-				return false;
-			} 
-			
-			else if(frm.name.value == "") {
-				alert("이름을 입력해주세요.");
-				return false;
-			}
-			
-			else if(frm.password.value == "") {
-				alert("비밀번호를 입력해주세요.");
-				return false;
-			}
-			
-			else if(frm.content.value == "") {
-				alert("내용을 입력해주세요.");
-				return false;			
-			} 
-			
-			return true;
-		}
-	</SCRIPT>
+	<title>학사정보시스템</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 </head>
   
   <body>
-  	<table width="600" border="0" cellspacing="0" cellpadding="2">
-  		<tr>
-  			<td align="center"><h2>스트럿츠2 게시판</h2></td>
-  		</tr>
-  	</table>
   
-		<c:if test="${paramClass == null}">
-			<form action="writeAction.action" method="post" enctype="multipart/form-data" onsubmit="return validation();">
-		</c:if>
+  	<!-- header -->
+	<%@ include file="/common/header.jsp"%>
+	<!-- end of header -->
+
+<div class="container">
+	<div class="row clearfix">
+	
+		<div id="dummy" style="height:100px;">
+		</div>
 		
-		<c:if test="${paramClass != null}">
-		  <form action="modifyAction.action" method="post" enctype="multipart/form-data">
-		  <input type="hidden" name="no" value="${paramClass.no}">
-		  <input type="hidden" name="currentPage" value="${currentPage}">
-		  <input type="hidden" name="old_file" value="${paramClass.file_savname}">
-		  <!-- 
-		  <s:hidden name="no" value="%{paramClass.no}" />
-		  <s:hidden name="currentPage" value="%{currentPage}" />
-		  <s:hidden name="old_file" value="%{paramClass.file_savname}" /> -->
-		</c:if>
-
-       <table width="600" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td align="right" colspan="2"><font color="#FF0000">*</font>는 필수 입력사항입니다.</td>
-        </tr>
-        
-        <tr bgcolor="#777777">
-          <td height="1" colspan="2"></td>
-        </tr>
+		<div class="col-md-12 column">  
+			<form class="form-inline" role="form" name="myform" action="noticeWritePro.do" method="post">
+				<table class="table table-bordered" style="font: normal 15px/150% Arial, Helvetica, sans-serif;">
+			        <tr>
+			          <td width="100" align="center" bgcolor="#F4F4F4">제목</td>
+			          <td width="500" bgcolor="#FFFFFF">
+			          	<input type="text" id="subject" name="subject" value="" style="width:100%" maxlength="50"/>
+			          </td>
+			        </tr>
+		        	     
+			        <tr>
+			          <td width="100" align="center" bgcolor="#F4F4F4">내용</td>
+			          <td bgcolor="#FFFFFF">
+						<div style="border: 1px solid #dedede; padding: 3px;">
+						<textarea style="overflow:hidden;resize:none; border: 0; width: 100%; height:100px" name="content" cols="50" rows="10">${data.content }</textarea>
+						</div>	          
+			          </td>
+			        </tr>
+				</table>
 				
-        <tr>
-          <td width="100" bgcolor="#F4F4F4"><font color="#FF0000">*</font>  제목</td>
-          <td width="500" bgcolor="#FFFFFF">
-          	<input type="text" name="subject" value="${paramClass.subject }" width="370px" maxlength="50"/>
-            <!--<s:textfield name="subject" theme="simple" value="%{paramClass.subject}" cssStyle="width:370px" maxlength="50"/> -->
-          </td>
-        </tr>
-        							
-        <tr bgcolor="#777777">
-          <td height="1" colspan="2"></td>
-        </tr>
-        
-        <tr>
-          <td bgcolor="#F4F4F4"><font color="#FF0000">*</font>  이름 </td>
-          <td bgcolor="#FFFFFF">
-            <input type="text" name="name" value="${paramClass.name }" width="100px" maxlength="20"/>
-            <!-- <s:textfield name="name" theme="simple" value="%{paramClass.name}" cssStyle="width:100px" maxlength="20"/> -->
-          </td>
-        </tr>
-        <tr bgcolor="#777777">
-          <td height="1" colspan="2"></td>	
-        </tr>
- 
-        <tr>
-          <td bgcolor="#F4F4F4"><font color="#FF0000">*</font>  비밀번호 </td>
-          <td bgcolor="#FFFFFF">
-            <input type="text" name="password" value="${paramClass.password }" width="100px" maxlength="20"/>
-            <!-- <s:textfield name="password" theme="simple" value="%{paramClass.password}" cssStyle="width:100px" maxlength="20"/> -->
-          </td>
-        </tr>
-        <tr bgcolor="#777777">
-          <td height="1" colspan="2"></td>	
-        </tr>
-        
-				<tr>
-          <td bgcolor="#F4F4F4"><font color="#FF0000">*</font>  내용 </td>
-          <td bgcolor="#FFFFFF">
-            <textarea style="overflow:hidden;resize:none" name="content" cols="50" rows="10">${paramClass.content}</textarea>
-            <!-- <s:textarea name="content" theme="simple" value="%{paramClass.content}" cols="50" rows="10" /> -->
-          </td>
-        </tr>
-        <tr bgcolor="#777777">
-          <td height="1" colspan="2"></td>
-        </tr>
-        
-        <tr>
-          <td bgcolor="#F4F4F4">  첨부파일 </td>
-          <td bgcolor="#FFFFFF">
-          <input type="file" name="upload" />
-          <c:if test="${paramClass.file_orgname !=null}">
-          &nbsp; * <c:out value="${paramClass.file_orgname}"/> 파일이 등록되어 있습니다. 다시 업로드하면 기존의 파일은 삭제됩니다.
-          </c:if>
-          <!-- 
-            <s:file name="upload" theme="simple"/>
-            
-            <s:if test="paramClass.file_orgname != NULL">
-		&nbsp; * <s:property value="paramClass.file_orgname" /> 파일이 등록되어 있습니다. 다시 업로드하면 기존의 파일은 삭제됩니다.
-	</s:if> -->
-						
-          </td>
-        </tr>
-        <tr bgcolor="#777777">
-          <td height="1" colspan="2"></td>	
-        </tr>
-        
-        <tr>
-          <td height="10" colspan="2"></td>
-        </tr>
-        
-        
-        <tr>
-          <td align="right" colspan="2">
-          	<input name="submit" type="submit" value="작성완료" class="inputb">
-            <input name="list" type="button" value="목록" class="inputb" onClick="javascript:location.href='listAction.action?currentPage=${currentPage}'">
-          </td>
-        </tr>
-
-    </table>
-    </form>
+				<div align="center">
+					<input type="submit" class="btn btn-primary" value="추가"/>
+					<button type="button" class="btn btn-primary" onclick="javascript:location.href='noticeList.do?currentPage=${currentPage}'";>목록</button>
+				</div>
+				
+		   	</form>
+		</div>
+	</div>
+</div>		
   </body>
 </html>
 
