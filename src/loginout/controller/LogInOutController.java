@@ -45,7 +45,6 @@ public class LogInOutController {
 				session.removeAttribute("memId");
 		}
 		
-		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("loginCheck",loginCheck);
 		mv.addObject("loginState",loginState);

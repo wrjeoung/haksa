@@ -24,7 +24,7 @@ public class NoticeController {
 	
 
 	@RequestMapping("noticeList.do")
-	public String form(HttpServletRequest request){
+	public String List(HttpServletRequest request){
 		List<Notice> list = null;
 		int totalCount;
 		
@@ -49,10 +49,23 @@ public class NoticeController {
 		list=list.subList(page.getStartCount(), lastCount);
 				
 		request.setAttribute("list", list);
+		request.setAttribute("totalCount", totalCount);
 		request.setAttribute("currentPage",currentPage);
 		request.setAttribute("pagingHtml",pagingHtml);
 		return "notice/noticeList.jsp";
 	}	
+	
+	@RequestMapping("noticeView.do")
+	public String View(HttpServletRequest request){
+		int num = Integer.parseInt(request.getParameter("num"));
+		
+		noticeDao.updateReadCount(num);
+		Notice notice = noticeDao.getNotice(num);
+
+		request.setAttribute("notice", notice);
+		request.setAttribute("currentPage",request.getParameter("currentPage"));
+		return "notice/noticeView.jsp";
+	}		
 	
 	public NoticeDao getNoticeDao() {
 		return noticeDao;
