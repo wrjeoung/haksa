@@ -2,8 +2,8 @@ package model;
 
 public class Sungjuk {
 private int hakbun;
-private int year;
-private int hakgi;
+private String year;
+private String hakgi;
 private String gwamokcode;
 private String ban;
 private String gwamok_nm;
@@ -17,16 +17,18 @@ public int getHakbun() {
 public void setHakbun(int hakbun) {
 	this.hakbun = hakbun;
 }
-public int getYear() {
+
+
+public String getYear() {
 	return year;
 }
-public void setYear(int year) {
+public void setYear(String year) {
 	this.year = year;
 }
-public int getHakgi() {
+public String getHakgi() {
 	return hakgi;
 }
-public void setHakgi(int hakgi) {
+public void setHakgi(String hakgi) {
 	this.hakgi = hakgi;
 }
 public String getGwamokcode() {

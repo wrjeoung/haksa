@@ -17,18 +17,27 @@ import common.pagingAction;
 public class NoticeController {
 	private NoticeDao noticeDao;
 	private int currentPage=1;	//현재페이지
-	private int blockCount=5;	//한 페이지의 게시물의 수
+	private int blockCount=10;	//한 페이지의 게시물의 수
 	private int blockPage=5;	//한 화면에 보여줄 페이지 수
 	private String pagingHtml;	//페이징을 구현한 HTMl
 	private pagingAction page;	//페이징 클래스  
-	
+	private int searchType;
+	private String searchWord;
 
 	@RequestMapping("noticeList.do")
 	public String List(HttpServletRequest request){
 		List<Notice> list = null;
 		int totalCount;
 		
-		list = noticeDao.getNoticeList();
+		if(request.getParameter("searchType") == null) {
+			searchType = -1;
+		}
+		else {
+			searchType = Integer.parseInt(request.getParameter("searchType"));
+			searchWord = request.getParameter("searchWord");
+		}
+			
+		list = noticeDao.getNoticeList(searchType,searchWord);
 		totalCount = list.size();
 		if(request.getParameter("currentPage") == null) {
 			currentPage = 1;
@@ -52,6 +61,11 @@ public class NoticeController {
 		request.setAttribute("totalCount", totalCount);
 		request.setAttribute("currentPage",currentPage);
 		request.setAttribute("pagingHtml",pagingHtml);
+		if(searchType != -1)
+		{
+			request.setAttribute("searchType",searchType);
+			request.setAttribute("searchWord",searchWord);
+		}
 		return "notice/noticeList.jsp";
 	}	
 	

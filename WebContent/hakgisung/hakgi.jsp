@@ -28,7 +28,7 @@
 		
 		
 
-		<form class="form-inline" role="form" action="hakgi2.do">
+		<form class="form-inline" role="form">
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>년도</strong></p>
 			</div>
@@ -41,7 +41,7 @@
 			</div>
 			
 			<div class="form-group" style="margin-right:15px;">
-			<p><strong>학기</strong></p>
+			<p><strong>학기</strong></p> 
 			</div>
 			<div class="form-group" style="margin-right:30px;">
 				<select class="form-control" name ="hakgi" style="width:100px;">
@@ -139,7 +139,7 @@
 				</li>
 				<li><span>&raquo;</span></li>
 				</ul>
-			</div>
+		 </div>
 
 		
 				</form>

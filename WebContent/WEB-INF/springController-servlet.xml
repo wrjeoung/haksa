@@ -40,13 +40,12 @@
       <property name="username">
          <value>java14</value>
       </property>
-
       <!-- MySQL의 사용자 패스워드 설정  -->
       <property name="password">
          <value>java14</value>
       </property>
    </bean>
-       
+
        <bean id="memberDao" class="dao.impl.MemberDaoImpl">
       <property name="dataSource" ref="dataSource"></property>
        </bean>
@@ -116,6 +115,9 @@
        		<property name="hakgiDao" ref="hakgiDao"></property>
        </bean>
        
+        <bean id="hakgi2" class="hakgi.controller.HakgiController2">
+       		<property name="hakgiDao" ref="hakgiDao"></property>
+       </bean>
  
         
    

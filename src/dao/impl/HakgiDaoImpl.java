@@ -59,8 +59,8 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 			// TODO Auto-generated method stub
 			Sungjuk sungjuk = new Sungjuk();
 			sungjuk.setHakbun(rs.getInt("hakbun"));
-			sungjuk.setYear(rs.getInt("year"));
-			sungjuk.setHakgi(rs.getInt("hakgi"));
+			sungjuk.setYear(rs.getString("year"));
+			sungjuk.setHakgi(rs.getString("hakgi"));
 			sungjuk.setGwamokcode(rs.getString("gwamokcode"));
 			sungjuk.setBan(rs.getString("ban"));
 			sungjuk.setGwamok_nm(rs.getString("gwamok_nm"));
@@ -86,7 +86,7 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
 			Sungjuk sungjuk = new Sungjuk();
-			sungjuk.setYear(rs.getInt("year"));
+			sungjuk.setYear(rs.getString("year"));
 			
 			return sungjuk;
 		}
@@ -105,7 +105,7 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
 			Sungjuk sungjuk = new Sungjuk();
-			sungjuk.setHakgi(rs.getInt("hakgi"));
+			sungjuk.setHakgi(rs.getString("hakgi"));
 		
 			return sungjuk;
 		}
