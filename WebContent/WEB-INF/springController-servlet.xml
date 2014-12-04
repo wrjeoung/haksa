@@ -103,7 +103,7 @@
 
        <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
         <property name="memberDao" ref="memberDao"></property>
-       </bean>              <context:component-scan base-package="hakgi.controller" />
+       </bean>           
        <context:component-scan base-package="graduation.controller" />
        
        <bean id="hakgiDao" class="dao.impl.HakgiDaoImpl">
@@ -114,26 +114,9 @@
        		<property name="hakgiDao" ref="hakgiDao"></property>
        </bean>
        
+ 
         
-
-    <!--  <context:component-scan base-package="*" /> -->
-       
-
-	   <!--    
-       </bean>
-
-	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
-	   		<property name="bokhakDao" ref="bokhakDao"></property>
-	   </bean>
-
-       <context:component-scan base-package="main.controller"/>
-       <context:component-scan base-package="registerclass.controller" />
-       -->
-       <context:component-scan base-package="hakgi.controller" />
-       <context:component-scan base-package="graduation.controller" />
-       <!-- <context:component-scan base-package="huhak.controller"/> -->
-
-       
+   
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />
           <property name="defaultEncoding" value="euc-kr"/>

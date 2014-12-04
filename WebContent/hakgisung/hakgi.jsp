@@ -25,16 +25,18 @@
 		<div class="page-header">
 		  <h3>>학기별 성적조회</h3>
 		</div>
-		<form class="form-inline" role="form">
+		
+		
+
+		<form class="form-inline" role="form" action="hakgi2.do">
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>년도</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<select class="form-control" style="width:100px;">
-
-				  <option>2013</option>
-				  <option>2014</option>
-				  
+				<select class="form-control" name ="year" style="width:100px;">
+   				<c:forEach var="list2" items="${list2}"> 
+				  <option value="${list2.year}">${list2.year}</option>
+				</c:forEach>
 				</select>
 			</div>
 			
@@ -42,15 +44,18 @@
 			<p><strong>학기</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<select class="form-control" style="width:100px;">
-				  <option>1학기</option>
-				  <option>2학기</option>
+				<select class="form-control" name ="hakgi" style="width:100px;">
+				
+			<c:forEach var="list3" items="${list3}"> 
+				  <option value="${list3.hakgi}">${list3.hakgi}</option>
+			</c:forEach>
 				</select>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<input class="btn btn-primary" type="button" name="list" value="조회" onclick="javascript:location.href=''"/>
+				<input class="btn btn-primary" type="button" name="list" value="조회" onclick="javascript:location.href='hakgi2.do'"/>
 			</div>
-			<p></p>		
+
+<p></p>		
 			
 			
 			
@@ -110,7 +115,6 @@
 		            <td>${list.hakjum}</td>
 		            <td>${list.levels}</td>
 		            <td>${list.bigo}  </td>
-		          
 		          </tr>
 		            </c:forEach>
 		        </tbody>
