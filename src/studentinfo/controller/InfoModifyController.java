@@ -38,7 +38,7 @@ public class InfoModifyController {
 	public String infoModifyPro(
 			@ModelAttribute Member memberDto,
 			HttpSession session) {
-		System.out.println("infoModifyContoroller infoModifyPro email : "+memberDto.getEmail());
+//		System.out.println("infoModifyContoroller infoModifyPro email : "+memberDto.getEmail());
 		memberDto.setStudentNumber((String)session.getAttribute("memId"));
 		memberDao.changeInfo(memberDto);
 		return "/studentinfo/infomodifyPro.jsp";

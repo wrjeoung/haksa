@@ -130,11 +130,11 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 		String stnumber=params.getStudentNumber();
 		Object[] objs ={tel,cellphone,email,address,stnumber};
 		getJdbcTemplate().update(sql, objs);
-		System.out.println("\ntel : "+tel
-				+"\ncellphone : "+cellphone
-				+"\nemail : "+email
-				+"\naddress : "+address
-				+"\nstnumber : "+stnumber);
+//		System.out.println("\ntel : "+tel
+//				+"\ncellphone : "+cellphone
+//				+"\nemail : "+email
+//				+"\naddress : "+address
+//				+"\nstnumber : "+stnumber);
 		
 	}
 }
