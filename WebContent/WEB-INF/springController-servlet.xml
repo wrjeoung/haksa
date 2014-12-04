@@ -81,6 +81,15 @@
        		<property name="registerclassDao" ref="registerclassDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
+       
+       <bean id="registerForCoursesDao" class="dao.impl.RegisterForCoursesDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="registerSubmit" class="registerclass.controller.SubmitController">
+       		<property name="registerForCoursesDao" ref="registerForCoursesDao"></property>
+       </bean>
+       
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
