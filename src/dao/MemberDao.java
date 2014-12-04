@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 
 public interface MemberDao {
 	public int loginCheck(Map params) throws DataAccessException;
-	public List pwCheck(Map params) throws DataAccessException;
+	public List selectMembers(Map params) throws DataAccessException;
+	public Member selectMember(String memId) throws DataAccessException;
 	public int changePw(Member params) throws DataAccessException;
 }

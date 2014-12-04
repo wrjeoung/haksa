@@ -10,8 +10,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    
+<style type="text/css">
+#table-6 {
+	width: 100%
+	border: 1px solid #B0B0B0;
+}
+#table-6 tbody {
+/* Kind of irrelevant unless your .css is alreadt doing something else */
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+#table-6 thead {
+	text-align: left;
+}
+#table-6 thead th {
+	background: -moz-linear-gradient(top, #F0F0F0 0, #DBDBDB 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F0F0F0), color-stop(100%, #DBDBDB));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F0F0F0', endColorstr='#DBDBDB', GradientType=0);
+	border: 1px solid #B0B0B0;
+	color: #444;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 3px 10px;
+}
+#table-6 td {
+	padding: 3px 10px;
+}
+#table-6 tr:nth-child(even) {
+	background: #F2F2F2;
+}
+</style>    
 </head>
-  
+ 
     
   <body>
 	<!-- header -->
@@ -28,9 +64,9 @@
 			
 			<form class="form-inline" role="form">
 			
-			<table class="table table-hover text-center">
+			<table id="table-6" class="table text-center">
 				<thead>
-					<tr>
+					<tr >
 						<th class="text-center">
 							글번호
 						</th>
@@ -52,7 +88,7 @@
 							<c:param name="currentPage" value="${currentPage}" />
 						</c:url>
 						
-						<tr class="active" style="cursor:pointer;" onclick="javascript:location.href='${viewURL}'";>
+						<tr style="cursor:pointer;" onclick="javascript:location.href='${viewURL}'";>
 						<td>
 							<c:out value="${list.num}"/>
 						</td>
