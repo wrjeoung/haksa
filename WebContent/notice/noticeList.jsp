@@ -47,17 +47,36 @@
 }
 </style>    
 
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+<script src="dist/js/bootstrap.min.js"></script>
+    
 <script type="text/javascript">
+	$(document).ready(function () {
+	    $("[id$='searchWord']").keypress(function () { // enterkey 처리
+	        if (event.keyCode == 13) {
+	            $("[id$='btnSearch']").click();
+	            return false;
+	        }
+	    });
+	
+	    $("[id$='btnSearch']").click(function () {
+	        return true;
+	    });
+
+	});
+	
    	function search() {
    		var searchWord = document.getElementById("searchWord");
    		var searchType = document.getElementById("searchType");
    		
    		document.location.href = "noticeList.do?searchType="+searchType.options.selectedIndex+"&searchWord="+searchWord.value;
    	}
-</script>
+</script>  
+
 </head>
- 
-    
+     
 <body>
 	<!-- header -->
 	<%@ include file="/common/header.jsp"%>
@@ -73,6 +92,13 @@
 				<form class="form-inline" role="form">
 				
 				<table id="table-6" class="table text-center">
+					<colgroup>
+						<col width="7%" />
+						<col width="40%" />
+						<col width="15%" />
+						<col width="7%" />
+					</colgroup>
+									
 					<thead>
 						<tr >
 							<th class="text-center">
@@ -146,7 +172,7 @@
 			    		<input type="text" class="form-control" name="searchWord" id="searchWord" placeholder="검색어" value="${searchWord}">
 		  			</div>
 		  			<div class="form-group" style="margin-left:50px;">
-		  				<button type="button" class="btn btn-default" onclick="search()">검색</button>
+		  				<button type="button" class="btn btn-default" id="btnSearch" onclick="search()">검색</button>
 		  				<button type="button" class="btn btn-default" onclick="javascript:location.href='noticeList.do'">전체보기</button>
 		  			</div>
 		  			
@@ -173,10 +199,6 @@
 			</div>
 		</div>
 	</div>
-    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
-    <script src="//code.jquery.com/jquery.js"></script>
-    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
-    <script src="dist/js/bootstrap.min.js"></script>
 </body>
 </html>
 
