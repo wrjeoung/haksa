@@ -74,10 +74,12 @@
        
        <bean id="registerclass" class="registerclass.controller.RegisterclassMainController">
        		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
        <bean id="culturalclass" class="registerclass.controller.CulturalClassController">
        		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>

@@ -3,19 +3,23 @@ package registerclass.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import model.Member;
 import model.Registerclass;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import common.pagingAction;
+import dao.MemberDao;
 import dao.RegisterclassDao;
 
 @Controller
 public class CulturalClassController {
 
 	private RegisterclassDao registerclassDao;
+	private MemberDao memberDao;
 	private int currentPage = 1;  // 현재 페이지
 	private int blockCount = 5;   // 한 페이지의 게시물의 수
 	private int blockPage = 5;    // 한 화면에 보여줄 페이지 수
@@ -23,11 +27,18 @@ public class CulturalClassController {
 	private pagingAction page;    // 페이징 클래스
 	
 	@RequestMapping("culturalclass.do")
-	public String form(HttpServletRequest request){
+	public String form(
+			HttpSession session,
+			HttpServletRequest request){
 		List<Registerclass> list = null;
 		int totalCount;
+		String cultural = "교양";
 		
-		list = registerclassDao.getCulturalClassList("교양");
+		Member member;
+		member = memberDao.selectMember((String)session.getAttribute("memId"));
+		
+		
+		list = registerclassDao.getCulturalClassList(cultural);
 		totalCount = list.size();
 		System.out.println("totalCount : " + totalCount);
 		
@@ -48,6 +59,7 @@ public class CulturalClassController {
 		
 		list=list.subList(page.getStartCount(), lastCount);
 		request.setAttribute("list", list);
+		request.setAttribute("member", member);
 		request.setAttribute("currentPage",currentPage);
 		request.setAttribute("pagingHtml",pagingHtml);
 		return "registerclass/cultural.jsp";
@@ -59,5 +71,9 @@ public class CulturalClassController {
 
 	public void setRegisterclassDao(RegisterclassDao registerclassDao) {
 		this.registerclassDao = registerclassDao;
+	}
+
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
 	}
 }
