@@ -25,46 +25,29 @@
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<h1 class="text-center text-default">
-				휴학신청
-			</h1>
-			
-			<form class="form-inline" role="form" name="test1">
-				<table class="table table-hover text-center" border="1">
-					<thead>
-						<tr>
-							<th class="text-center">
-								신청년도
-							</th>
-							<th class="text-center">
-								신청학기
-							</th>
-							<th class="text-center">
-								휴학구분
-							</th>
-							<th class="text-center">
-								신청일자
-							</th>
-							<th class="text-center">
-								복학<br/>예정년도
-							</th>
-							<th class="text-center">
-								복학<br/>예정학기
-							</th>
-							<th class="text-center">
-								처리<br/>구분
-							</th>
-							<th class="text-center">
-								세부사정
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="vo" items="${list }">
-							<tr class="active" style="cursor: pointer;">
-								<td><fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy"/>
+	<div class="page-header">
+		<h3>>휴학신청</h3>
+	</div>
+
+<p></p>
+<p class="text-success"><strong>[휴학신청 List]</strong></p>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th class="text-center">신청년도</th>
+			<th class="text-center">신청학기</th>
+			<th class="text-center">휴학구분</th>
+			<th class="text-center">신청일자</th>
+			<th class="text-center">복학<br/>예정년도</th>
+			<th class="text-center">복학<br/>예정학기</th>
+			<th class="text-center">처리<br/>구분</th>
+			<th class="text-center">세부사정</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="vo" items="${list }">
+			<tr>
+				<td><fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy"/>
 								</td>
 								<td>${vo.hubokhak }</td>
 								<td>${vo.hugubun }</td>
@@ -75,17 +58,11 @@
 								<td>${vo.hubokhak }</td>
 								<td>${vo.huchuri }</td>
 								<td>${vo.husegubun }</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</form>
-		</div>
-	</div>
-	
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
 </div>
-<br/>
-<br/>
 <!-- 신청하기 -->
 <form action="insertHuhakPro.do" method="post" enctype="multipart/form-data" onSubmit="" name="test">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
@@ -106,7 +83,7 @@
 		</tr>
 		<tr align="center">
 			<td width="280" bgcolor="#BDBDBD">사유</td>
-			<td width="520" align="left">&nbsp;<input type="text" name="husayu" size="40"></td>
+			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="husayu" size="115"></td>
 		</tr>
 	</table>
 	<input style="margin-left: 700px" type="submit" value="신청">
