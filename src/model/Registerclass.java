@@ -14,6 +14,7 @@ public class Registerclass {
 	private String etc;                 // 비고
 	private String major;               // 학과
 	private String grade;               // 학년
+	private int extranum;               // 여분
 	
 	public String getSubjectnum() {
 		return subjectnum;
@@ -86,5 +87,11 @@ public class Registerclass {
 	}
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+	public int getExtranum() {
+		return extranum;
+	}
+	public void setExtranum(int extranum) {
+		this.extranum = extranum;
 	}
 }

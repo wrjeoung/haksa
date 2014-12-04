@@ -14,6 +14,34 @@
 
 <!-- Custom styles for this template -->
 <link href="dist/customcss/starter-template.css" rel="stylesheet">
+<script>
+ function test(subjectname , subjectnum)
+ {
+	 var hidden = document.getElementById("hidden");
+	 hidden.value = subjectnum;
+	 console.log("hidden.value : " + hidden.value);
+	 
+	 var modalbody = document.getElementById("modal-body");
+	 var str = "";
+	 str += subjectname+"을(를) 수강 신청 하시겠습니까?";
+	 modalbody.innerHTML = str;
+ }
+ 
+ function registerClass(studentNumber){
+	 
+	 var stnumber = studentNumber;
+	 var hidden = document.getElementById("hidden");
+	 
+	 console.log("registerClass");
+	 console.log("stnumber : " + stnumber);
+	 console.log("hidden : " + hidden.value);
+	 var str = "registerSubmit.do?subjectnum=" + hidden.value + "&stnumber=" + stnumber;
+	 console.log("str : " + str);
+	 
+	 $('#layerpop').modal('hide')
+	 location.href= str;
+ }
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -26,35 +54,36 @@
 		</div>
 		
 		<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학과  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>정보통신공학과</strong></p>
+				<p class="text-info"><strong>${member.major}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학번  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>20202020202020</strong></p>
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학년  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>4</strong></p>
+				<p class="text-info"><strong>${member.grade}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>성명  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>홍길동</strong></p>
+				<p class="text-info"><strong>${member.name}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학적상태  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>재학</strong></p>
+				<p class="text-info"><strong>${member.state}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>신청가능학점  : </strong></p>
@@ -108,7 +137,7 @@
 			        		<td>${list.course}</td>
 			        		<td>${list.credit}</td>
 			        		<td>${list.fixednum}</td>
-			        		<td>${list.fixednum}</td>
+			        		<td>${list.fixednum - list.extranum}</td>
 			        		<td>${list.lecturetime}</td>
 			        		<td>${list.professor}</td>
 			        		<td>${list.classroom}</td>
@@ -117,7 +146,9 @@
 			        			<!--  
 				            	<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href=''"/>
 				            	-->
-				            	<button class="btn btn-default" data-target="#layerpop" data-toggle="modal">신청</button><br/>
+				            	<c:if test="${list.fixednum - list.extranum != 0}">
+				            		<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" onclick="test('${list.subjectname}' , '${list.subjectnum}')">신청</button><br/>
+				            	</c:if>
 				            </td>
 		        		</tr>
 		        	</c:forEach>
@@ -156,16 +187,15 @@
 							<!-- 닫기(x) 버튼 -->
 					        <button type="button" class="close" data-dismiss="modal">×</button>
 					        <!-- header title -->
-					    <h4 class="modal-title">Header</h4>
+					    	<h4 class="modal-title">수강신청</h4>
 				    	</div>
 					    <!-- body -->
-					    <div class="modal-body">
-					    	Body
+					    <div class="modal-body" id="modal-body">
+					    	수강 신청 하시겠습니까?
 					    </div>
 					    <!-- Footer -->
 					    <div class="modal-footer">
-					    	Footer
-					    	<button type="button" class="btn btn-primary">저장</button>
+					    	<button type="button" class="btn btn-primary" onclick="registerClass('${member.studentNumber}')" >신청</button>
 					        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 					    </div>
 				    </div>

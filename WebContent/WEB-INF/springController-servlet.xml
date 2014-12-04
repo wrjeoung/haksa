@@ -74,11 +74,22 @@
        
        <bean id="registerclass" class="registerclass.controller.RegisterclassMainController">
        		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
        <bean id="culturalclass" class="registerclass.controller.CulturalClassController">
        		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
+       
+       <bean id="registerForCoursesDao" class="dao.impl.RegisterForCoursesDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="registerSubmit" class="registerclass.controller.SubmitController">
+       		<property name="registerForCoursesDao" ref="registerForCoursesDao"></property>
+       </bean>
+       
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
@@ -110,6 +121,8 @@
        
        
        <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
+       </bean>
+       <bean id="infomodify" class="studentinfo.controller.InfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
        </bean>
 	   <bean id="pwmodify" class="studentinfo.controller.PwModifyController">

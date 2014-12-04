@@ -19,7 +19,8 @@
 <div class="container">
 	<div class="row clearfix">
 	
-		<div id="dummy" style="height:100px;">
+		<div class="page-header">
+		  <h3>공지사항</h3>
 		</div>
 		
 		<div class="col-md-12 column">  
@@ -43,8 +44,17 @@
 				</table>
 				
 				<div align="center">
+					<c:url var="viewURL" value="noticeList.do">
+						<c:param name="currentPage" value="${currentPage}" />
+						<c:if test="${param.searchType != null}">
+							<c:param name="searchType" value="${param.searchType}" />
+						</c:if>
+						<c:if test="${param.searchWord != null}">
+							<c:param name="searchWord" value="${param.searchWord}" />
+						</c:if>						
+					</c:url>					
 					<input type="submit" class="btn btn-primary" value="추가"/>
-					<button type="button" class="btn btn-primary" onclick="javascript:location.href='noticeList.do?currentPage=${currentPage}'";>목록</button>
+					<button type="button" class="btn btn-primary" onclick="javascript:location.href='${viewURL}'";>목록</button>
 				</div>
 				
 		   	</form>

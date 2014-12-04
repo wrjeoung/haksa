@@ -50,7 +50,7 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My홈 <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
 		                <li class="dropdown-header">학생정보</li>
-		                <li><a href="#">개인정보변경</a></li>
+		                <li><a href="infomodify.do">개인정보변경</a></li>
 		                <li><a href="pwCheck.do">비밀번호변경</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">성적조회 / 졸업사정조회</li>

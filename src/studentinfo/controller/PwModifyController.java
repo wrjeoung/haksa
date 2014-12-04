@@ -35,7 +35,7 @@ public class PwModifyController {
 		Map<String, String> params = new HashMap();
 		params.put("id", (String)session.getAttribute("memId"));
 		params.put("pw", memberDto.getPassword());
-		members=memberDao.pwCheck(params);
+		members=memberDao.selectMembers(params);
 		
 		if(members.size() == 1)
 			isConfirmPw = true;
