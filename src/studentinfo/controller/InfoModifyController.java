@@ -20,7 +20,7 @@ public class InfoModifyController {
 	private MemberDao memberDao;
 
 	@RequestMapping("infomodify.do")
-	public String pwCheckform(
+	public String infoModify(
 			HttpSession session,
 			HttpServletRequest request){
 			
@@ -32,6 +32,16 @@ public class InfoModifyController {
 //			System.out.println("InfoModifycontorller major : "+member.getMajor());
 			request.setAttribute("member", member);
 		return "/studentinfo/infomodify.jsp";
+	}
+	
+	@RequestMapping("infomodifyPro.do")
+	public String infoModifyPro(
+			@ModelAttribute Member memberDto,
+			HttpSession session) {
+		System.out.println("infoModifyContoroller infoModifyPro email : "+memberDto.getEmail());
+		memberDto.setStudentNumber((String)session.getAttribute("memId"));
+		memberDao.changeInfo(memberDto);
+		return "/studentinfo/infomodifyPro.jsp";
 	}
 	
 	public void setMemberDao(MemberDao memberDao) {

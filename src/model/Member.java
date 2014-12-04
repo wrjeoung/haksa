@@ -16,6 +16,52 @@ public class Member {
 	private String address;			// 주소
 	private String state;			// 학정정보(재학중,휴학중)
 	
+	/* 개인정보 수정된 정보 받기위한 맴버변수  
+	 * 전화번호는 3개의 폼으로 나누어서 입력받는다.
+	 * */
+	private String tel1;
+	private String tel2;
+	private String tel3;
+	private String hp1;
+	private String hp2;
+	private String hp3;
+	
+	public String getTel1() {
+		return tel1;
+	}
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
+	}
+	public String getTel2() {
+		return tel2;
+	}
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+	public String getTel3() {
+		return tel3;
+	}
+	public void setTel3(String tel3) {
+		this.tel3 = tel3;
+	}
+	public String getHp1() {
+		return hp1;
+	}
+	public void setHp1(String hp1) {
+		this.hp1 = hp1;
+	}
+	public String getHp2() {
+		return hp2;
+	}
+	public void setHp2(String hp2) {
+		this.hp2 = hp2;
+	}
+	public String getHp3() {
+		return hp3;
+	}
+	public void setHp3(String hp3) {
+		this.hp3 = hp3;
+	}
 	public String getState() {
 		return state;
 	}
@@ -89,3 +135,4 @@ public class Member {
 		this.password = password;
 	}
 }
+

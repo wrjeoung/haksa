@@ -14,24 +14,27 @@
 <link href="dist/customcss/starter-template.css" rel="stylesheet">
 
 <script type="text/javascript">
-	function pwcheck() {
-		var pw = document.getElementById("password");
-		if (pw.value == "") {
-			alert("비밀번호를 입력하세요.");
-			pw.focus();
-			return false;
-		}
+	function setSplitNumber() {
+		var cellphone='${member.cellphone}'.split('-');
+		var tel='${member.tel}'.split('-');
+		document.getElementById("hp1").value=cellphone[0];
+		document.getElementById("hp2").value=cellphone[1];
+		document.getElementById("hp3").value=cellphone[2];
+		
+		document.getElementById("tel1").value=tel[0];
+		document.getElementById("tel2").value=tel[1];
+		document.getElementById("tel3").value=tel[2];
 	}
 </script>
 </head>
-<body>
+<body onload="setSplitNumber()">
 	<!-- header -->
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<form class="form-inline" role="form">
+				<form class="form-inline" role="form" action="infomodifyPro.do">
 					<h3 class="form-signin-heading">기본정보.</h3>
 					<table class="table table-bordered">
 						<tbody>
@@ -61,10 +64,47 @@
 					</table>
 					<br />
 					<h3 class="form-signin-heading">개인정보.</h3>
-					
-		
-					
-
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<td style="background-color: #A9A9A9; width: 200px">전화번호</td>
+								<td>
+									<div class="form-group">
+										<input type="text" class="form-control" id="tel1" name="tel1" maxlength="4">
+									</div>-
+									<div class="form-group">
+										<input type="text" class="form-control"	id="tel2" name="tel2" maxlength="4">
+									</div>-
+									<div class="form-group">
+										<input type="text" class="form-control"	id="tel3" name="tel3" maxlength="4">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="background-color: #A9A9A9">핸드폰</td>
+								<td>
+									<div class="form-group">
+										<input type="text" class="form-control" id="hp1" name="hp1" maxlength="4">
+									</div>-
+									<div class="form-group">
+										<input type="text" class="form-control" id="hp2" name="hp2" maxlength="4">
+									</div>-
+									<div class="form-group">
+										<input type="text" class="form-control" id="hp3" name="hp3" maxlength="4">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="background-color: #A9A9A9">이메일</td>
+								<td><input type="text" class="form-control" id="email" name="email" value="${member.email }"></td>
+							</tr>
+							<tr>
+								<td style="background-color: #A9A9A9">주소</td>
+								<td><input type="text" class="form-control"	id="address" name="address" value="${member.address }"></td>
+							</tr>
+						</tbody>
+					</table>
+					<button type="submit" class="btn btn-primary">수정완료</button>
 				</form>
 			</div>
 		</div>

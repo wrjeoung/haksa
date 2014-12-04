@@ -118,4 +118,23 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 		Object[] objs = {pw,stnum};
 		return getJdbcTemplate().update(sql, objs);
 	}
+
+	@Override
+	public void changeInfo(Member params) throws DataAccessException {
+		String sql="UPDATE student_members SET tel=?, cellphone=?, email=?, address=?"
+				+ " WHERE stnumber=?";
+		String tel = params.getTel1()+"-"+params.getTel2()+"-"+params.getTel3();
+		String cellphone = params.getHp1()+"-"+params.getHp2()+"-"+params.getHp3();
+		String email=params.getEmail();
+		String address=params.getAddress();
+		String stnumber=params.getStudentNumber();
+		Object[] objs ={tel,cellphone,email,address,stnumber};
+		getJdbcTemplate().update(sql, objs);
+		System.out.println("\ntel : "+tel
+				+"\ncellphone : "+cellphone
+				+"\nemail : "+email
+				+"\naddress : "+address
+				+"\nstnumber : "+stnumber);
+		
+	}
 }
