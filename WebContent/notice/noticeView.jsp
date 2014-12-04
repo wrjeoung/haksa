@@ -24,9 +24,9 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-		
-			<div id="dummy" style="height:100px;">
-			</div>
+			<div class="page-header">
+			  <h3>공지사항</h3>
+			</div>		
 			
 			<form class="form-inline" role="form">
 				<table  class="table table-bordered" style="font: normal 15px/150% Arial, Helvetica, sans-serif;">

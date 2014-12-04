@@ -66,9 +66,9 @@
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<h1 class="text-center text-default">
-					공지사항
-				</h1>
+				<div class="page-header">
+				  <h3>공지사항</h3>
+				</div>
 							
 				<form class="form-inline" role="form">
 				

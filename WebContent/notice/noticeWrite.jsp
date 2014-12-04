@@ -19,7 +19,8 @@
 <div class="container">
 	<div class="row clearfix">
 	
-		<div id="dummy" style="height:100px;">
+		<div class="page-header">
+		  <h3>공지사항</h3>
 		</div>
 		
 		<div class="col-md-12 column">  
