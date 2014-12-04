@@ -20,7 +20,6 @@ import dao.MemberDao;
 @Controller
 public class LogInOutController {
 	private MemberDao memberDao;
-	private int loginCheck;
 	
 	@RequestMapping("loginOutPro.do")
 	public ModelAndView formPro(HttpServletRequest request, 
@@ -31,23 +30,24 @@ public class LogInOutController {
 		params.put("id", memberDto.getStudentNumber());
 		params.put("pw", memberDto.getPassword());
 		
-		System.out.println("loginCheck : "+loginCheck);
-		int loginState=loginCheck;
-		loginCheck = memberDao.loginCheck(params);
-		
-		if(loginCheck==1)
+		int loginCheck=0;
+		int invalid=0;
+		if((String)session.getAttribute("memId")!=null)
 		{
-			session.setAttribute("memId", memberDto.getStudentNumber());
+			session.removeAttribute("memId");
 		}
 		else
 		{
-			if((String)session.getAttribute("memId")!=null)
-				session.removeAttribute("memId");
+			loginCheck = memberDao.loginCheck(params);
+			if(loginCheck==1)
+				session.setAttribute("memId", memberDto.getStudentNumber());
+			else
+				invalid=1;
 		}
-		
+		System.out.println("loginCheck : "+loginCheck);
+				
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("loginCheck",loginCheck);
-		mv.addObject("loginState",loginState);
+		mv.addObject("invalid",invalid);
 		mv.setViewName("/loginout/loginout.jsp");
 		return mv;
 	}
