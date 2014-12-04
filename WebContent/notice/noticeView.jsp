@@ -10,7 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+
 </head>
+
+
    
   <body>
 	<!-- header -->
@@ -26,7 +29,7 @@
 			</div>
 			
 			<form class="form-inline" role="form">
-				<table class="table table-bordered" style="font: normal 15px/150% Arial, Helvetica, sans-serif;">
+				<table  class="table table-bordered" style="font: normal 15px/150% Arial, Helvetica, sans-serif;">
 					<colgroup>
 						<col width="90px" />
 						<col width="245px" />
@@ -57,6 +60,12 @@
 				
 				<c:url var="viewURL" value="noticeList.do">
 					<c:param name="currentPage" value="${currentPage}" />
+					<c:if test="${param.searchType != null}">
+						<c:param name="searchType" value="${param.searchType}" />
+					</c:if>
+					<c:if test="${param.searchWord != null}">
+						<c:param name="searchWord" value="${param.searchWord}" />
+					</c:if>						
 				</c:url>				
 				
 				<div align="right">
