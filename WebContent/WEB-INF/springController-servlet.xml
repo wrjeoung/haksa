@@ -140,7 +140,14 @@
        		<property name="hakgiDao" ref="hakgiDao"></property>
        </bean>
  
- 	
+ 	   <bean id="feelsuDao" class="dao.impl.FeelsuDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+ 
+   	   <bean id="feelsu" class="feelsu.controller.FeelsuController">
+       		<property name="feelsuDao" ref="feelsuDao"></property>
+       </bean>
+       
 
        
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
