@@ -45,9 +45,7 @@ public class FeelsuDaoImple  extends JdbcDaoSupport implements FeelsuDao{
 		}
 		
 	}
-	
 
-	
 
 	
 }

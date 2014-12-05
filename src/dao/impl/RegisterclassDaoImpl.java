@@ -21,8 +21,8 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		// TODO Auto-generated method stub
 		RowMapper rowMapper = new RegisterclassRowMapper();
 		
-		String sql = "SELECT * FROM registerclass where major='"
-				+ params.get("major") +"' AND grade='" + params.get("grade") + "' OR grade='" + params.get("gradeJ") + "'";
+		String sql = "SELECT * FROM (select * from registerclass where major='"
+				+ params.get("major") +"') where grade='" + params.get("grade") + "' OR grade='" + params.get("gradeJ") + "'";
 		/*
 		String sql = "SELECT * FROME registerclass where major='"
 				+ "영어학과" +"' AND grade='" + "1" + "'";
@@ -65,9 +65,24 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 			registerclass.setEtc(rs.getString("etc"));
 			registerclass.setMajor(rs.getString("major"));
 			registerclass.setGrade(rs.getString("grade"));
+			registerclass.setExtranum(rs.getInt("extranum"));
 			
 			return registerclass;
 		}
 		
+	}
+
+	@Override
+	public void updateExtraNum(String subjectnum) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE registerclass set extranum=extranum+1 where subjectnum = '"+subjectnum +"'";
+		getJdbcTemplate().update(sql);
+	}
+
+	@Override
+	public List getList(String stnumber) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "select * from registerforcourses a , registerclass b where a.subjectnum = b.subjectnum and stnumber = '" + stnumber + "'";
+		return getJdbcTemplate().queryForList(sql);
 	}
 }
