@@ -148,6 +148,9 @@
        		<property name="feelsuDao" ref="feelsuDao"></property>
        </bean>
        
+       
+       
+       
 
        
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
