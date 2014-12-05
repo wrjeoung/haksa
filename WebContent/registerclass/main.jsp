@@ -14,6 +14,44 @@
 
 <!-- Custom styles for this template -->
 <link href="dist/customcss/starter-template.css" rel="stylesheet">
+<script>
+ function test(subjectname , subjectnum)
+ {
+	 var hidden = document.getElementById("hidden");
+	 hidden.value = subjectnum;
+	 console.log("hidden.value : " + hidden.value);
+	 
+	 var modalbody = document.getElementById("modal-body");
+	 var str = "";
+	 str += subjectname+"을(를) 수강 신청 하시겠습니까?";
+	 modalbody.innerHTML = str;
+ }
+ 
+ function registerClass(studentNumber){
+	 
+	 var stnumber = studentNumber;
+	 var hidden = document.getElementById("hidden");
+	 
+	 console.log("registerClass");
+	 console.log("stnumber : " + stnumber);
+	 console.log("hidden : " + hidden.value);
+	 var str = "registerSubmit.do?subjectnum=" + hidden.value + "&stnumber=" + stnumber;
+	 console.log("str : " + str);
+	 
+	 $('#layerpop').modal('hide')
+	 location.href= str;
+ }
+ 
+ function sub(){
+	console.log("sub");
+	var message = "수강 신청하시겠습니까?";
+	var result = confirm(message);
+	
+	if(result == true){
+		alert("확인");
+	}
+}
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -26,6 +64,7 @@
 		</div>
 		
 		<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학과  : </strong></p>
 			</div>
@@ -114,12 +153,18 @@
 			        		<td>${list.classroom}</td>
 			        		<td>${list.etc}</td>
 			        		<td>
-			        			<!--  
-				            	<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href=''"/>
-				            	-->
+			        			<c:if test="${list.fixednum - list.extranum != 0}">
+			        				<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" onclick="test('${list.subjectname}' , '${list.subjectnum}')">신청</button><br/>
+			        				<!--  
+			        				<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="javascript:location.href='registerSubmit.do?subjectnum=${list.subjectnum}&studentNumber=${member.studentNumber}'"/>
+			        				<input style="height:30px;" class="btn btn-primary" type="button" name="list" value="신청" onclick="window.open('registerSubmit.do?subjectnum=${list.subjectnum}&studentNumber=${member.studentNumber}','','width=600 height=600')"/>
+			        				-->
+			        			</c:if>  
+				            	<!-- 
 				            	<c:if test="${list.fixednum - list.extranum != 0}">
 				            		<button class="btn btn-default" data-target="#layerpop" data-toggle="modal">신청</button><br/>
 				            	</c:if>
+				            	-->
 				            </td>
 		        		</tr>
 		        	</c:forEach>
@@ -163,12 +208,12 @@
 					    	<h4 class="modal-title">수강신청</h4>
 				    	</div>
 					    <!-- body -->
-					    <div class="modal-body">
+					    <div class="modal-body" id="modal-body">
 					    	수강 신청 하시겠습니까?
 					    </div>
 					    <!-- Footer -->
 					    <div class="modal-footer">
-					    	<button type="button" class="btn btn-primary">신청</button>
+					    	<button type="button" class="btn btn-primary" onclick="registerClass('${member.studentNumber}')" >신청</button>
 					        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 					    </div>
 				    </div>
@@ -185,6 +230,5 @@
 
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<!-- <script src="js/respond.js"></script> -->
-
 </body>
 </html>

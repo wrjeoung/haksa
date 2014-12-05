@@ -156,8 +156,8 @@
 		                <li class="dropdown-header">학적변동</li>
 		                <li><a href="insertHuhakForm.do">휴학신청</a></li>
 		                <li><a href="insertBokhakForm.do">복학신청</a></li>
-		                <li><a href="#">전과신청</a></li>
-		                <li><a href="#">자퇴신청</a></li>
+		                <li><a href="insertJunkwaForm.do">전과신청</a></li>
+		                <li><a href="insertLeaveForm.do">자퇴신청</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">전공관리</li>
 		                <li><a href="#">주전공배정신청</a></li>
