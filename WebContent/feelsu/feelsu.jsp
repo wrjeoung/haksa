@@ -18,14 +18,6 @@
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
 
-<style>
-.top{
-fixel
-
-}
-
-</style>
-
 
 
 	<div class="container">
