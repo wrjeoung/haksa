@@ -21,8 +21,8 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		// TODO Auto-generated method stub
 		RowMapper rowMapper = new RegisterclassRowMapper();
 		
-		String sql = "SELECT * FROM registerclass where major='"
-				+ params.get("major") +"' AND grade='" + params.get("grade") + "' OR grade='" + params.get("gradeJ") + "'";
+		String sql = "SELECT * FROM (select * from registerclass where major='"
+				+ params.get("major") +"') where grade='" + params.get("grade") + "' OR grade='" + params.get("gradeJ") + "'";
 		/*
 		String sql = "SELECT * FROME registerclass where major='"
 				+ "영어학과" +"' AND grade='" + "1" + "'";
