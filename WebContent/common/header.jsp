@@ -88,7 +88,7 @@
 		                <li><a href="#">전공신청/포기</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">등록장학</li>
-		                <li><a href="#">교내장학금신청</a></li>
+		                <li><a href="insertJanghakForm.do">교내장학금신청</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">학점인정/포기선청</li>
 		                <li><a href="#">학점포기신청</a></li>
