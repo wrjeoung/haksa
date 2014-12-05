@@ -40,7 +40,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Univ.</a>
+          <a class="navbar-brand" href="main.do">Univ.</a>
         </div>
         	
 		        <div class="collapse navbar-collapse">
