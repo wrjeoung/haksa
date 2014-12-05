@@ -120,8 +120,6 @@
        </bean>
        
        
-       <bean id="privateinfomodify" class="studentinfo.controller.PrivateInfoModifyController">
-       </bean>
        <bean id="infomodify" class="studentinfo.controller.InfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
        </bean>
