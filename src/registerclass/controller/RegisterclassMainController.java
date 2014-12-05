@@ -2,17 +2,14 @@ package registerclass.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import model.Member;
 import model.Registerclass;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import common.pagingAction;
 import dao.MemberDao;
 import dao.RegisterclassDao;

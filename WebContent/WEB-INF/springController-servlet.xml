@@ -40,13 +40,12 @@
       <property name="username">
          <value>java14</value>
       </property>
-
       <!-- MySQL의 사용자 패스워드 설정  -->
       <property name="password">
          <value>java14</value>
       </property>
    </bean>
-       
+
        <bean id="memberDao" class="dao.impl.MemberDaoImpl">
       <property name="dataSource" ref="dataSource"></property>
        </bean>
@@ -81,6 +80,15 @@
        		<property name="registerclassDao" ref="registerclassDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
+       
+       <bean id="registerForCoursesDao" class="dao.impl.RegisterForCoursesDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       
+       <bean id="registerSubmit" class="registerclass.controller.SubmitController">
+       		<property name="registerForCoursesDao" ref="registerForCoursesDao"></property>
+       </bean>
+       
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
@@ -94,27 +102,56 @@
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
 	   </bean>
+		
+	   <bean id="junkwaDao" class="dao.impl.JunkwaDaoImple">
+			<property name="dataSource" ref="dataSource"></property>
+	   </bean>
+	   <bean id="junkwa" class="junkwa.controller.InsertJunkwaController">
+	   		<property name="junkwaDao" ref="junkwaDao"></property>
+	   </bean>
 
-
+		<!-- 자퇴 -->
+       <bean id="leaveDao" class="dao.impl.LeaveDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="leave" class="leave.controller.InsertLeaveController">
+       		<property name="leaveDao" ref="leaveDao"></property>
+       </bean>
+       
+       
        <bean id="infomodify" class="studentinfo.controller.InfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
        </bean>
-	   <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
+
+       <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
         <property name="memberDao" ref="memberDao"></property>
-	   </bean>       
-	   <!--    
+		</bean>
+       
+       <bean id="hakgiDao" class="dao.impl.HakgiDaoImpl">
+       		<property name="dataSource" ref="dataSource"></property>
+
+	   </bean>      
+
+       <bean id="hakgi" class="hakgi.controller.HakgiController">
+       		<property name="hakgiDao" ref="hakgiDao"></property>
        </bean>
+       
+       <bean id="hakgi2" class="hakgi.controller.HakgiController2">
+       		<property name="hakgiDao" ref="hakgiDao"></property>
+       </bean>
+ 
+ 	   <bean id="feelsuDao" class="dao.impl.FeelsuDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+ 
+   	   <bean id="feelsu" class="feelsu.controller.FeelsuController">
+       		<property name="feelsuDao" ref="feelsuDao"></property>
+       </bean>
+       
+       
+       
+       
 
-	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
-	   		<property name="bokhakDao" ref="bokhakDao"></property>
-	   </bean>
-
-       <context:component-scan base-package="main.controller"/>
-       <context:component-scan base-package="registerclass.controller" />
-       -->
-       <context:component-scan base-package="hakgi.controller" />
-       <context:component-scan base-package="graduation.controller" />
-       <!-- <context:component-scan base-package="huhak.controller"/> -->
        
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />

@@ -34,7 +34,7 @@ public class InsertBokhakController {
 		bokhakDao.insertBokhak(bokhak);
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("bokhak", bokhak);
-		mv.setViewName("bokhakList.do");
+		mv.setViewName("redirect:/bokhakList.do");
 		return mv;
 	}
 	@RequestMapping("/bokhakList.do")

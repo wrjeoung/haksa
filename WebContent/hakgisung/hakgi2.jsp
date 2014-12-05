@@ -41,7 +41,7 @@
 			</div>
 			
 			<div class="form-group" style="margin-right:15px;">
-			<p><strong>학기</strong></p> 
+			<p><strong>학기</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
 				<select class="form-control" name ="hakgi" style="width:100px;">
@@ -107,14 +107,14 @@
 		        </thead>
 		        <tbody>
 		        <tr>
-		          <c:forEach var="list" items="${list}"> 
-		            <td>${list.gwamokcode}</td>
-		            <td>${list.ban}</td> 
-		            <td>${list.gwamok_nm}</td>
-		            <td>${list.isugubun}</td>
-		            <td>${list.hakjum}</td>
-		            <td>${list.levels}</td>
-		            <td>${list.bigo}  </td>
+		          <c:forEach var="list4" items="${list4}"> 
+		            <td>${list4.gwamokcode}</td>
+		            <td>${list4.ban}</td> 
+		            <td>${list4.gwamok_nm}</td>
+		            <td>${list4.isugubun}</td>
+		            <td>${list4.hakjum}</td>
+		            <td>${list4.levels}</td>
+		            <td>${list4.bigo}  </td>
 		          </tr>
 		            </c:forEach>
 		        </tbody>

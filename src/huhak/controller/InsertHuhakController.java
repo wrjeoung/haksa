@@ -39,7 +39,7 @@ public class InsertHuhakController {
 		
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("huhak",huhak);
-		mv.setViewName("huhakList.do");
+		mv.setViewName("redirect:/huhakList.do");
 		return mv;
 		
 	}

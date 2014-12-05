@@ -14,45 +14,28 @@
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<h1 class="text-center text-default">
-				복학신청
-			</h1>
-			
-			<form class="form-inline" role="form">
-				<table class="table table-hover text-center" border="1">
-					<thead>
-						<tr>
-							<th class="text-center">
-								신청년도
-							</th>
-							<th class="text-center">
-								신청학기
-							</th>
-							<th class="text-center">
-								변동구분
-							</th>
-							<th class="text-center">
-								신청일자
-							</th>
-							<th class="text-center">
-								복학<br/>예정년도
-							</th>
-							<th class="text-center">
-								복학<br/>예정학기
-							</th>
-							<th class="text-center">
-								처리<br/>구분
-							</th>
-							<th class="text-center">
-								반려사유
-							</th>
-						</tr>
-					</thead>
-					<c:forEach var="vo" items="${list }">
-						<tr class="active" style="cursor: pointer;">
-							<td><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy"/>
+	<div class="page-header">
+		<h3>>복학신청</h3>
+	</div>
+<p></p>
+<p class="text-success"><strong>[복학신청 List]</strong></p>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th class="text-center">신청년도</th>
+			<th class="text-center">신청학기</th>
+			<th class="text-center">변동구분</th>
+			<th class="text-center">신청일자</th>
+			<th class="text-center">복학<br/>예정년도</th>
+			<th class="text-center">복학<br/>예정학기</th>
+			<th class="text-center">처리<br/>구분</th>
+			<th class="text-center">반려사유</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="vo" items="${list }">
+			<tr>
+			<td><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy"/>
 							</td>
 							<td>${vo.bokhakgi }</td>
 							<td>${vo.bokgubun }</td>
@@ -62,12 +45,10 @@
 							<td>${vo.bokyehakgi }</td>
 							<td>${vo.bokchuri }</td>
 							<td>${vo.boksayu }</td>
-						</tr>
-					</c:forEach>
-				</table>
-			</form>
-		</div>
-	</div>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
 </div>
 <form action="insertBokhakPro.do" method="post" enctype="multipart/form-data" onsubmit="" name="test">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
@@ -90,7 +71,7 @@
 		</tr>
 		<tr align="center">
 			<td width="280" bgcolor="#BDBDBD">반려사유</td>
-			<td width="520" align="left">&nbsp;<input type="text" name="boksayu" size="40"></td>
+			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="boksayu" size="115"></td>
 		</tr>
 	</table>
 	<input style="margin-left: 700px" type="submit" value="신청">
