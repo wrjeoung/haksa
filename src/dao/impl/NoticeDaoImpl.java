@@ -32,7 +32,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         return (Notice)getJdbcTemplate().query(
         		new NoticePreparedStatementCreator(num), 
         		new NoticeResultSetExtractor());
-	};
+	}
 
     protected class NoticePreparedStatementCreator implements PreparedStatementCreator {
 

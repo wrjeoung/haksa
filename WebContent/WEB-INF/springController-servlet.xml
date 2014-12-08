@@ -87,6 +87,12 @@
        
        <bean id="registerSubmit" class="registerclass.controller.SubmitController">
        		<property name="registerForCoursesDao" ref="registerForCoursesDao"></property>
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       </bean>
+       
+       <bean id="registerclassListController" class="registerclass.controller.RegisterclassListController" >
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
@@ -149,16 +155,19 @@
    	   <bean id="feelsu" class="feelsu.controller.FeelsuController">
        		<property name="feelsuDao" ref="feelsuDao"></property>
        </bean>
-       
-       <bean id="graduationDao" class="dao.impl.GraduationDaoImple">
-       		<property name="dataSource" ref="dataSource"></property>
-       </bean>
-       
-        <bean id="graduation" class="graduation.controller.GraduationController">
-       		<property name="graduationDao" ref="graduationDao"></property>
-       </bean>
-
-
+	   
+	   <!-- 장학금신청 -->
+	   <bean id="janghakDao" class="dao.impl.JanghakDaoImple">
+	   		<property name="dataSource" ref="dataSource"></property>
+	   </bean>
+	   <bean id="janghak" class="janghak.controller.InsertJanghakController">
+	   		<property name="janghakDao" ref="janghakDao"></property>
+	   </bean>
+	   <bean id="janghakView" class="janghak.controller.ViewJanghakController">
+	   		<property name="janghakDao" ref="janghakDao"></property>
+	   </bean>
+	   
+	   
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />
           <property name="defaultEncoding" value="euc-kr"/>
