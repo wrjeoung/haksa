@@ -104,7 +104,7 @@
 		                	<li><a href="registerclassList.do">수강신청내역</a></li>
 		            	</ul>
 		            </li>
-		            <li><a href="#contact">수강과목철회</a></li>
+		            <li><a href="registerCancle.do">수강과목철회</a></li>
 		            <li><a href="noticeList.do">공지사항</a></li>
 		          </ul>
 	          </c:if>
