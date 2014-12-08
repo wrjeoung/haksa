@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import model.Member;
 import model.Registerclass;
 import org.springframework.stereotype.Controller;
@@ -19,11 +18,11 @@ public class RegisterclassMainController {
 
 	private RegisterclassDao registerclassDao;
 	private MemberDao	memberDao;
-	private int currentPage = 1;  // ÇöÀçÆäÀÌÁö
-	private int blockCount = 5;   // ÇÑ ÆäÀÌÁöÀÇ °Ô½Ã¹°ÀÇ ¼ö
-	private int blockPage = 5;    // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¼ö
-	private String pagingHtml;    // ÆäÀÌÂ¡À» ±¸ÇöÇÑ HTML
-	private pagingAction page;    // ÆäÀÌÂ¡ Å¬·¡½º
+	private int currentPage = 1;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int blockCount = 5;   // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½
+	private int blockPage = 5;    // ï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	private String pagingHtml;    // ï¿½ï¿½ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HTML
+	private pagingAction page;    // ï¿½ï¿½ï¿½ï¿½Â¡ Å¬ï¿½ï¿½ï¿½ï¿½
 	
 	@RequestMapping("registerclass.do")
 	public String form(
@@ -32,7 +31,7 @@ public class RegisterclassMainController {
 		List<Registerclass> list = null;
 		HashMap params = new HashMap();
 		int totalCount;
-		String gradej = "Àü¼±";
+		String gradej = "ï¿½ï¿½";
 		
 		Member member;
 		member = memberDao.selectMember((String)session.getAttribute("memId"));
@@ -50,12 +49,12 @@ public class RegisterclassMainController {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		page = new pagingAction(currentPage, totalCount, blockCount, blockPage, "registerclass");
-		pagingHtml = page.getPagingHtml().toString();  // ÆäÀÌÁö HTML »ý¼º
+		pagingHtml = page.getPagingHtml().toString();  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HTML ï¿½ï¿½
 		
-		//ÇöÀç ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ ¸¶Áö¸· ±ÛÀÇ ¹øÈ£ ¼³Á¤
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½
 		int lastCount = totalCount;
 		
-		//ÇöÀç ÆäÀÌÁöÀÇ ¸¶Áö¸· ±ÛÀÇ ¹øÈ£°¡ ÀüÃ¼ÀÇ ¸¶Áö¸· ±Ûº¸´Ù ÀÛÀ¸¸é lastCount¸¦ +1 ¹øÈ£·Î ¼³Á¤
+		//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ûºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ lastCountï¿½ï¿½ +1 ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if(page.getEndCount()<totalCount)
 			lastCount=page.getEndCount()+1;
 		

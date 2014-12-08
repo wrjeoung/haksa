@@ -28,22 +28,22 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 	@Override
 	public List getSungjuklist() throws DataAccessException {
 		RowMapper rowMapper = new HakgiRowMapper();
-
 		return getJdbcTemplate().query("SELECT * FROM student_sunglist",rowMapper);
+														
 	}
 	
 	@Override
 	public List getAddyearlist() throws DataAccessException {
 		RowMapper rowMapper = new HakgiRowMapper2();
-
-		return getJdbcTemplate().query("SELECT distinct year FROM student_sunglist",rowMapper);
-	}
+		return getJdbcTemplate().query("SELECT distinct year FROM student_sunglist order by year",rowMapper);
+														//jsp파일에서 셀렉트 메뉴 선택시 년도 중복값제거해서 가져오기.
+	}											
 	
 	@Override
 	public List getAddhakgilist() throws DataAccessException {
 		RowMapper rowMapper = new HakgiRowMapper3();
-
 		return getJdbcTemplate().query("SELECT distinct hakgi FROM student_sunglist",rowMapper);
+														//jsp파일에서 셀렉트 메뉴 선택시 학기 중복값제거해서 가져오기. 
 	}
 	
 	protected class HakgiRowMapper implements RowMapper{

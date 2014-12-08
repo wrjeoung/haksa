@@ -19,14 +19,11 @@
 	<!-- header -->
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
- 
 
 	<div class="container">
 		<div class="page-header">
 		  <h3>>학기별 성적조회</h3>
 		</div>
-		
-		
 
 		<form class="form-inline" role="form">
 			<div class="form-group" style="margin-right:15px;">
@@ -63,31 +60,31 @@
 				<p><strong>학과  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>정보통신공학과</strong></p>
+				<p class="text-info"><strong>${member.major}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학번  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>20202020202020</strong></p>
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학년  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>4</strong></p>
+				<p class="text-info"><strong>${member.grade}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>성명  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>홍길동</strong></p>
+				<p class="text-info"><strong>${member.name}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학적상태  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>재학</strong></p>
+				<p class="text-info"><strong>${member.state}</strong></p>
 			</div>
 
 		<p></p>
@@ -123,7 +120,7 @@
 				<ul class="pagination pagination-sm">
 				<li class="disabled"><span>«</span></li>
 				<li class="active">
-					<a href="#">1</a>
+					<a href="#">1</a> 
 				</li>
 				<li>
 					<a href="#">2</a>

@@ -26,8 +26,10 @@
 		  <h3>>학기별 성적조회</h3>
 		</div>
 		
-		
-
+		<script>
+		var target = document.getElementById("year");
+		target.options[target.selectedIndex].text
+		</script>
 		<form class="form-inline" role="form">
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>년도</strong></p>
@@ -63,35 +65,35 @@
 				<p><strong>학과  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>정보통신공학과</strong></p>
+				<p class="text-info"><strong>${member.major}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학번  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>20202020202020</strong></p>
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학년  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>4</strong></p>
+				<p class="text-info"><strong>${member.grade}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>성명  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>홍길동</strong></p>
+				<p class="text-info"><strong>${member.name}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학적상태  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>재학</strong></p>
+				<p class="text-info"><strong>${member.state}</strong></p>
 			</div>
 
 		<p></p>
-		<p class="text-success"><strong>[누적성적 List]</strong></p>
+		<p class="text-success"><strong>[학기별성적 List]</strong></p>
 		
 		<table class="table table-bordered">
 				<thead>
@@ -140,7 +142,6 @@
 				<li><span>&raquo;</span></li>
 				</ul>
 		 </div>
-
 		
 				</form>
 		</div>
@@ -154,6 +155,5 @@
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<!-- <script src="js/respond.js"></script> -->
 		
-		</body>
-		</html>
-	
+</body>
+</html>
