@@ -130,7 +130,7 @@
 							
 							<tr style="cursor:pointer;" onclick="javascript:location.href='${viewURL}'";>
 							<td>
-								<c:out value="${list.num}"/>
+								<c:out value="${list.rnum}"/>
 							</td>
 							<td>${list.subject}</td>
 							<td>

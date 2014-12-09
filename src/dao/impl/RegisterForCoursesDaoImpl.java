@@ -15,4 +15,12 @@ public class RegisterForCoursesDaoImpl  extends JdbcDaoSupport implements Regist
 		String sql = "INSERT INTO registerforcourses(subjectnum,stnumber) VALUES(?, ?)";
 		getJdbcTemplate().update(sql, new Object[]{subjectnum,stnumber});
 	}
+
+	@Override
+	public void deleteRegisterclass(String subjectnum, String stnumber)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "delete from registerforcourses where subjectnum = ? and stnumber = ?";
+		getJdbcTemplate().update(sql, new Object[]{subjectnum, stnumber});
+	}
 }
