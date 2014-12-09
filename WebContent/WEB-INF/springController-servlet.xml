@@ -101,6 +101,10 @@
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
+       <bean id="registerCanclePro" class="registerclass.controller.RegisterCancleProController">
+       		<property name="registerForCoursesDao" ref="registerForCoursesDao"></property>
+       </bean>
+       
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>

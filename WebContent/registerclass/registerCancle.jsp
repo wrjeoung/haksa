@@ -14,6 +14,33 @@
 
 <!-- Custom styles for this template -->
 <link href="dist/customcss/starter-template.css" rel="stylesheet">
+<script>
+	
+	function hiddenSet(subjectn, subjectname){
+		var hidden = document.getElementById("hidden");
+		hidden.value = subjectn;
+		console.log("hidden.value : " + hidden.value);
+		
+		var modalbody = document.getElementById("modal-body");
+		var str = "";
+		str += subjectname+"을(를) 수강 철회 하시겠습니까?";
+		modalbody.innerHTML = str;
+	}
+	
+	function registerCancle(stnum){
+		var stnumber = stnum;
+		var hidden = document.getElementById("hidden");
+		
+		console.log("stnumber : " + stnumber);
+		console.log("hidden : " + hidden.value);
+		
+		var str = "registerCanclePro.do?subjectnum=" + hidden.value + "&stnumber=" + stnumber;
+		console.log("str : " + str);
+		 
+		$('#layerpop').modal('hide')
+		location.href= str; 
+	}
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -98,18 +125,41 @@
 			        		<td>${list.classroom}</td>
 			        		<td>${list.etc}</td>
 			        		<td>
-			        			<button class="btn btn-default" data-target="#layerpop" data-toggle="modal">철회</button><br/>
+			        			<button class="btn btn-primary" data-target="#layerpop" data-toggle="modal" onclick="hiddenSet('${list.subjectnum}','${list.subjectname}')">철회</button><br/>
 			        		</td>
 		        		</tr>
 		        	</c:forEach>
 		        	
 		        	
 		        </tbody>
-	      </table>
-	      <div class="text-center">
+	     	 </table>
+	     	 <div class="text-center">
 				<ul class="pagination pagination-sm">
 				${pagingHtml}
 			</div>
+			
+			<div class="modal fade" id="layerpop" >
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- header -->
+						<div class="modal-header">
+							<!-- 닫기(x) 버튼 -->
+					        <button type="button" class="close" data-dismiss="modal">×</button>
+					        <!-- header title -->
+					    	<h4 class="modal-title">수강철회</h4>
+				    	</div>
+					    <!-- body -->
+					    <div class="modal-body" id="modal-body">
+					    	수강 철회 하시겠습니까?
+					    </div>
+					    <!-- Footer -->
+					    <div class="modal-footer">
+					    	<button type="button" class="btn btn-primary" onclick="registerCancle('${member.studentNumber}')" >철회</button>
+					        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
 		</form>
 	</div>
 	
