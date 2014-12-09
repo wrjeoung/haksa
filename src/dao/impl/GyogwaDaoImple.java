@@ -8,24 +8,24 @@ import model.Graduation;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import dao.GraduationDao;
+import dao.GyogwaDao;
 
-public class GraduationDaoImple  extends JdbcDaoSupport implements GraduationDao{	
-	
-	public List getGraduationList() throws DataAccessException {
+public class GyogwaDaoImple extends JdbcDaoSupport implements GyogwaDao {
+
+	public List getGyogwalist() throws DataAccessException {
 		RowMapper rowMapper = new HakgiRowMapper();
 
-		return getJdbcTemplate().query("SELECT * FROM student_graduation",rowMapper);
+		return getJdbcTemplate().query("SELECT * FROM student_graduation",
+				rowMapper);
 	}
-	
-	protected class HakgiRowMapper implements RowMapper{
 
+	protected class HakgiRowMapper implements RowMapper {
 		private List graduation = new ArrayList();
-		
-		public List getResults(){
+
+		public List getResults() {
 			return graduation;
 		}
-		
+
 		@Override
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
@@ -38,14 +38,9 @@ public class GraduationDaoImple  extends JdbcDaoSupport implements GraduationDao
 			graduation.setRemain(rs.getString("remain"));
 			graduation.setOuting(rs.getString("outing"));
 			graduation.setOuting_cause(rs.getString("outing_cause"));
-					
-			
+
 			return graduation;
 		}
-		
+
 	}
-
-
-	
 }
-

@@ -116,8 +116,8 @@
 		            <td>${list4.isugubun}</td>
 		            <td>${list4.hakjum}</td>
 		            <td>${list4.levels}</td>
-		            <td>${list4.bigo}  </td>
-		          </tr>
+		            <td>${list4.bigo}  </td> 
+		          </tr>  
 		            </c:forEach>
 		        </tbody>
 	      </table>

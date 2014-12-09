@@ -12,7 +12,6 @@ import dao.MemberDao;
 
 @Controller
 public class HakgiController {
-
 	private HakgiDao hakgiDao;
 	private MemberDao memberDao;
 	@RequestMapping("hakgi.do")
@@ -21,7 +20,6 @@ public class HakgiController {
 		List<Sungjuk> list = null;
 		List<Sungjuk> list2 = null;//년도
 		List<Sungjuk> list3 =null;//학기
-		
 		Member member;
 		member = memberDao.selectMember((String)session.getAttribute("memId"));
 		 
@@ -55,6 +53,5 @@ public class HakgiController {
 		this.memberDao = memberDao;
 	}
 
-	
 	
 }

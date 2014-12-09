@@ -151,11 +151,11 @@
  	   <bean id="feelsuDao" class="dao.impl.FeelsuDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
- 
+
    	   <bean id="feelsu" class="feelsu.controller.FeelsuController">
        		<property name="feelsuDao" ref="feelsuDao"></property>
        </bean>
-	   
+
 	   <!-- 장학금신청 -->
 	   <bean id="janghakDao" class="dao.impl.JanghakDaoImple">
 	   		<property name="dataSource" ref="dataSource"></property>
@@ -166,8 +166,23 @@
 	   <bean id="janghakView" class="janghak.controller.ViewJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
 	   </bean>
-	   
-	   
+
+	   <!-- 졸업사정조회 -->
+	   <bean id="graduationDao" class="dao.impl.GraduationDaoImple">
+	   		<property name="dataSource" ref="dataSource"></property>
+	   </bean>
+	   <bean id="graduation" class="graduation.controller.GraduationController">
+       		<property name="graduationDao" ref="graduationDao"></property>
+       </bean>
+
+	   <!-- 교과목조회 -->
+	   <bean id="gyogwaDao" class="dao.impl.GyogwaDaoImple">
+ 	   		<property name="dataSource" ref="dataSource"></property>
+	   </bean>
+	   <bean id="gyogwa" class="gyogwa.controller.GyogwaController">
+       		<property name="gyogwaDao" ref="gyogwaDao"></property>
+       </bean>
+
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />
           <property name="defaultEncoding" value="euc-kr"/>

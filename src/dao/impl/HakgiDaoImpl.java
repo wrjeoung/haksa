@@ -3,10 +3,8 @@ package dao.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import model.Sungjuk;
 
 import org.springframework.dao.DataAccessException;
@@ -84,7 +82,7 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 		
 		@Override
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-			// TODO Auto-generated method stub
+			
 			Sungjuk sungjuk = new Sungjuk();
 			sungjuk.setYear(rs.getString("year"));
 			
@@ -106,12 +104,9 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 			// TODO Auto-generated method stub
 			Sungjuk sungjuk = new Sungjuk();
 			sungjuk.setHakgi(rs.getString("hakgi"));
-		
 			return sungjuk;
 		}
 		
 	}
-	
-
 	
 }

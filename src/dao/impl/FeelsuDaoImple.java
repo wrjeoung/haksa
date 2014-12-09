@@ -9,8 +9,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import dao.FeelsuDao;
-import dao.impl.HakgiDaoImpl.HakgiRowMapper;
-
 
 public class FeelsuDaoImple  extends JdbcDaoSupport implements FeelsuDao{	
 	
@@ -47,6 +45,5 @@ public class FeelsuDaoImple  extends JdbcDaoSupport implements FeelsuDao{
 	}
 
 
-	
 }
 

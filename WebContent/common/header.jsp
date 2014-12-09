@@ -68,7 +68,7 @@
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown">수업 <b class="caret"></b></a>
 		              <ul class="dropdown-menu">
 		                <li class="dropdown-header">교육과정 조회</li>
-		                <li><a href="#">교과목 조회</a></li>
+		                <li><a href="gyogwa.do">교과목 조회</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">강의 평가</li>
 		                <li><a href="#">강의 우수강사 조회</a></li>

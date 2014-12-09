@@ -53,8 +53,7 @@
 			</div>
 
 <p></p>		
-			
-			
+
 			
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학과  : </strong></p>

@@ -22,7 +22,7 @@ import dao.HakgiDao;
 
 @Controller
 public class HakgiController2 {
-	private HakgiDao hakgiDao;
+	private HakgiDao hakgiDao; 
 	private MemberDao memberDao;
 	@RequestMapping("hakgi2.do")
 	public String form(HttpSession session,HttpServletRequest request,@ModelAttribute Sungjuk sungjuk) {
@@ -53,6 +53,7 @@ public class HakgiController2 {
 		System.out.println("hakgi2.do list3 hakgi = "+list3.size());
 		System.out.println("hakgi2.do list4 = "+list4);
 		request.setAttribute("list", list);
+		request.setAttribute("list4", list4); 
 		return "hakgisung/hakgi2.jsp";
 		
 	}
