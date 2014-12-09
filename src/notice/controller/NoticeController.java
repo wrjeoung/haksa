@@ -69,6 +69,14 @@ public class NoticeController {
 		return "notice/noticeList.jsp";
 	}	
 	
+	@RequestMapping("noticeDelete.do")
+	public String Delete(HttpServletRequest request){
+		int num = Integer.parseInt(request.getParameter("num"));
+		noticeDao.deleteNotice(num);
+
+		return "redirect:/noticeList.do";
+	}	
+	
 	@RequestMapping("noticeView.do")
 	public String View(HttpServletRequest request){
 		int num = Integer.parseInt(request.getParameter("num"));

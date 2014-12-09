@@ -144,4 +144,11 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
 		String sql = "INSERT INTO notice(num,subject,content,readcount) VALUES(?, ?, ? ,?)";
 		getJdbcTemplate().update(sql, new Object[]{getMaxNum()+1,notice.getSubject(),notice.getContent(),0});
 	}
+
+	@Override
+	public void deleteNotice(int num) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "DELETE FROM notice where num = "+num;
+		getJdbcTemplate().update(sql);
+	}
 }
