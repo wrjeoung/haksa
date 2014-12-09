@@ -9,7 +9,14 @@ public class Notice {
 	private int readcount;
 	private Timestamp reg_date;
 	private boolean isToday;
+	private int rnum;
 
+	public int getRnum() {
+		return rnum;
+	}
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 	public boolean getIsToday() {
 		return isToday;
 	}

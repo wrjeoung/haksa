@@ -68,7 +68,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
 	
 	@Override	
 	public List getNoticeList(int searchType, String searchWord) throws DataAccessException{
-		String sql = "select * from notice";
+		String sql = "select num,subject,content,readcount,reg_date,rownum rnum from (select * from notice order by num)";
 		
 		switch(searchType)
 		{
@@ -81,7 +81,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
 			default:
 				break;
 		}
-		sql +=  " order by reg_date desc";
+		sql +=  " order by rnum desc";
 		
 		RowMapper rowMapper = new NoticeRowMapper();
 		return getJdbcTemplate().query(sql,rowMapper);
@@ -107,6 +107,7 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
         	notice.setContent(rs.getString("content"));
         	notice.setReg_date(rs.getTimestamp("reg_date"));
         	notice.setReadcount(rs.getInt("readcount"));
+        	notice.setRnum(rs.getInt("rnum"));
         	cal.setTime(notice.getReg_date());
         	
         	if(year == cal.get(Calendar.YEAR)
