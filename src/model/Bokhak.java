@@ -12,6 +12,14 @@ public class Bokhak {
 	private Date bokhak_reg_date;
 	private String rnum;
 	private String bokchuri;
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getNum() {
 		return num;
 	}

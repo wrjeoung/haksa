@@ -8,5 +8,5 @@ import model.Multijungong;
 
 public interface MultijungongDao {
 	void insertMultijungong(Multijungong multijungong)throws DataAccessException;
-	public List getMultijungongList()throws DataAccessException;
+	public List getMultijungongList(String studentNumber)throws DataAccessException;
 }

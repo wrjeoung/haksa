@@ -118,6 +118,7 @@
 
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 		
 	   <bean id="junkwaDao" class="dao.impl.JunkwaDaoImple">
@@ -125,6 +126,7 @@
 	   </bean>
 	   <bean id="junkwa" class="junkwa.controller.InsertJunkwaController">
 	   		<property name="junkwaDao" ref="junkwaDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 
 		<!-- 자퇴 -->
@@ -133,6 +135,7 @@
        </bean>
        <bean id="leave" class="leave.controller.InsertLeaveController">
        		<property name="leaveDao" ref="leaveDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
        
@@ -171,6 +174,7 @@
 	   </bean>
 	   <bean id="janghak" class="janghak.controller.InsertJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 	   <bean id="janghakView" class="janghak.controller.ViewJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
@@ -194,6 +198,7 @@
        </bean>
        <bean id="multijungong" class="multijungong.controller.InsertMultijungongController">
        		<property name="multijungongDao" ref="multijungongDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />

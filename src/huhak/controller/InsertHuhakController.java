@@ -33,7 +33,7 @@ public class InsertHuhakController {
 		Member member;
 		member=memberDao.selectMember((String)session.getAttribute("memId"));
 		
-		list=huhakDao.getHuhakList(member.getName());
+		list=huhakDao.getHuhakList(member.getStudentNumber());
 		
 		request.setAttribute("list", list);
 		//세션2
@@ -66,7 +66,7 @@ public class InsertHuhakController {
 		//세션
 		Member member;
 		member=memberDao.selectMember((String)session.getAttribute("memId"));
-		list=huhakDao.getHuhakList(member.getName());
+		list=huhakDao.getHuhakList(member.getStudentNumber());
 		request.setAttribute("list", list);
 		request.setAttribute("member", member);
 		

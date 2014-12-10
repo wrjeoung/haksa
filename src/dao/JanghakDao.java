@@ -8,7 +8,7 @@ import model.Janghak;
 
 public interface JanghakDao {
 	void insertJanghak(Janghak janghak)throws DataAccessException;
-	public List getJanghakList()throws DataAccessException;
+	public List getJanghakList(String studentNumber)throws DataAccessException;
 	//상세보기
 	public Janghak getJanghak(int num)throws DataAccessException;
 }

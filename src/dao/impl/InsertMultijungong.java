@@ -9,7 +9,7 @@ import org.springframework.jdbc.object.SqlUpdate;
 
 public class InsertMultijungong extends SqlUpdate{
 	public InsertMultijungong(DataSource ds){
-		super(ds,"INSERT INTO MULTIJUNGONG(NUM,MULTIGUBUN,MULTIGUBUN2,MULTIYEAR1,MULTIYEAR2,MULTIYEAR3,MULTIJUNGONG,MULTIGYUL,MULTISAYU,MULTIDAY,MULTI_REG_DATE,MULTICHURI)VALUES(MULTIJUNGONG_NUM_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,'신청')");
+		super(ds,"INSERT INTO MULTIJUNGONG(NUM,MULTIGUBUN,MULTIGUBUN2,MULTIYEAR1,MULTIYEAR2,MULTIYEAR3,MULTIJUNGONG,MULTIGYUL,MULTISAYU,MULTIDAY,MULTI_REG_DATE,MULTICHURI,NAME)VALUES(MULTIJUNGONG_NUM_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,'신청',?)");
 		super.declareParameter(new SqlParameter("multigubun", Types.VARCHAR));
 		super.declareParameter(new SqlParameter("multigubun2", Types.VARCHAR));
 		super.declareParameter(new SqlParameter("multiyear1", Types.VARCHAR));
@@ -20,6 +20,7 @@ public class InsertMultijungong extends SqlUpdate{
 		super.declareParameter(new SqlParameter("multisayu", Types.VARCHAR));
 		super.declareParameter(new SqlParameter("multiday", Types.VARCHAR));
 		super.declareParameter(new SqlParameter("multi_reg_date date", Types.DATE));
+		super.declareParameter(new SqlParameter("name", Types.VARCHAR));
 		compile();
 	}
 }

@@ -163,6 +163,7 @@
 			</td>
 		</tr>
 	</table>
+	<input type="text" value="${member.studentNumber }" name="name"/>
 	<input style="margin-left: 700px" type="submit" value="신청">
 </form>
 </body>

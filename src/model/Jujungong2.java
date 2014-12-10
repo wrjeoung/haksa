@@ -16,9 +16,16 @@ public class Jujungong2 {
 	private Date jujungong_reg_date;
 	
 	private String jujungongchuri;
+	private String name;
 	
 	
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getJujungonggyul() {
 		return jujungonggyul;
 	}

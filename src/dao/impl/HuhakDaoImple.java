@@ -31,9 +31,9 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 	}
 
 	@Override
-	public List getHuhakList(String name) throws DataAccessException {
+	public List getHuhakList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from huhak where name='"+name+"'";
+		String sql="select * from huhak where name='"+studentNumber+"'";
 		RowMapper rowMapper=new HuhakRowMapper();
 		return getJdbcTemplate().query(sql,rowMapper);
 	}
@@ -59,6 +59,7 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 			huhak.setHusayu(rs.getString("husayu"));
 			huhak.setHuchuri(rs.getString("huchuri"));
 			huhak.setHuhak_reg_date(rs.getTimestamp("huhak_reg_date"));
+			huhak.setName(rs.getString("name"));
 			return huhak;
 		}
 	}

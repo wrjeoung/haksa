@@ -4,35 +4,47 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import model.Janghak;
+import model.Member;
 
+import org.apache.catalina.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import dao.JanghakDao;
+import dao.MemberDao;
 
 @Controller
 public class InsertJanghakController {
 	private JanghakDao janghakDao;
 	Calendar today=Calendar.getInstance();
-	
+	private MemberDao memberDao;
 	@RequestMapping("/insertJanghakForm.do")
-	public String form(HttpServletRequest request){
+	public String form(HttpServletRequest request,HttpSession session){
 		List<Janghak> list=null;
-		list=janghakDao.getJanghakList();
-		request.setAttribute("list", list);
+		//세션
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
 		
+		list=janghakDao.getJanghakList(member.getStudentNumber());
+		request.setAttribute("list", list);
+		request.setAttribute("member", member);
 		return "/janghak/insertJanghakForm.jsp";
 		
 	}
 
 	@RequestMapping("/insertJanghakPro.do")
-	public ModelAndView formPro(@ModelAttribute Janghak janghak){
+	public ModelAndView formPro(@ModelAttribute Janghak janghak,HttpServletRequest request,HttpSession session){
 		janghak.setJanghak_reg_date(today.getTime());
 		janghakDao.insertJanghak(janghak);
+		
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("member", member);
 		
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("janghak", janghak);
@@ -40,10 +52,15 @@ public class InsertJanghakController {
 		return mv;
 	}
 	@RequestMapping("/janghakList.do")
-	public String form1(HttpServletRequest request){
+	public String form1(HttpServletRequest request,HttpSession session){
 		List<Janghak> list=null;
-		list=janghakDao.getJanghakList();
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		
+		
+		list=janghakDao.getJanghakList(member.getStudentNumber());
 		request.setAttribute("list", list);
+		request.setAttribute("member", member);
 		return "/janghak/insertJanghakForm.jsp";
 	}
 	public JanghakDao getJanghakDao() {
@@ -53,4 +70,13 @@ public class InsertJanghakController {
 	public void setJanghakDao(JanghakDao janghakDao) {
 		this.janghakDao = janghakDao;
 	}
+
+	public MemberDao getMemberDao() {
+		return memberDao;
+	}
+
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	
 }

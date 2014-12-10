@@ -24,12 +24,12 @@ public class JunkwaDaoImple extends JdbcDaoSupport implements JunkwaDao{
 	@Override
 	public void insertJunkwa(Junkwa junkwa) throws DataAccessException {
 		// TODO Auto-generated method stub
-		   this.insertJunkwa.update(new Object[]{junkwa.getJunkwayear(),junkwa.getJunkwahakgi(),junkwa.getJunkwahakkwa(),junkwa.getJunkwa_reg_date(),junkwa.getJunkwabygo(),junkwa.getJunkwachuday()});
+		   this.insertJunkwa.update(new Object[]{junkwa.getJunkwayear(),junkwa.getJunkwahakgi(),junkwa.getJunkwahakkwa(),junkwa.getJunkwa_reg_date(),junkwa.getJunkwabygo(),junkwa.getJunkwachuday(),junkwa.getName()});
 	}
 	@Override
-	public List getJunkwaList() throws DataAccessException {
+	public List getJunkwaList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from junkwa order by junkwa_reg_date desc";
+		String sql="select * from junkwa where name='"+studentNumber+"'";
 		RowMapper rowMapper=new JunkwaRowMapper();
 		
 		return getJdbcTemplate().query(sql, rowMapper);
@@ -53,6 +53,7 @@ public class JunkwaDaoImple extends JdbcDaoSupport implements JunkwaDao{
 			junkwa.setJunkwabygo(rs.getString("junkwabygo"));
 			junkwa.setJunkwachuri(rs.getString("junkwachuri"));
 			junkwa.setJunkwachuday(rs.getString("junkwachuday"));
+			junkwa.setName(rs.getString("name"));
 			return junkwa;
 		}
 		

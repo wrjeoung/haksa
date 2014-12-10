@@ -74,6 +74,7 @@
 			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="boksayu" size="115"></td>
 		</tr>
 	</table>
+	<input type="text" name="name" value="${member.studentNumber }">
 	<input style="margin-left: 700px" type="submit" value="신청">
 </form>
 </body>

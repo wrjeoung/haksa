@@ -27,13 +27,13 @@ public class Jujungong2DaoImple extends JdbcDaoSupport implements Jujungong2Dao{
 		System.out.println("12121 : "+jujungong2.getJujungonggubun()+" , "+jujungong2.getJujungonggyul()+" , "+jujungong2.getJujungongyear1()+" , "+jujungong2.getJujungongyear2()+" , "+jujungong2.getJujungongday()+" , "+jujungong2.getJujungong1()+" , "+jujungong2.getJujungong2()+" , "+jujungong2.getJujungong3()+" , "+jujungong2.getJujungong4()+" , "+jujungong2.getJujungong_reg_date());
 		
 		System.out.println("2322323 : "+this.insertJujungong);
-		this.insertJujungong.update(new Object[]{jujungong2.getJujungonggubun(),jujungong2.getJujungonggyul(),jujungong2.getJujungongyear1(),jujungong2.getJujungongyear2(),jujungong2.getJujungongday(),jujungong2.getJujungong1(),jujungong2.getJujungong2(),jujungong2.getJujungong3(),jujungong2.getJujungong4(),jujungong2.getJujungong_reg_date()});	
+		this.insertJujungong.update(new Object[]{jujungong2.getJujungonggubun(),jujungong2.getJujungonggyul(),jujungong2.getJujungongyear1(),jujungong2.getJujungongyear2(),jujungong2.getJujungongday(),jujungong2.getJujungong1(),jujungong2.getJujungong2(),jujungong2.getJujungong3(),jujungong2.getJujungong4(),jujungong2.getJujungong_reg_date(),jujungong2.getName()});	
 		
 	}
 	@Override
-	public List getJujungongList() throws DataAccessException {
+	public List getJujungongList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from jujungong order by jujungong_reg_date desc";
+		String sql="select * from jujungong where name='"+studentNumber+"'";
 		RowMapper rowMapper=new JujungongRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 	}
@@ -60,6 +60,7 @@ public class Jujungong2DaoImple extends JdbcDaoSupport implements Jujungong2Dao{
 			jujungong2.setJujungong4(rs.getString("jujungong4"));
 			jujungong2.setJujungong_reg_date(rs.getTimestamp("jujungong_reg_date"));
 			jujungong2.setJujungongchuri(rs.getString("jujungongchuri"));
+			jujungong2.setName(rs.getString("name"));
 			return jujungong2;
 		}
 		

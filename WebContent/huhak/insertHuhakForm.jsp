@@ -86,7 +86,7 @@
 			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="husayu" size="115"></td>
 		</tr>
 	</table>
-	<input type="hidden" value="${member.name }" name="name"/>
+	<input type="text" value="${member.studentNumber }" name="name"/>
 	<input style="margin-left: 700px" type="submit" value="신청">
 	<input type="text" value="성적불인정" name="hugrade">
 </form>

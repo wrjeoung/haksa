@@ -42,7 +42,7 @@ public class InsertJujungongController {
 		System.out.println("2");
 		
 		List<Jujungong2> list2=null;
-		list2=jujungong2Dao.getJujungongList();
+		list2=jujungong2Dao.getJujungongList(member.getStudentNumber());
 		
 		request.setAttribute("list", list);
 		request.setAttribute("member", member);
@@ -55,10 +55,10 @@ public class InsertJujungongController {
 	public ModelAndView formPro(@ModelAttribute Jujungong2 jujungong2,HttpSession session,HttpServletRequest request){
 		jujungong2.setJujungong_reg_date(today.getTime());
 		
-		System.out.println("안넘어와~ : "+jujungong2.getJujungongchuri());
-		
-		
 		jujungong2Dao.insertJujungong(jujungong2);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("member", member);
 		
 		ModelAndView mv=new ModelAndView();
 		mv.addObject("jujungong2", jujungong2);
@@ -73,7 +73,7 @@ public class InsertJujungongController {
 		list=jujungongDao.getList(member.getMajor());
 		
 		List<Jujungong2> list2=null;
-		list2=jujungong2Dao.getJujungongList();
+		list2=jujungong2Dao.getJujungongList(member.getStudentNumber());
 		
 		
 		request.setAttribute("list", list);

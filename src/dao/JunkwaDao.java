@@ -8,5 +8,5 @@ import model.Junkwa;
 
 public interface JunkwaDao {
 	void insertJunkwa(Junkwa junkwa)throws DataAccessException;
-	public List getJunkwaList()throws DataAccessException;
+	public List getJunkwaList(String studentNumber)throws DataAccessException;
 }

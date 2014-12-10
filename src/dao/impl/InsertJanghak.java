@@ -9,8 +9,8 @@ import org.springframework.jdbc.object.SqlUpdate;
 
 public class InsertJanghak extends SqlUpdate{
 	public InsertJanghak(DataSource ds){
-		super(ds,"INSERT INTO JANGHAK(NUM,JANGHAKBANK,JANGHAKBANKNUM,JANGHAKNAME,JANGHAKMENU,JANGHAKMY,JANGHAKCHURI,JANGHAK_REG_DATE)"
-				+ "VALUES(JANGHAK_NUM_SEQ.NEXTVAL,?,?,?,?,?,'신청',?)");
+		super(ds,"INSERT INTO JANGHAK(NUM,JANGHAKBANK,JANGHAKBANKNUM,JANGHAKNAME,JANGHAKMENU,JANGHAKMY,JANGHAKCHURI,JANGHAK_REG_DATE,NAME)"
+				+ "VALUES(JANGHAK_NUM_SEQ.NEXTVAL,?,?,?,?,?,'신청',?,?)");
 		
 		super.declareParameter(new SqlParameter("janghakbank", Types.VARCHAR));
 		super.declareParameter(new SqlParameter("janghakbanknum", Types.VARCHAR));
@@ -19,6 +19,7 @@ public class InsertJanghak extends SqlUpdate{
 		super.declareParameter(new SqlParameter("janghakmy", Types.VARCHAR));
 		//super.declareParameter(new SqlParameter("janghakchuri", Types.VARCHAR));
 		super.declareParameter(new SqlParameter("janghak_reg_date", Types.DATE));
+		super.declareParameter(new SqlParameter("name", Types.VARCHAR));
 		compile();
 	}
 }

@@ -10,6 +10,16 @@ public class Junkwa {
 	private String junkwabygo;
 	private String junkwachuri;
 	private String junkwachuday;
+	private String name;
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getNum() {
 		return num;
 	}

@@ -14,7 +14,14 @@ public class Leave {
 	private String leaveday;
 	private Date leave_reg_date;
 	private String leavechuri;
+	private String name;
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getLeavechuri() {
 		return leavechuri;
 	}

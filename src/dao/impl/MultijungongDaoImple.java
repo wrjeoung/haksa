@@ -25,12 +25,12 @@ public class MultijungongDaoImple extends JdbcDaoSupport implements Multijungong
 	public void insertMultijungong(Multijungong multijungong)
 			throws DataAccessException {
 		// TODO Auto-generated method stub
-		this.insertMultijungong.update(new Object[]{multijungong.getMultigubun(),multijungong.getMultigubun2(),multijungong.getMultiyear1(),multijungong.getMultiyear2(),multijungong.getMultiyear3(),multijungong.getMultijungong(),multijungong.getMultigyul(),multijungong.getMultisayu(),multijungong.getMultiday(),multijungong.getMulti_reg_date()});
+		this.insertMultijungong.update(new Object[]{multijungong.getMultigubun(),multijungong.getMultigubun2(),multijungong.getMultiyear1(),multijungong.getMultiyear2(),multijungong.getMultiyear3(),multijungong.getMultijungong(),multijungong.getMultigyul(),multijungong.getMultisayu(),multijungong.getMultiday(),multijungong.getMulti_reg_date(),multijungong.getName()});
 	}
 	@Override
-	public List getMultijungongList() throws DataAccessException {
+	public List getMultijungongList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from multijungong order by multi_reg_date desc";
+		String sql="select * from multijungong where name='"+studentNumber+"'";
 		RowMapper rowMapper=new MultijungongRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 	}
@@ -57,6 +57,7 @@ public class MultijungongDaoImple extends JdbcDaoSupport implements Multijungong
 			multijungong.setMultiday(rs.getString("multiday"));
 			multijungong.setMulti_reg_date(rs.getTimestamp("multi_reg_date"));
 			multijungong.setMultichuri(rs.getString("multichuri"));
+			multijungong.setName(rs.getString("name"));
 			return multijungong;
 		}
 	}

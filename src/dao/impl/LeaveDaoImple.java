@@ -25,12 +25,12 @@ public class LeaveDaoImple extends JdbcDaoSupport implements LeaveDao{
 	public void insertLeave(Leave leave) throws DataAccessException {
 		// TODO Auto-generated method stub
 		this.insertLeave.update(new Object[]{leave.getLeavegubun(),leave.getLeavehak(),leave.getLeavehak2(),leave.getLeavehak3(),
-				leave.getLeavegyul(),leave.getLeavesayu(),leave.getLeavesayu2(),leave.getLeaveday(),leave.getLeave_reg_date()});
+				leave.getLeavegyul(),leave.getLeavesayu(),leave.getLeavesayu2(),leave.getLeaveday(),leave.getLeave_reg_date(),leave.getName()});
 	}
 	@Override
-	public List getLeaveList() throws DataAccessException {
+	public List getLeaveList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from leave order by leave_reg_date desc";
+		String sql="select * from leave where name='"+studentNumber+"'";
 		RowMapper rowMapper=new LeaveRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 	}
@@ -57,6 +57,7 @@ public class LeaveDaoImple extends JdbcDaoSupport implements LeaveDao{
 			leave.setLeaveday(rs.getString("leaveday"));
 			leave.setLeave_reg_date(rs.getTimestamp("leave_reg_date"));
 			leave.setLeavechuri(rs.getString("leavechuri"));
+			leave.setName(rs.getString("name"));
 			return leave;
 		}
 	}
