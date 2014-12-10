@@ -66,10 +66,24 @@
 					<c:if test="${param.searchWord != null}">
 						<c:param name="searchWord" value="${param.searchWord}" />
 					</c:if>						
-				</c:url>				
+				</c:url>	
+				
+				<c:url var="delteURL" value="noticeDelete.do">
+					<c:param name="currentPage" value="${currentPage}" />
+					<c:if test="${param.searchType != null}">
+						<c:param name="searchType" value="${param.searchType}" />
+					</c:if>
+					<c:if test="${param.searchWord != null}">
+						<c:param name="searchWord" value="${param.searchWord}" />
+					</c:if>
+					<c:if test="${param.num != null}">
+						<c:param name="num" value="${param.num}" />
+					</c:if>												
+				</c:url>								
 				
 				<div align="right">
   					<button type="button" class="btn btn-primary" onclick="javascript:location.href='${viewURL}'";>목록</button>
+  					<button type="button" class="btn btn-primary" onclick="javascript:alert('삭제되었습니다.');javascript:location.href='${delteURL}'";>삭제</button>
 				</div>
 				
 			</form>

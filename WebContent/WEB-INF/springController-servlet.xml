@@ -66,7 +66,8 @@
         <property name="noticeDao" ref="noticeDao"></property>
        </bean>        
        <bean id="main" class="main.controller.MainController"/>
-       
+
+	   <!-- 수강신청 -->       
        <bean id="registerclassDao" class="dao.impl.RegisterclassDaoImpl">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
@@ -90,9 +91,18 @@
        		<property name="registerclassDao" ref="registerclassDao"></property>
        </bean>
        
-       <bean id="registerclassListController" class="registerclass.controller.RegisterclassListController" >
+       <bean id="registerclassList" class="registerclass.controller.RegisterclassListController" >
        		<property name="registerclassDao" ref="registerclassDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
+       </bean>
+       
+       <bean id="registerCancle" class="registerclass.controller.RegisterCancleController" >
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
+       
+       <bean id="registerCanclePro" class="registerclass.controller.RegisterCancleProController">
+       		<property name="registerForCoursesDao" ref="registerForCoursesDao"></property>
        </bean>
        
 	   <bean id="huhakDao" class="dao.impl.HuhakDaoImple">
