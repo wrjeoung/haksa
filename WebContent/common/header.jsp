@@ -121,6 +121,7 @@
 	            <c:choose>
 	            	<c:when test="${memId == null }">
 	            		<button type="submit" class="btn btn-success">Sign in</button>
+	            		<a href="findIdPwForm.do">아이디/패스워드 찾기</a>
 	            	</c:when>
 	            	<c:otherwise>
 	            		<button type="submit" class="btn btn-success">Sign out</button>

@@ -137,4 +137,55 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 //				+"\nstnumber : "+stnumber);
 		
 	}
+
+	@Override
+	public Member selectIdPw(Map params) throws DataAccessException {
+
+		return (Member)getJdbcTemplate().query(
+				new IdPwPreparedStatementCreator(params),
+				new IdPwResultSetExtractor());
+	}
+	
+	protected class IdPwPreparedStatementCreator implements PreparedStatementCreator {
+
+		private String mName;
+		private String mHp;
+		private String mEmail;
+		
+		
+		public IdPwPreparedStatementCreator(Map params) {
+			mName = (String)params.get("name");
+			mHp = (String)params.get("cellphone");
+			mEmail = (String)params.get("email");
+		}
+		
+		@Override
+		public PreparedStatement createPreparedStatement(Connection con)
+				throws SQLException {
+			final String sql = "SELECT * FROM student_members "
+					+ "WHERE cellphone=? AND name=? AND email=?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, mHp);
+			ps.setString(2, mName);
+			ps.setString(3, mEmail);
+			return ps;
+		}
+	}
+	
+	protected class IdPwResultSetExtractor implements ResultSetExtractor {
+		@Override
+		public Object extractData(ResultSet rs) throws SQLException,	DataAccessException {
+			//SQL 결과가 적어도 1건 있을까
+			if(rs.next()) {
+				Member member = new Member();
+				member.setStudentNumber(rs.getString("stnumber"));
+				member.setPassword(rs.getString("pw"));
+				member.setName(rs.getString("name"));
+				member.setEmail(rs.getString("email"));
+				return member;
+			}
+			else
+				return null;
+		}
+	}
 }
