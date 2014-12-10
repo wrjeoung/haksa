@@ -27,13 +27,13 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 	public void insertHuhak(Huhak huhak) throws DataAccessException {
 		// TODO Auto-generated method stub
 		this.insertHuhak.update(new Object[]{huhak.getHugubun(),huhak.getHusegubun(),huhak.getHubokyear(),huhak.getHubokhak(),
-			huhak.getHugrade(),huhak.getHunumber(),huhak.getHusayu(),huhak.getHuhak_reg_date()});
+			huhak.getHugrade(),huhak.getHunumber(),huhak.getHusayu(),huhak.getHuhak_reg_date(),huhak.getName()});
 	}
 
 	@Override
-	public List getHuhakList() throws DataAccessException {
+	public List getHuhakList(String name) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from huhak order by huhak_reg_date desc";
+		String sql="select * from huhak where name='"+name+"'";
 		RowMapper rowMapper=new HuhakRowMapper();
 		return getJdbcTemplate().query(sql,rowMapper);
 	}

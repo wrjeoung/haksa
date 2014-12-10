@@ -13,9 +13,20 @@ public class Huhak {
 	private String husayu;
 	private String huchuri;
 	private Date huhak_reg_date;
-	
-	private String rnum;
 	//--
+	private String rnum;
+	
+	//세션
+	private String name;
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getRnum() {
 		return rnum;
 	}

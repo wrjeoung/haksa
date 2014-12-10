@@ -110,6 +110,7 @@
        </bean>
 	   <bean id="huhak" class="huhak.controller.InsertHuhakController">
        		<property name="huhakDao" ref="huhakDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
 	   <bean id="bokhakDao" class="dao.impl.BokhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
