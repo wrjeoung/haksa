@@ -13,4 +13,5 @@ public interface MemberDao {
 	public Member selectMember(String memId) throws DataAccessException;
 	public int changePw(Member params) throws DataAccessException;
 	public void changeInfo(Member params) throws DataAccessException;
+	public Member selectIdPw(Map params) throws DataAccessException;
 }

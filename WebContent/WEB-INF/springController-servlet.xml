@@ -146,6 +146,10 @@
        <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
         <property name="memberDao" ref="memberDao"></property>
 		</bean>
+				
+		<bean id="findidpw" class="findidpw.controller.FindIdPwController">
+        <property name="memberDao" ref="memberDao"></property>
+		</bean>
        
        <bean id="hakgiDao" class="dao.impl.HakgiDaoImpl">
        		<property name="dataSource" ref="dataSource"></property>
