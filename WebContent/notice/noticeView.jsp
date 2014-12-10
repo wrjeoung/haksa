@@ -51,8 +51,8 @@
 					</thead>
 					<tbody>					
 						<tr style="height:100px;">
-						  <td scope="row" colspan="4">
-						    &nbsp;&nbsp;${notice.content}
+						  <td align="left" scope="row" colspan="4">
+							<pre>${notice.content}</pre>
 						</td>
 						</tr >
 					</tbody>
