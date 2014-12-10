@@ -164,8 +164,26 @@
 	   <bean id="janghakView" class="janghak.controller.ViewJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
 	   </bean>
+	   <!-- 주전공신청 -->
+	   <bean id="jujungongDao" class="dao.impl.JujungongDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="jujungong2Dao" class="dao.impl.Jujungong2DaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="jujungong" class="jujungong.controller.InsertJujungongController">
+       		<property name="jujungongDao" ref="jujungongDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       		<property name="jujungong2Dao" ref="jujungong2Dao"></property>
+       </bean>
 	   
-	   
+	   <!-- 다중전공 -->
+	   <bean id="multijungongDao" class="dao.impl.MultijungongDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="multijungong" class="multijungong.controller.InsertMultijungongController">
+       		<property name="multijungongDao" ref="multijungongDao"></property>
+       </bean>
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />
           <property name="defaultEncoding" value="euc-kr"/>
