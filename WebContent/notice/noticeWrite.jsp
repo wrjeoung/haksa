@@ -37,7 +37,7 @@
 			          <td width="100" align="center" bgcolor="#F4F4F4">내용</td>
 			          <td bgcolor="#FFFFFF">
 						<div style="border: 1px solid #dedede; padding: 3px;">
-						<textarea style="overflow:hidden;resize:none; border: 0; width: 100%; height:100px" name="content" cols="50" rows="10">${data.content }</textarea>
+						<textarea style="overflow:visible; resize:none; border: 0; width: 100%; height:100px" name="content" cols="50" rows="10">${data.content }</textarea>
 						</div>	          
 			          </td>
 			        </tr>

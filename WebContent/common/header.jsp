@@ -84,8 +84,8 @@
 		                <li><a href="insertLeaveForm.do">자퇴신청</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">전공관리</li>
-		                <li><a href="#">주전공배정신청</a></li>
-		                <li><a href="#">전공신청/포기</a></li>
+		                <li><a href="insertJujungongForm.do">주전공배정신청</a></li>
+		                <li><a href="insertmultijungongForm.do">전공신청/포기</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">등록장학</li>
 		                <li><a href="insertJanghakForm.do">교내장학금신청</a></li>

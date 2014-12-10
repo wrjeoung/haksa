@@ -17,7 +17,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import dao.MemberDao;
 
 public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
-	
+		
 	@Override
 	public int loginCheck(Map params) throws DataAccessException {
 		
@@ -63,7 +63,7 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 	protected class MemberResultSetExtractor implements ResultSetExtractor {
 		@Override
 		public Object extractData(ResultSet rs) throws SQLException,	DataAccessException {
-			//SQL °á°ú°¡ Àû¾îµµ 1°Ç ÀÖÀ»±î
+			//SQL ï¿½ï¿½ï¿½ ï¿½ï¿½îµµ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(rs.next()) {
 				Member member = new Member();
 				member.setStudentNumber(rs.getString("stnumber"));

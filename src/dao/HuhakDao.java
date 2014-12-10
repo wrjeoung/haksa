@@ -9,6 +9,5 @@ import org.springframework.dao.DataAccessException;
 
 public interface HuhakDao {
 	void insertHuhak(Huhak huhak)throws DataAccessException;
-	public List getHuhakList()throws DataAccessException;
-	
+	public List getHuhakList(String name)throws DataAccessException;
 }
