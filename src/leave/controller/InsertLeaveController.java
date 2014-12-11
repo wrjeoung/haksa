@@ -62,6 +62,15 @@ public class InsertLeaveController {
 		request.setAttribute("member", member);
 		return "/leave/insertLeaveForm.jsp";
 	}
+	@RequestMapping("leaveDelete.do")
+	public String Delete(HttpServletRequest request){
+		String[] rnum=request.getParameterValues("rnum");
+		for(int i=0;i<rnum.length;i++){
+			String value=rnum[i];
+			leaveDao.deleteLeave(value);
+		}
+		return "redirect:/leaveList.do";
+	}
 	
 	public LeaveDao getLeaveDao() {
 		return leaveDao;

@@ -63,6 +63,15 @@ public class InsertJanghakController {
 		request.setAttribute("member", member);
 		return "/janghak/insertJanghakForm.jsp";
 	}
+	@RequestMapping("janghakDelete.do")
+	public String Delete(HttpServletRequest request){
+		String[] rnum=request.getParameterValues("rnum");
+		for(int i=0;i<rnum.length;i++){
+			String value=rnum[i];
+			janghakDao.deleteJanghak(value);
+		}
+		return "redirect:/janghakList.do";
+	}
 	public JanghakDao getJanghakDao() {
 		return janghakDao;
 	}

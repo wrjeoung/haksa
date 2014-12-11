@@ -24,6 +24,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
+<script type="text/javascript">
+	function chk_del(){
+		chk.action="junkwaDelete.do";
+		chk.submit();
+	}
+</script>
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
@@ -33,6 +39,7 @@
 		</div>
 <p></p>
 <p class="text-success"><strong>[전과신청 List]</strong></p>
+<form name="chk">
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -43,6 +50,7 @@
 			<th class="text-center">처리구분</th>
 			<th class="text-center">처리일</th>
 			<th class="text-center">비고</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -56,10 +64,12 @@
 				<td>${vo.junkwachuri }</td>
 				<td>${vo.junkwachuday }</td>
 				<td>${vo.junkwabygo }</td>
+				<td><input type="checkbox" name="rnum" value="${vo.num}" >?=${vo.num}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+</form>
 </div>
 
 <form action="insertJunkwaPro.do" method="post" enctype="multipart/form-data" onsubmit="">
@@ -89,8 +99,11 @@
 			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="junkwabygo" size="115"></td>
 		</tr>
 	</table>
-	<input type="text" value="${member.studentNumber }" name="name">
-	<input style="margin-left: 700px" type="submit" value="신청">
+	<div align="center">
+	<button type="button" onclick="chk_del()">삭제</button>
+	<input type="hidden" value="${member.studentNumber }" name="name">
+	<input type="submit" value="신청">
+	</div>
 </form>
 </body>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->

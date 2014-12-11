@@ -65,4 +65,10 @@ public class Jujungong2DaoImple extends JdbcDaoSupport implements Jujungong2Dao{
 		}
 		
 	}
+	@Override
+	public void deleteJujungong(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM jujungong where num="+value;
+		getJdbcTemplate().update(sql);
+	}
 }

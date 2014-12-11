@@ -12,6 +12,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
+<script type="text/javascript">
+	function chk_del(){
+		chk.action="janghakDelete.do";
+		chk.submit();
+	}
+</script>
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
@@ -21,6 +27,7 @@
 
 <p></p>
 <p class="text-success"><strong>[장학금신청 List]</strong></p>
+<form name="chk">
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -30,6 +37,7 @@
 			<th>장학구분</th>
 			<th>신청일자</th>
 			<th>처리구분</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -37,18 +45,20 @@
 			<c:url var="viewURL" value="janghakView.do">
 				<c:param name="num" value="${list.num }"/>
 			</c:url>
-			<tr style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>
-				<td>${list.janghakbank }</td>
-				<td>${list.janghakbanknum }</td>
-				<td>${list.janghakname }</td>
-				<td>${list.janghakmenu }</td>
-				<td><fmt:formatDate value="${list.janghak_reg_date }" pattern="yyyy-MM-dd HH:mm"/></td>
-				<td>${list.janghakchuri }</td>
+			<tr>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakbank }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakbanknum }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakname }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakmenu }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${list.janghak_reg_date }" pattern="yyyy-MM-dd HH:mm"/></td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakchuri }</td>
+				<td><input type="checkbox" name="rnum" value="${list.num }"></td>
 			</tr>
 		
 		</c:forEach>
 	</tbody>
 </table>
+</form>
 </div>
 
 <form action="insertJanghakPro.do" method="post" enctype="multipart/form-data" onsubmit="" name="">
@@ -163,8 +173,11 @@
 			</td>
 		</tr>
 	</table>
-	<input type="text" value="${member.studentNumber }" name="name"/>
-	<input style="margin-left: 700px" type="submit" value="신청">
+	<div align="center">
+	<button type="button" onclick="chk_del()">삭제</button>
+	<input type="hidden" value="${member.studentNumber }" name="name"/>
+	<input type="submit" value="신청">
+	</div>
 </form>
 </body>
 </html>

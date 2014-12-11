@@ -59,5 +59,11 @@ public class BokhakDaoImple extends JdbcDaoSupport implements BokhakDao{
 			return bokhak;
 		}
 	}
+	@Override
+	public void deleteBokhak(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM bokhak where num="+value;
+		getJdbcTemplate().update(sql);
+	}
 	
 }

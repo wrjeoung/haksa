@@ -12,8 +12,16 @@ public class Junkwa {
 	private String junkwachuday;
 	private String name;
 	
+	private String rnum;
 	
 	
+	
+	public String getRnum() {
+		return rnum;
+	}
+	public void setRnum(String rnum) {
+		this.rnum = rnum;
+	}
 	public String getName() {
 		return name;
 	}

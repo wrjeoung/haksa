@@ -63,6 +63,15 @@ public class InsertMultijungongController {
 		request.setAttribute("member", member);
 		return "/multijungong/insertmultijungongForm.jsp";
 	}
+	@RequestMapping("multijungongDelete.do")
+	public String Delete(HttpServletRequest request){
+		String[] rnum=request.getParameterValues("rnum");
+		for(int i=0;i<rnum.length;i++){
+			String value=rnum[i];
+			multijungongDao.deleteMultijungong(value);
+		}
+		return "redirect:/multijungongList.do";
+	}
 	
 	public MultijungongDao getMultijungongDao() {
 		return multijungongDao;

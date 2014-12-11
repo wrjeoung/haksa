@@ -81,7 +81,15 @@ public class InsertJujungongController {
 		request.setAttribute("list2", list2);
 		return "/jujungong/insertJujungongForm.jsp";
 	}
-	
+	@RequestMapping("jujungongDelete.do")
+	public String Delete(HttpServletRequest request){
+		String[] rnum=request.getParameterValues("rnum");
+		for(int i=0;i<rnum.length;i++){
+			String value=rnum[i];
+			jujungong2Dao.deleteJujungong(value);
+		}
+		return "redirect:/jujungongList.do";
+	}
 	public JujungongDao getJujungongDao() {
 		return jujungongDao;
 	}

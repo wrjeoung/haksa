@@ -63,4 +63,13 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 			return huhak;
 		}
 	}
+	@Override
+	public void deleteHuhak(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("되?");
+		//System.out.println(rnum);
+		String sql="DELETE FROM huhak where num="+value;
+		System.out.println("되?2");
+		getJdbcTemplate().update(sql);
+	}
 }

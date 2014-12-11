@@ -105,4 +105,10 @@ public class JanghakDaoImple extends JdbcDaoSupport implements JanghakDao{
 			}
 		}
 	}
+	@Override
+	public void deleteJanghak(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM janghak where num="+value;
+		getJdbcTemplate().update(sql);
+	}
 }

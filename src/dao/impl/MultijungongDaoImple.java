@@ -61,4 +61,10 @@ public class MultijungongDaoImple extends JdbcDaoSupport implements Multijungong
 			return multijungong;
 		}
 	}
+	@Override
+	public void deleteMultijungong(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM multijungong where num="+value;
+		getJdbcTemplate().update(sql);
+	}
 }

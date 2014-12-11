@@ -25,7 +25,12 @@ String formatDate2=dateFormat2.format(nowDate);
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
-
+<script type="text/javascript">
+	function chk_del() {
+		chk.action="jujungongDelete.do"
+		chk.submit();
+	}
+</script>
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
@@ -34,6 +39,7 @@ String formatDate2=dateFormat2.format(nowDate);
 	</div>
 <p></p>
 <p class="text-success"><strong>[주전공신청]</strong></p>
+<form name="chk">
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -46,6 +52,7 @@ String formatDate2=dateFormat2.format(nowDate);
 			<th>4지망</th>
 			<th>처리<br/>구분</th>
 			<th>결재결과</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -60,10 +67,12 @@ String formatDate2=dateFormat2.format(nowDate);
 				<td>${vo.jujungong4 }</td>
 				<td>${vo.jujungongchuri }</td>
 				<td>${vo.jujungonggyul }</td>
+				<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+</form>
 </div>
 <form action="insertJujungongPro.do" method="post" enctype="multipart/form-data" onSubmit="" name="">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
@@ -123,8 +132,11 @@ String formatDate2=dateFormat2.format(nowDate);
 			</td>
 		</tr>
 	</table>
-	<input type="text" value="${member.studentNumber }" name="name">
-	<input style="margin-left: 700px" type="submit" value="신청">
+	<div align="center">
+	<button type="button" onclick="chk_del()">삭제</button>
+	<input type="hidden" value="${member.studentNumber }" name="name">
+	<input type="submit" value="신청">
+	</div>
 </form>
 </body>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->

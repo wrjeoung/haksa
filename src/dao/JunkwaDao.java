@@ -9,4 +9,5 @@ import model.Junkwa;
 public interface JunkwaDao {
 	void insertJunkwa(Junkwa junkwa)throws DataAccessException;
 	public List getJunkwaList(String studentNumber)throws DataAccessException;
+	public void deleteJunkwa(String value)throws DataAccessException;
 }

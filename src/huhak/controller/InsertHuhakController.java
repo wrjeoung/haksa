@@ -73,6 +73,20 @@ public class InsertHuhakController {
 		return "/huhak/insertHuhakForm.jsp";
 	}
 	
+	@RequestMapping("huhakDelete.do")
+	public String Delete(HttpServletRequest request){
+		System.out.println("1:"+request.getParameterValues("rnum"));
+		String[] rnum=request.getParameterValues("rnum");
+		System.out.println("rnum="+rnum[0]);
+		for(int i=0;i<rnum.length;i++){
+			String value = rnum[i];
+			System.out.println("value="+value);
+			huhakDao.deleteHuhak(value);
+		}
+		System.out.println("되?3");
+		return "redirect:/huhakList.do";
+	}
+	
 	public HuhakDao getHuhakDao() {
 		return huhakDao;
 	}

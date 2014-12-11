@@ -61,4 +61,10 @@ public class LeaveDaoImple extends JdbcDaoSupport implements LeaveDao{
 			return leave;
 		}
 	}
+	@Override
+	public void deleteLeave(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM leave where num="+value;
+		getJdbcTemplate().update(sql);
+	}
 }

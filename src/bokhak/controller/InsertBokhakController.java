@@ -66,6 +66,16 @@ public class InsertBokhakController {
 		request.setAttribute("member", member);
 		return "/bokhak/insertBokhakForm.jsp";
 	}
+	@RequestMapping("bokhakDelete.do")
+	public String Delete(HttpServletRequest request){
+		String[] rnum=request.getParameterValues("rnum");
+		
+		for(int i=0;i<rnum.length;i++){
+			String value=rnum[i];
+			bokhakDao.deleteBokhak(value);
+		}
+		return "redirect:/bokhakList.do";
+	}
 	
 	public BokhakDao getBokhakDao() {
 		return bokhakDao;

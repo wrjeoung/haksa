@@ -62,6 +62,16 @@ public class InsertJunkwaController {
 		request.setAttribute("member", member);
 		return "/junkwa/insertJunkwaForm.jsp";
 	}
+	@RequestMapping("junkwaDelete.do")
+	public String Delete(HttpServletRequest request){
+		String[] rnum=request.getParameterValues("rnum");
+		for(int i=0;i<rnum.length;i++){
+			String value=rnum[i];
+			junkwaDao.deleteJunkwa(value);
+		}
+		
+		return "redirect:/junkwaList.do";
+	}
 	public JunkwaDao getJunkwaDao() {
 		return junkwaDao;
 	}
