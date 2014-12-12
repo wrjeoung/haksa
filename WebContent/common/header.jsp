@@ -113,17 +113,20 @@
 		            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">관리자<b class="caret"></b></a>
 		            	<ul class="dropdown-menu">
 		            		<li class="dropdown-header">신청</li>
-		            		<li><a href="#">휴학신청</a></li>
-		                	<li><a href="#">복학신청</a></li>
-		                	<li><a href="#">전과신청</a></li>
-		                	<li><a href="#">자퇴신청</a></li>
-		                	<li><a href="#">주전공배정신청</a></li>
-		                	<li><a href="#">전공신청/포기</a></li>
-		                	<li><a href="#">교내장학금신청</a></li>
-		                	<li><a href="#">학점포기신청</a></li>
+		            		<li class="dropdown-header">>학적변동</li>
+		            		<li><a href="adminhuhakList.do">휴학신청관리</a></li>
+		                	<li><a href="adminbokhakList.do">복학신청관리</a></li>
+		                	<li><a href="adminjunkwaList.do">전과신청관리</a></li>
+		                	<li><a href="adminleaveList.do">자퇴신청관리</a></li>
+		                	<li class="dropdown-header">>전공관리</li>
+		                	<li><a href="adminjujungongList.do">주전공배정신청관리</a></li>
+		                	<li><a href="adminmultijungongList.do">전공신청/포기관리</a></li>
+		                	<li class="dropdown-header">>등록장학</li>
+		                	<li><a href="adminjanghakList.do">교내장학금신청관리</a></li>
+		                	<li><a href="#">학점포기신청관리</a></li>
 		                	
 		                	<li class="dropdown-header">공지사항</li>
-		            		<li><a href="#">공지사항</a></li>
+		            		<li><a href="#">공지사항관리</a></li>
 		            	</ul>
 		            </c:if>
 		            </c:if>
