@@ -9,5 +9,6 @@ public interface HakgiDao {
 	 List getSungjuklist() throws DataAccessException;
 	 List getAddyearlist() throws DataAccessException;
 	 List getAddhakgilist() throws DataAccessException;
+	 List getTotalList() throws DataAccessException;
 
 }

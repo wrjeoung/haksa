@@ -103,18 +103,41 @@
 		        </thead>
 		        <tbody>
 		        <tr>
-		          <c:forEach var="list" items="${list}"> 
-		            <td>${list.gwamokcode}</td>
-		            <td>${list.ban}</td> 
-		            <td>${list.gwamok_nm}</td>
-		            <td>${list.isugubun}</td>
-		            <td>${list.hakjum}</td>
-		            <td>${list.levels}</td>
-		            <td>${list.bigo}  </td>
+		          <c:forEach var="list6" items="${list6}"> 
+		            <td>${list6.subjectnum}</td>
+		            <td> 1반</td> 
+		            <td>${list6.subjectname}</td>
+		            <td>${list6.course}</td>
+		            <td>${list6.credit}</td>
+		            <td>A+</td>
+		            <td>${list6.etc}  </td>
 		          </tr>
 		            </c:forEach>
 		        </tbody>
 	      </table>
+
+	      <table class="table table-bordered">
+				<thead>
+		          <tr>
+		            <th>신청학점</th>
+		            <th>이수학점</th>
+		            <th>총점</th>
+		            <th>평점</th>
+		           </tr>
+		        </thead>
+		        <tbody>
+		        <tr>
+
+		        <c:forEach var="list5" items="${list5}"> 
+		            <td>${list5.credit}</td> 
+		            <td>${list5.credit}</td>
+		            <td>${list5.credit}</td>
+		            <td>${list5.credit/totalCount}</td>
+		            </tr>
+		            </c:forEach>
+		        </tbody>
+	      </table>
+	      
 	      <div class="text-center">
 				<ul class="pagination pagination-sm">
 				<li class="disabled"><span>«</span></li>

@@ -12,4 +12,6 @@ public interface RegisterclassDao {
 	public List getCulturalClassList(String major) throws DataAccessException;
 	public void updateExtraNum(String subjectnum) throws DataAccessException;
 	public List getList(String stnumber) throws DataAccessException;
+	public List getSumList(String stnumber) throws DataAccessException;
+	
 }

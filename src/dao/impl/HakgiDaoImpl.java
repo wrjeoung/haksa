@@ -23,10 +23,19 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 		return getJdbcTemplate().queryForList(sql); 
 	}
 	
+
+	
 	@Override
 	public List getSungjuklist() throws DataAccessException {
 		RowMapper rowMapper = new HakgiRowMapper();
 		return getJdbcTemplate().query("SELECT * FROM student_sunglist",rowMapper);
+														
+	}
+	
+	@Override
+	public List getTotalList() throws DataAccessException {
+		RowMapper rowMapper = new HakgiRowMapper4();
+		return getJdbcTemplate().query("SELECT sum(hakjum) FROM student_sunglist",rowMapper);
 														
 	}
 	
@@ -103,10 +112,29 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
 			Sungjuk sungjuk = new Sungjuk();
-			sungjuk.setHakgi(rs.getString("hakgi"));
+			sungjuk.setHakgi(rs.getString("hakgi")); 
 			return sungjuk;
 		}
 		
 	}
+	
+	protected class HakgiRowMapper4 implements RowMapper{
+
+		private List hakgiList = new ArrayList();
+		
+		public List getResults(){
+			return hakgiList;
+		}
+		
+		@Override
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+			// TODO Auto-generated method stub
+			Sungjuk sungjuk = new Sungjuk();
+			sungjuk.setHakjum(rs.getString("sum(hakjum)"));
+			return sungjuk;
+		}
+		
+	}
+	
 	
 }

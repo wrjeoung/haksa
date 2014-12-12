@@ -150,7 +150,8 @@
 
        <bean id="hakgi" class="hakgi.controller.HakgiController">
        		<property name="hakgiDao" ref="hakgiDao"></property>
-       		<property name="memberDao" ref="memberDao"></property>
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property> 
        </bean>
        
        <bean id="hakgi2" class="hakgi.controller.HakgiController2">
