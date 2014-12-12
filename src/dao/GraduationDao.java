@@ -3,8 +3,8 @@ package dao;
 import java.util.List;
 import org.springframework.dao.DataAccessException;
 
-public interface FeelsuDao {
+public interface GraduationDao {
 	
-	public List getFeelsuList()throws DataAccessException;
+	public List getGraduationList()throws DataAccessException;
 	
 }

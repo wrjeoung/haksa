@@ -25,7 +25,7 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 				+ params.get("major") +"') where grade='" + params.get("grade") + "' OR grade='" + params.get("gradeJ") + "'";
 		/*
 		String sql = "SELECT * FROME registerclass where major='"
-				+ "¿µ¾îÇÐ°ú" +"' AND grade='" + "1" + "'";
+				+ "ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½" +"' AND grade='" + "1" + "'";
 		*/
 		//return getJdbcTemplate().queryForList(sql);
 		return getJdbcTemplate().query(sql,rowMapper);
@@ -69,9 +69,26 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 			
 			return registerclass;
 		}
-		
 	}
+	
+	protected class RegisterclassRowMapper2 implements RowMapper{
 
+		private List registerclassList = new ArrayList();
+		
+		public List getResults(){
+			return registerclassList;
+		}
+		
+		@Override
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+			// TODO Auto-generated method stub
+			Registerclass registerclass = new Registerclass();
+			registerclass.setCredit(rs.getInt("sum(credit)"));
+		
+			return registerclass;
+		}
+	}
+	
 	@Override
 	public void updateExtraNum(String subjectnum) throws DataAccessException {
 		// TODO Auto-generated method stub
@@ -85,4 +102,13 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		String sql = "select * from registerforcourses a , registerclass b where a.subjectnum = b.subjectnum and stnumber = '" + stnumber + "'";
 		return getJdbcTemplate().queryForList(sql);
 	}
+	
+	@Override
+	public List getSumList(String stnumber) throws DataAccessException {
+		// TODO Auto-generated method stub
+		RowMapper rowMapper = new RegisterclassRowMapper2();
+		String sql = "select sum(credit) from registerforcourses a , registerclass b where a.subjectnum = b.subjectnum and stnumber = '" + stnumber + "'";
+		return getJdbcTemplate().query(sql,rowMapper);
+	}
+	
 }

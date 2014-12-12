@@ -63,7 +63,7 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 	protected class MemberResultSetExtractor implements ResultSetExtractor {
 		@Override
 		public Object extractData(ResultSet rs) throws SQLException,	DataAccessException {
-			//SQL ï¿½ï¿½ï¿½ ï¿½ï¿½îµµ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			//SQL ï¿½ï¿½ï¿?ï¿½ï¿½îµ?1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(rs.next()) {
 				Member member = new Member();
 				member.setStudentNumber(rs.getString("stnumber"));

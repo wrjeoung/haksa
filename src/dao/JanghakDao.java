@@ -1,9 +1,7 @@
 package dao;
 
 import java.util.List;
-
 import org.springframework.dao.DataAccessException;
-
 import model.Janghak;
 
 public interface JanghakDao {

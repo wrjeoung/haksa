@@ -19,14 +19,11 @@
 	<!-- header -->
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
- 
 
 	<div class="container">
 		<div class="page-header">
 		  <h3>>학기별 성적조회</h3>
 		</div>
-		
-		
 
 		<form class="form-inline" role="form">
 			<div class="form-group" style="margin-right:15px;">
@@ -56,38 +53,37 @@
 			</div>
 
 <p></p>		
-			
-			
+
 			
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학과  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>정보통신공학과</strong></p>
+				<p class="text-info"><strong>${member.major}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학번  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>20202020202020</strong></p>
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학년  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>4</strong></p>
+				<p class="text-info"><strong>${member.grade}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>성명  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>홍길동</strong></p>
+				<p class="text-info"><strong>${member.name}</strong></p>
 			</div>
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학적상태  : </strong></p>
 			</div>
 			<div class="form-group" style="margin-right:30px;">
-				<p class="text-info"><strong>재학</strong></p>
+				<p class="text-info"><strong>${member.state}</strong></p>
 			</div>
 
 		<p></p>
@@ -107,23 +103,46 @@
 		        </thead>
 		        <tbody>
 		        <tr>
-		          <c:forEach var="list" items="${list}"> 
-		            <td>${list.gwamokcode}</td>
-		            <td>${list.ban}</td> 
-		            <td>${list.gwamok_nm}</td>
-		            <td>${list.isugubun}</td>
-		            <td>${list.hakjum}</td>
-		            <td>${list.levels}</td>
-		            <td>${list.bigo}  </td>
+		          <c:forEach var="list6" items="${list6}"> 
+		            <td>${list6.subjectnum}</td>
+		            <td> 1반</td> 
+		            <td>${list6.subjectname}</td>
+		            <td>${list6.course}</td>
+		            <td>${list6.credit}</td>
+		            <td>A+</td>
+		            <td>${list6.etc}  </td>
 		          </tr>
 		            </c:forEach>
 		        </tbody>
 	      </table>
+
+	      <table class="table table-bordered">
+				<thead>
+		          <tr>
+		            <th>신청학점</th>
+		            <th>이수학점</th>
+		            <th>총점</th>
+		            <th>평점</th>
+		           </tr>
+		        </thead>
+		        <tbody>
+		        <tr>
+
+		        <c:forEach var="list5" items="${list5}"> 
+		            <td>${list5.credit}</td> 
+		            <td>${list5.credit}</td>
+		            <td>${list5.credit}</td>
+		            <td>${list5.credit/totalCount}</td>
+		            </tr>
+		            </c:forEach>
+		        </tbody>
+	      </table>
+	      
 	      <div class="text-center">
 				<ul class="pagination pagination-sm">
 				<li class="disabled"><span>«</span></li>
 				<li class="active">
-					<a href="#">1</a>
+					<a href="#">1</a> 
 				</li>
 				<li>
 					<a href="#">2</a>
