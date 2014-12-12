@@ -207,12 +207,8 @@
        		<property name="multijungongDao" ref="multijungongDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
-<<<<<<< .mine
-       <!-- 관리자휴학관리 -->
-=======
 
->>>>>>> .theirs
-   <!-- 졸업사정조회 -->
+  		<!-- 졸업사정조회 -->
 	   <bean id="graduationDao" class="dao.impl.GraduationDaoImple">
 	   		<property name="dataSource" ref="dataSource"></property>
 	   </bean>
@@ -227,6 +223,7 @@
 	   <bean id="gyogwa" class="gyogwa.controller.GyogwaController">
        		<property name="gyogwaDao" ref="gyogwaDao"></property>
        </bean>
+       
 		<!-- 관리자휴학관리 -->
        <bean id="adminHuhakDao" class="dao.impl.AdminHuhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
@@ -276,75 +273,7 @@
 	   <bean id="adminjanghak" class="admin.controller.AdminJanghakController">
        		<property name="adminJanghakDao" ref="adminJanghakDao"></property>
        </bean>
-       <<<<<<< .mine
-       </bean>
-	   <bean id="adminjunkwa" class="admin.controller.AdminJunkwaController">
-       		<property name="adminJunkwaDao" ref="adminJunkwaDao"></property>
-       </bean>
-       <!-- 관리자자퇴관리 -->
-       <bean id="adminLeaveDao" class="dao.impl.AdminLeaveDaoImple">
-       		<property name="dataSource" ref="dataSource"></property>
-       </bean>
-	   <bean id="adminleave" class="admin.controller.AdminLeaveController">
-       		<property name="adminLeaveDao" ref="adminLeaveDao"></property>
-       </bean>
-       <!-- 관리자주전공관리 -->
-       <bean id="adminJujungongDao" class="dao.impl.AdminJujungongDaoImple">
-       		<property name="dataSource" ref="dataSource"></property>
-       </bean>
-	   <bean id="adminjujungong" class="admin.controller.AdminJujungongController">
-       		<property name="adminJujungongDao" ref="adminJujungongDao"></property>
-       </bean>
-       <!-- 관리자전공관리 -->
-       <bean id="adminMultijungongDao" class="dao.impl.AdminMultijungongDaoImple">
-       		<property name="dataSource" ref="dataSource"></property>
-       </bean>
-	   <bean id="adminmultijungong" class="admin.controller.AdminMultijungongController">
-       		<property name="adminMultijungongDao" ref="adminMultijungongDao"></property>
-       </bean>
-       <!-- 관리자장학관리 -->
-       <bean id="adminJanghakDao" class="dao.impl.AdminJanghakDaoImple">
-       		<property name="dataSource" ref="dataSource"></property>
-       </bean>
-	   <bean id="adminjanghak" class="admin.controller.AdminJanghakController">
-       		<property name="adminJanghakDao" ref="adminJanghakDao"></property>
-       </bean>
-       
-=======
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />
           <property name="defaultEncoding" value="euc-kr"/>
