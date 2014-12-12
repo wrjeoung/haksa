@@ -208,7 +208,7 @@
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
 
-   <!-- 졸업사정조회 -->
+	   <!-- 졸업사정조회 -->
 	   <bean id="graduationDao" class="dao.impl.GraduationDaoImple">
 	   		<property name="dataSource" ref="dataSource"></property>
 	   </bean>
@@ -223,6 +223,16 @@
 	   <bean id="gyogwa" class="gyogwa.controller.GyogwaController">
        		<property name="gyogwaDao" ref="gyogwaDao"></property>
        </bean>
+
+		<!-- 등록금납입내역조회 -->
+	   <bean id="tuitionDao" class="dao.impl.TuitionDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+	   <bean id="tuitionwrite" class="tuition.controller.TuitionWriteController">
+       		<property name="tuitionDao" ref="tuitionDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
+
 
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />

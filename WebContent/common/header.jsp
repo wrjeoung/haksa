@@ -121,6 +121,7 @@
 		                	<li><a href="#">전공신청/포기</a></li>
 		                	<li><a href="#">교내장학금신청</a></li>
 		                	<li><a href="#">학점포기신청</a></li>
+		                	<li><a href="tuitionwrite.do">등록금내역 추가</a></li>
 		                	
 		                	<li class="dropdown-header">공지사항</li>
 		            		<li><a href="#">공지사항</a></li>
