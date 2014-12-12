@@ -8,5 +8,6 @@ import model.Bokhak;
 
 public interface BokhakDao {
 	void insertBokhak(Bokhak bokhak)throws DataAccessException;
-	public List getBokhakList()throws DataAccessException;
+	public List getBokhakList(String studentNumber)throws DataAccessException;
+	public void deleteBokhak(String value)throws DataAccessException;
 }

@@ -84,8 +84,8 @@
 		                <li><a href="insertLeaveForm.do">자퇴신청</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">전공관리</li>
-		                <li><a href="#">주전공배정신청</a></li>
-		                <li><a href="#">전공신청/포기</a></li>
+		                <li><a href="insertJujungongForm.do">주전공배정신청</a></li>
+		                <li><a href="insertmultijungongForm.do">전공신청/포기</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">등록장학</li>
 		                <li><a href="insertJanghakForm.do">교내장학금신청</a></li>
@@ -106,6 +106,28 @@
 		            </li>
 		            <li><a href="registerCancle.do">수강과목철회</a></li>
 		            <li><a href="noticeList.do">공지사항</a></li>
+		            
+		            <c:if test="${memId!=null }">
+					<c:set var="admin" value="admin"/>
+					<c:if test="${memId==admin }">
+		            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">관리자<b class="caret"></b></a>
+		            	<ul class="dropdown-menu">
+		            		<li class="dropdown-header">신청</li>
+		            		<li><a href="#">휴학신청</a></li>
+		                	<li><a href="#">복학신청</a></li>
+		                	<li><a href="#">전과신청</a></li>
+		                	<li><a href="#">자퇴신청</a></li>
+		                	<li><a href="#">주전공배정신청</a></li>
+		                	<li><a href="#">전공신청/포기</a></li>
+		                	<li><a href="#">교내장학금신청</a></li>
+		                	<li><a href="#">학점포기신청</a></li>
+		                	
+		                	<li class="dropdown-header">공지사항</li>
+		            		<li><a href="#">공지사항</a></li>
+		            	</ul>
+		            </c:if>
+		            </c:if>
+		            
 		          </ul>
 	          </c:if>
 	          
@@ -121,6 +143,7 @@
 	            <c:choose>
 	            	<c:when test="${memId == null }">
 	            		<button type="submit" class="btn btn-success">Sign in</button>
+	            		<a href="findIdPwForm.do">아이디/패스워드 찾기</a>
 	            	</c:when>
 	            	<c:otherwise>
 	            		<button type="submit" class="btn btn-success">Sign out</button>

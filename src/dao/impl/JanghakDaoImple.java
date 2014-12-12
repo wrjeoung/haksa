@@ -28,12 +28,12 @@ public class JanghakDaoImple extends JdbcDaoSupport implements JanghakDao{
 	@Override
 	public void insertJanghak(Janghak janghak) throws DataAccessException {
 		// TODO Auto-generated method stub
-		this.insertJanghak.update(new Object[]{janghak.getJanghakbank(),janghak.getJanghakbanknum(),janghak.getJanghakname(),janghak.getJanghakmenu(),janghak.getJanghakmy(),janghak.getJanghak_reg_date()});
+		this.insertJanghak.update(new Object[]{janghak.getJanghakbank(),janghak.getJanghakbanknum(),janghak.getJanghakname(),janghak.getJanghakmenu(),janghak.getJanghakmy(),janghak.getJanghak_reg_date(),janghak.getName()});
 	}
 	@Override
-	public List getJanghakList() throws DataAccessException {
+	public List getJanghakList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from janghak order by janghak_reg_date desc";
+		String sql="select * from janghak where name='"+studentNumber+"'";
 		RowMapper rowMapper=new JanghakRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 		
@@ -58,6 +58,7 @@ public class JanghakDaoImple extends JdbcDaoSupport implements JanghakDao{
 			janghak.setJanghakmy(rs.getString("janghakmy"));
 			janghak.setJanghakchuri(rs.getString("janghakchuri"));
 			janghak.setJanghak_reg_date(rs.getTimestamp("janghak_reg_date"));
+			janghak.setName(rs.getString("name"));
 			return janghak;
 		}
 		
@@ -103,5 +104,11 @@ public class JanghakDaoImple extends JdbcDaoSupport implements JanghakDao{
 				return null;
 			}
 		}
+	}
+	@Override
+	public void deleteJanghak(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM janghak where num="+value;
+		getJdbcTemplate().update(sql);
 	}
 }

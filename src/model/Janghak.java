@@ -11,6 +11,14 @@ public class Janghak {
 	private String janghakmy;
 	private String janghakchuri;
 	private Date janghak_reg_date;
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getNum() {
 		return num;
 	}

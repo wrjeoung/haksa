@@ -25,12 +25,12 @@ public class BokhakDaoImple extends JdbcDaoSupport implements BokhakDao{
 	public void insertBokhak(Bokhak bokhak) throws DataAccessException {
 		// TODO Auto-generated method stub
 		this.insertBokhak.update(new Object[]{bokhak.getBokhakgi(),bokhak.getBokgubun(),bokhak.getBokyear(),
-				bokhak.getBokyehakgi(),bokhak.getBoksayu(),bokhak.getBokhak_reg_date()});
+				bokhak.getBokyehakgi(),bokhak.getBoksayu(),bokhak.getBokhak_reg_date(),bokhak.getName()});
 	}
 	@Override
-	public List getBokhakList() throws DataAccessException {
+	public List getBokhakList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from bokhak order by bokhak_reg_date desc";
+		String sql="select * from bokhak where name='"+studentNumber+"'";
 		RowMapper rowMapper=new BokhakRowMapper();
 		
 		return getJdbcTemplate().query(sql, rowMapper);
@@ -55,8 +55,15 @@ public class BokhakDaoImple extends JdbcDaoSupport implements BokhakDao{
 			bokhak.setBoksayu(rs.getString("boksayu"));
 			bokhak.setBokhak_reg_date(rs.getTimestamp("bokhak_reg_date"));
 			bokhak.setBokchuri(rs.getString("bokchuri"));
+			bokhak.setName(rs.getString("name"));
 			return bokhak;
 		}
+	}
+	@Override
+	public void deleteBokhak(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="DELETE FROM bokhak where num="+value;
+		getJdbcTemplate().update(sql);
 	}
 	
 }

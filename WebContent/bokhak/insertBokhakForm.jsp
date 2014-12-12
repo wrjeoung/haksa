@@ -11,6 +11,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
+<script type="text/javascript">
+	function chk_del(){
+		chk.action="bokhakDelete.do";
+		chk.submit();
+	}
+</script>
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
@@ -19,6 +25,7 @@
 	</div>
 <p></p>
 <p class="text-success"><strong>[복학신청 List]</strong></p>
+<form name="chk">
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -30,6 +37,7 @@
 			<th class="text-center">복학<br/>예정학기</th>
 			<th class="text-center">처리<br/>구분</th>
 			<th class="text-center">반려사유</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -45,10 +53,12 @@
 							<td>${vo.bokyehakgi }</td>
 							<td>${vo.bokchuri }</td>
 							<td>${vo.boksayu }</td>
+							<td><input type="checkbox" name="rnum" value="${vo.num }">?=${vo.num }</td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
+</form>
 </div>
 <form action="insertBokhakPro.do" method="post" enctype="multipart/form-data" onsubmit="" name="test">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
@@ -74,7 +84,11 @@
 			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="boksayu" size="115"></td>
 		</tr>
 	</table>
-	<input style="margin-left: 700px" type="submit" value="신청">
+	<div align="center">
+	<button type="button" onclick="chk_del()">삭제</button>
+	<input type="hidden" name="name" value="${member.studentNumber }">
+	<input type="submit" value="신청">
+	</div>
 </form>
 </body>
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->

@@ -27,13 +27,13 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 	public void insertHuhak(Huhak huhak) throws DataAccessException {
 		// TODO Auto-generated method stub
 		this.insertHuhak.update(new Object[]{huhak.getHugubun(),huhak.getHusegubun(),huhak.getHubokyear(),huhak.getHubokhak(),
-			huhak.getHugrade(),huhak.getHunumber(),huhak.getHusayu(),huhak.getHuhak_reg_date()});
+			huhak.getHugrade(),huhak.getHunumber(),huhak.getHusayu(),huhak.getHuhak_reg_date(),huhak.getName()});
 	}
 
 	@Override
-	public List getHuhakList() throws DataAccessException {
+	public List getHuhakList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from huhak order by huhak_reg_date desc";
+		String sql="select * from huhak where name='"+studentNumber+"'";
 		RowMapper rowMapper=new HuhakRowMapper();
 		return getJdbcTemplate().query(sql,rowMapper);
 	}
@@ -59,7 +59,17 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 			huhak.setHusayu(rs.getString("husayu"));
 			huhak.setHuchuri(rs.getString("huchuri"));
 			huhak.setHuhak_reg_date(rs.getTimestamp("huhak_reg_date"));
+			huhak.setName(rs.getString("name"));
 			return huhak;
 		}
+	}
+	@Override
+	public void deleteHuhak(String value) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("되?");
+		//System.out.println(rnum);
+		String sql="DELETE FROM huhak where num="+value;
+		System.out.println("되?2");
+		getJdbcTemplate().update(sql);
 	}
 }

@@ -26,6 +26,12 @@ String formatDate2=dateFormat2.format(nowDate);
     <meta name="description" content="">
     <meta name="author" content="">
 </head>
+<script>
+	function chk_del(){
+		chk.action="leaveDelete.do";
+		chk.submit();
+	}
+</script>
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
@@ -35,6 +41,7 @@ String formatDate2=dateFormat2.format(nowDate);
 
 <p></p>
 <p class="text-success"><strong>[자퇴신청 List]</strong></p>
+<form name="chk">
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -46,6 +53,7 @@ String formatDate2=dateFormat2.format(nowDate);
 			<th>제적사유</th>
 			<th>신청일자</th>
 			<th>처리구분</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -59,11 +67,13 @@ String formatDate2=dateFormat2.format(nowDate);
 				<td>${list.leavesayu } / ${list.leavesayu2 }</td>
 				<td>${list.leaveday }</td>
 				<td>${list.leavechuri }</td>
+				<td><input type="checkbox" name="rnum" value="${list.num }"></td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
-
+</form>
+</div>
 <form action="insertLeavePro.do" method="post" enctype="multipart/form-data" onSubmit="" name="">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
 		<tr align="center">
@@ -88,7 +98,11 @@ String formatDate2=dateFormat2.format(nowDate);
 			<td width="520" align="left">&nbsp;<input type="text" name="leaveday" value="<%=formatDate %>" size="20"></td>
 		</tr>
 	</table>
-	<input style="margin-left: 700px" type="submit" value="신청">
+	<div align="center">
+	<button type="button" onclick="chk_del()">삭제</button>
+	<input type="hidden" value="${member.studentNumber }" name="name"/>
+	<input type="submit" value="신청">
+	</div>
 </form>
 <!-- /.container -->
 

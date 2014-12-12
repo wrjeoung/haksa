@@ -110,6 +110,7 @@
        </bean>
 	   <bean id="huhak" class="huhak.controller.InsertHuhakController">
        		<property name="huhakDao" ref="huhakDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
 	   <bean id="bokhakDao" class="dao.impl.BokhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
@@ -117,6 +118,7 @@
 
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 		
 	   <bean id="junkwaDao" class="dao.impl.JunkwaDaoImple">
@@ -124,6 +126,7 @@
 	   </bean>
 	   <bean id="junkwa" class="junkwa.controller.InsertJunkwaController">
 	   		<property name="junkwaDao" ref="junkwaDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 
 		<!-- 자퇴 -->
@@ -132,6 +135,7 @@
        </bean>
        <bean id="leave" class="leave.controller.InsertLeaveController">
        		<property name="leaveDao" ref="leaveDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
        
@@ -140,6 +144,10 @@
        </bean>
 
        <bean id="pwmodify" class="studentinfo.controller.PwModifyController">
+        <property name="memberDao" ref="memberDao"></property>
+		</bean>
+				
+		<bean id="findidpw" class="findidpw.controller.FindIdPwController">
         <property name="memberDao" ref="memberDao"></property>
 		</bean>
        
@@ -173,12 +181,34 @@
 	   </bean>
 	   <bean id="janghak" class="janghak.controller.InsertJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 	   <bean id="janghakView" class="janghak.controller.ViewJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
 	   </bean>
+	   <!-- 주전공신청 -->
+	   <bean id="jujungongDao" class="dao.impl.JujungongDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="jujungong2Dao" class="dao.impl.Jujungong2DaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="jujungong" class="jujungong.controller.InsertJujungongController">
+       		<property name="jujungongDao" ref="jujungongDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       		<property name="jujungong2Dao" ref="jujungong2Dao"></property>
+       </bean>
+	   
+	   <!-- 다중전공 -->
+	   <bean id="multijungongDao" class="dao.impl.MultijungongDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+       </bean>
+       <bean id="multijungong" class="multijungong.controller.InsertMultijungongController">
+       		<property name="multijungongDao" ref="multijungongDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
 
-	   <!-- 졸업사정조회 -->
+   <!-- 졸업사정조회 -->
 	   <bean id="graduationDao" class="dao.impl.GraduationDaoImple">
 	   		<property name="dataSource" ref="dataSource"></property>
 	   </bean>

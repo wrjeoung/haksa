@@ -20,7 +20,17 @@
 			document.test.hugrade.value="성적불인정";
 		}
 	}
-
+	function chk_del(){
+		chk.action = "huhakDelete.do";
+		chk.submit();
+	}
+	/* function hugr_check2(){
+		if(document.test2.rnum.checked==true){
+			document.test2.rnum2.value="1";
+		}else{
+			document.test2.rnum2.value="0";
+		}
+	} */
 </script>
 <body>
 <%@ include file="/common/header.jsp"%>
@@ -31,17 +41,20 @@
 
 <p></p>
 <p class="text-success"><strong>[휴학신청 List]</strong></p>
+<form name="chk">
 <table class="table table-bordered">
 	<thead>
 		<tr>
 			<th class="text-center">신청년도</th>
 			<th class="text-center">신청학기</th>
 			<th class="text-center">휴학구분</th>
+			<th class="text-center">성적</br/>인정구분</th>
 			<th class="text-center">신청일자</th>
 			<th class="text-center">복학<br/>예정년도</th>
 			<th class="text-center">복학<br/>예정학기</th>
 			<th class="text-center">처리<br/>구분</th>
 			<th class="text-center">세부사정</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -51,6 +64,7 @@
 								</td>
 								<td>${vo.hubokhak }</td>
 								<td>${vo.hugubun }</td>
+								<td>${vo.hugrade }</td>
 								<td>
 								<fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
 								</td>
@@ -58,10 +72,14 @@
 								<td>${vo.hubokhak }</td>
 								<td>${vo.huchuri }</td>
 								<td>${vo.husegubun }</td>
-			</tr>
+								<td><input type="checkbox" name="rnum" value="${vo.num}"></td>
+			</tr>				
+			<!-- <input type="text" name="rnum2" value="0"> -->
 		</c:forEach>
 	</tbody>
+	
 </table>
+</form>
 </div>
 <!-- 신청하기 -->
 <form action="insertHuhakPro.do" method="post" enctype="multipart/form-data" onSubmit="" name="test">
@@ -86,8 +104,15 @@
 			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="husayu" size="115"></td>
 		</tr>
 	</table>
-	<input style="margin-left: 700px" type="submit" value="신청">
-	<input type="text" value="성적불인정" name="hugrade">
+	<%-- <c:url var="deleteURL" value="huhakDelete.do">
+		<c:param name="rnum" value="${num }"></c:param>
+	</c:url> --%>
+	<div align="center">
+		<button type="button" onclick="chk_del()">삭제</button>
+	<input type="hidden" value="${member.studentNumber }" name="name"/>
+	<input type="submit" value="신청">
+	<input type="hidden" value="성적불인정" name="hugrade">
+	</div>
 </form>
 </body>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
