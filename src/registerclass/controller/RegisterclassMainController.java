@@ -35,7 +35,7 @@ public class RegisterclassMainController {
 		
 		Member member;
 		member = memberDao.selectMember((String)session.getAttribute("memId"));
-		
+		 
 		params.put("major", member.getMajor());
 		params.put("grade", member.getGrade());
 		params.put("gradeJ", gradej);
@@ -45,7 +45,7 @@ public class RegisterclassMainController {
 		
 		if(request.getParameter("currentPage") == null){
 			currentPage = 1;
-		}else{
+		}else{ 
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		}
 		page = new pagingAction(currentPage, totalCount, blockCount, blockPage, "registerclass");

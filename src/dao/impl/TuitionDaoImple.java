@@ -49,7 +49,7 @@ public class TuitionDaoImple extends JdbcDaoSupport implements TuitionDao{
 			tuition.setPay_lesson(rs.getInt("pay_lesson"));
 			tuition.setPay_dues(rs.getInt("pay_dues"));
 			tuition.setTuition_tot(rs.getInt("tuition_tot"));
-			tuition.setTuition_yn(rs.getString("tuition_yn"));
+			tuition.setTuition_yn(rs.getString("tuition_yn")); 
 			tuition.setTuition_il(rs.getString("tuition_il"));
 			tuition.setStnumber(rs.getString("stnumber"));
 			return tuition;
@@ -60,12 +60,12 @@ public class TuitionDaoImple extends JdbcDaoSupport implements TuitionDao{
 
 	@Override
 	public void insertTuition(Tuition tuition) throws DataAccessException {
-		// TODO Auto-generated method stub
-		String sql = "INSERT INTO student_tuition(year,semester,tition_admission,tition_lesson,tition_dues,pay_admission,pay_lession,pay_dues,tuition_tot,tuition_yn,tuition_il,stnumber,) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		// TODO Auto-generated method stub 
+		String sql = "INSERT INTO student_tuition(year,semester,tition_admission,tition_lesson,tition_dues,reduction_admission,reduction_lesson,reduction_dues,pay_admission,pay_lesson,pay_dues,tuition_tot,tuition_yn,tuition_il,stnumber) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		getJdbcTemplate().update(sql, new Object[]{tuition.getYear(),tuition.getSemester(),tuition.getTition_admission(),tuition.getTition_lesson(),tuition.getTition_dues(),
-				tuition.getReduction_admission(),tuition.getReduction_lesson(),tuition.getReduction_dues(),
-				tuition.getPay_admission(),tuition.getPay_lesson(),tuition.getPay_dues(),tuition.getTuition_tot(),
-				tuition.getTuition_yn(),tuition.getTuition_il(),tuition.getStnumber()
+		tuition.getReduction_admission(),tuition.getReduction_lesson(),tuition.getReduction_dues(),
+		tuition.getPay_admission(),tuition.getPay_lesson(),tuition.getPay_dues(),tuition.getTuition_tot(),
+		tuition.getTuition_yn(),tuition.getTuition_il(),tuition.getStnumber()
 		});
 	}
 	
