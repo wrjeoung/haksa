@@ -24,7 +24,45 @@
 	<div class="page-header">
 		<h3>>장학금신청</h3>
 	</div>
-
+<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학과  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.major}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학번  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학년  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.grade}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>성명  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.name}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학적상태  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.state}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>신청가능학점  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>19 학점</strong></p>
+			</div>
+</form>
 <p></p>
 <p class="text-success"><strong>[장학금신청 List]</strong></p>
 <form name="chk">
@@ -52,7 +90,16 @@
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakmenu }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${list.janghak_reg_date }" pattern="yyyy-MM-dd HH:mm"/></td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakchuri }</td>
-				<td><input type="checkbox" name="rnum" value="${list.num }"></td>
+				<%-- <td><input type="checkbox" name="rnum" value="${list.num }"></td> --%>
+				
+
+				<c:if test="${list.janghakchuri=='신청' }">
+				<td><input type="checkbox" name="rnum" value="${list.num}"></td>
+				</c:if>
+				<c:if test="${list.janghakchuri=='신청완료' }">
+				<td></td>
+				</c:if>
+				
 			</tr>
 		
 		</c:forEach>
@@ -78,7 +125,7 @@
 			<td width="80" bgcolor="#BDBDBD">계좌번호</td>
 			<td width="80" align="left">&nbsp;<input type="text" name="janghakbanknum" size="40"></td>
 			<td width="80" bgcolor="#BDBDBD">예금주</td>
-			<td width="80" align="left">&nbsp;<input type="text" name="janghakname" size="20"></td>
+			<td width="80" align="left">&nbsp;<input type="text" name="janghakname" size="20" value="${member.name}"/></td>
 		</tr>
 	</table>
 	<br/>

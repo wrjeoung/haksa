@@ -1,49 +1,43 @@
-package janghak.controller;
+package multijungong.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import model.Janghak;
 import model.Member;
+import model.Multijungong;
 
-import org.apache.catalina.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import dao.JanghakDao;
 import dao.MemberDao;
+import dao.MultijungongDao;
 
 @Controller
-public class ViewJanghakController {
-	private JanghakDao janghakDao;
-	//세션
+public class ViewMultijungongController {
+	private MultijungongDao multijungongDao;
 	private MemberDao memberDao;
-	@RequestMapping("janghakView.do")
+	
+	@RequestMapping("multijungongView.do")
 	public String View(HttpServletRequest request,HttpSession session){
 		int num=Integer.parseInt(request.getParameter("num"));
 		Member member;
 		member=memberDao.selectMember((String)session.getAttribute("memId"));
-		
-		Janghak janghak=janghakDao.getJanghak(num);
-		request.setAttribute("janghak", janghak);
+		Multijungong multijungong=multijungongDao.getMultijungong(num);
+		request.setAttribute("multijungong", multijungong);
 		request.setAttribute("member", member);
-		return "/janghak/JanghakView.jsp";
+		return "/multijungong/viewMultijungongForm.jsp";
 	}
 	
-	public JanghakDao getJanghakDao() {
-		return janghakDao;
+	public MultijungongDao getMultijungongDao() {
+		return multijungongDao;
 	}
-
-	public void setJanghakDao(JanghakDao janghakDao) {
-		this.janghakDao = janghakDao;
+	public void setMultijungongDao(MultijungongDao multijungongDao) {
+		this.multijungongDao = multijungongDao;
 	}
-
 	public MemberDao getMemberDao() {
 		return memberDao;
 	}
-
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
-	
 }

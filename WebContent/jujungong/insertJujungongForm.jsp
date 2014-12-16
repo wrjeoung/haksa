@@ -37,6 +37,45 @@ String formatDate2=dateFormat2.format(nowDate);
 	<div class="page-header">
 		<h3>>주전공신청</h3>
 	</div>
+<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학과  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.major}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학번  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학년  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.grade}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>성명  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.name}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학적상태  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.state}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>신청가능학점  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>19 학점</strong></p>
+			</div>
+</form>
 <p></p>
 <p class="text-success"><strong>[주전공신청]</strong></p>
 <form name="chk">
@@ -67,7 +106,15 @@ String formatDate2=dateFormat2.format(nowDate);
 				<td>${vo.jujungong4 }</td>
 				<td>${vo.jujungongchuri }</td>
 				<td>${vo.jujungonggyul }</td>
-				<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
+				<%-- <td><input type="checkbox" name="rnum" value="${vo.num }"></td> --%>
+				
+				<c:if test="${vo.jujungongchuri=='신청' }">
+				<td><input type="checkbox" name="rnum" value="${vo.num}"></td>
+				</c:if>
+				<c:if test="${vo.jujungongchuri=='신청완료' }">
+				<td></td>
+				</c:if>
+			
 			</tr>
 		</c:forEach>
 	</tbody>

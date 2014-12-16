@@ -38,7 +38,45 @@ String formatDate2=dateFormat2.format(nowDate);
 	<div class="page-header">
 		<h3>>전공신청</h3>
 	</div>
-	
+<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학과  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.major}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학번  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학년  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.grade}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>성명  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.name}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학적상태  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.state}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>신청가능학점  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>19 학점</strong></p>
+			</div>
+</form>
 <p></p>
 <p class="text-success"><strong>[전공신청]</strong></p>
 <form name="chk">
@@ -57,15 +95,25 @@ String formatDate2=dateFormat2.format(nowDate);
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+			<c:url var="viewURL" value="multijungongView.do">
+				<c:param name="num" value="${vo.num }"/>
+			</c:url>
 			<tr>
-				<td>${vo.multigubun } / ${vo.multigubun2 }</td>
-				<td>${vo.multiyear1 } / ${vo.multiyear2 } / ${vo.multiyear3 }</td>
-				<td>${vo.multijungong }</td>
-				<td>${vo.multiday }</td>
-				<td>${vo.multichuri }</td>
-				<td>${vo.multigyul }</td>
-				<td>${vo.multisayu }</td>
-				<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multigubun } / ${vo.multigubun2 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multiyear1 } / ${vo.multiyear2 } / ${vo.multiyear3 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multijungong }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multiday }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multichuri }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multigyul }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multisayu }</td>
+				<%-- <td><input type="checkbox" name="rnum" value="${vo.num }"></td> --%>
+				
+				<c:if test="${vo.multichuri=='신청' }">
+				<td><input type="checkbox" name="rnum" value="${vo.num}"></td>
+				</c:if>
+				<c:if test="${vo.multichuri=='신청완료' }">
+				<td></td>
+				</c:if>
 			</tr>
 		</c:forEach>
 	</tbody>

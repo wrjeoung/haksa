@@ -52,16 +52,19 @@
 		</thead>
 		<tbody>
 			<c:forEach var="list" items="${list }">
+			<c:url var="viewURL" value="adminleaveView.do">
+				<c:param name="num" value="${list.num }"/>
+			</c:url>
 			<tr>
-				<td>${list.leavegubun }</td>
-				<td>${list.leavehak }</td>
-				<td>${list.leavehak2 }</td>
-				<td>${list.leavehak3 }</td>
-				<td>${list.leavegyul }</td>
-				<td>${list.leavesayu } / ${list.leavesayu2 }</td>
-				<td>${list.leaveday }</td>
-				<td>${list.leavechuri }</td>
-				<td>${list.name }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavegubun }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavehak }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavehak2 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavehak3 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavegyul }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavesayu } / ${list.leavesayu2 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leaveday }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavechuri }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.name }</td>
 				<td><input type="checkbox" name="rnum" value="${list.num }"></td>
 			</tr>
 		</c:forEach>

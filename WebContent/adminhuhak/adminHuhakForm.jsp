@@ -53,21 +53,24 @@
 		</thead>
 		<tbody>
 			<c:forEach var="vo" items="${list }">
+			<c:url var="viewURL" value="adminhuhakView.do">
+				<c:param name="num" value="${vo.num }"/>
+			</c:url>
 				<tr>
-					<td><fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy"/>
+					<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy"/>
 								</td>
-								<td>${vo.hubokhak }</td>
-								<td>${vo.hugubun }</td>
-								<td>${vo.hugrade }</td>
-								<td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokhak }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hugubun }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hugrade }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>
 								<fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
 								</td>
-								<td>${vo.hubokyear }</td>
-								<td>${vo.hubokhak }</td>
-								<td>${vo.huchuri }</td>
-								<td>${vo.husegubun }</td>
-								<td>${vo.name }</td>
-								<td><input type="checkbox" name="rnum" value="${vo.num }">${vo.num }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokyear }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokhak }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.huchuri }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.husegubun }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.name }</td>
+								<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
 				</tr>
 			</c:forEach>
 		</tbody>

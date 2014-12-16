@@ -11,4 +11,6 @@ public interface HuhakDao {
 	void insertHuhak(Huhak huhak)throws DataAccessException;
 	public List getHuhakList(String studentNumber)throws DataAccessException;
 	public void deleteHuhak(String value)throws DataAccessException;
+	//상세보기
+	public Huhak getHuhak(int num)throws DataAccessException;
 }

@@ -51,15 +51,18 @@
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+			<c:url var="viewURL" value="adminmultijungongView.do">
+				<c:param name="num" value="${vo.num }"/>
+			</c:url>
 			<tr>
-				<td>${vo.multigubun } / ${vo.multigubun2 }</td>
-				<td>${vo.multiyear1 } / ${vo.multiyear2 } / ${vo.multiyear3 }</td>
-				<td>${vo.multijungong }</td>
-				<td>${vo.multiday }</td>
-				<td>${vo.multichuri }</td>
-				<td>${vo.multigyul }</td>
-				<td>${vo.multisayu }</td>
-				<td>${vo.name }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multigubun } / ${vo.multigubun2 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multiyear1 } / ${vo.multiyear2 } / ${vo.multiyear3 }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multijungong }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multiday }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multichuri }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multigyul }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multisayu }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.name }</td>
 				<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
 			</tr>
 		</c:forEach>
