@@ -8,7 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import model.Bokhak;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
+
+import org.springframework.web.servlet.ModelAndView;
 
 import dao.AdminBokhakDao;
 
@@ -53,6 +58,25 @@ public class AdminBokhakController {
 		}
 		return "redirect:/adminbokhakList.do";
 	}
+	//수정
+	@RequestMapping("adminbokhakinfomodify.do")
+	public String infoModify(HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Bokhak bokhak;
+		bokhak=adminBokhakDao.getAdminBokhak(num);
+		request.setAttribute("bokhak", bokhak);
+		return "/adminbokhak/adminBokhakModify.jsp";
+	}
+	@RequestMapping("adminbokhakinfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Bokhak bokhak,HttpServletRequest request){
+		bokhak.setBokhak_reg_date(today.getTime());
+		adminBokhakDao.changeAdminBokhak(bokhak);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("bokhak",bokhak);
+		mv.setViewName("redirect:/adminbokhakList.do");
+		return mv;
+	}
+	
 	public AdminBokhakDao getAdminBokhakDao() {
 		return adminBokhakDao;
 	}

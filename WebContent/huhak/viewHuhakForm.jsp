@@ -60,7 +60,6 @@
 	</form>
 			<form class="form-inline" role="form">
 				<table class="table table-bordered" style="font: normal 15px/150% Arial,Helvetica, sans-serif;">
-					
 					<thead class="text-center">
 						<tr>
 							<td scope="row" bgcolor="#F4F4F4">휴학구분</td>
@@ -86,7 +85,9 @@
 							</td>
 						</tr>
 					</tbody>
-				</table>	
+				</table>
+				<button type="button" class="btn btn-primary" onclick="javascript:location.href='huhakinfomodify.do?num=${huhak.num }'";>수정</button>
+				
 			</form>
 	</div>
 </div>

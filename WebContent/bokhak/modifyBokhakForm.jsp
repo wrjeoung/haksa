@@ -64,52 +64,10 @@
 </form>
 <p></p>
 <p class="text-success"><strong>[복학신청 List]</strong></p>
-<form name="chk">
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th class="text-center">신청년도</th>
-			<th class="text-center">신청학기</th>
-			<th class="text-center">변동구분</th>
-			<th class="text-center">신청일자</th>
-			<th class="text-center">복학<br/>예정년도</th>
-			<th class="text-center">복학<br/>예정학기</th>
-			<th class="text-center">처리<br/>구분</th>
-			<th class="text-center">반려사유</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach var="vo" items="${list }">
-			<c:url var="viewURL" value="bokhakView.do">
-				<c:param name="num" value="${vo.num }"/>
-			</c:url>
-			<tr>
-			<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy"/>
-							</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokhakgi }</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokgubun }</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
-							</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokyear }</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokyehakgi }</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokchuri }</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.boksayu }</td>
-							
-							<c:if test="${vo.bokchuri=='신청' }">
-							<td><input type="checkbox" name="rnum" value="${vo.num}"></td>
-							</c:if>
-							<c:if test="${vo.bokchuri=='신청완료' }">
-							<td></td>
-							</c:if>
-							
-			</tr>
-		</c:forEach>
-	</tbody>
-</table>
-</form>
+
 </div>
-<form action="insertBokhakPro.do" method="post" enctype="multipart/form-data" onsubmit="" name="test">
+<form action="bokhakinfoPro.do" method="post" enctype="multipart/form-data" onsubmit="" name="test">
+	<input type="hidden" name="num" value="${bokhak.num }"/>
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
 		<tr align="center">
 			<td width="280" bgcolor="#BDBDBD">신청학기</td>
@@ -123,20 +81,20 @@
 		</tr>
 		<tr align="center">
 			<td width="280" bgcolor="#BDBDBD">복학<br/>예정년도</td>
-			<td width="520" align="left">&nbsp;<input type="text" name="bokyear" size="20"></td>
+			<td width="520" align="left">&nbsp;<input type="text" name="bokyear" size="20" value="${bokhak.bokyear }"></td>
 			<td width="280" bgcolor="#BDBDBD">복학<br/>예정학기</td>
 			<td width="520" align="left">&nbsp;<select name="bokyehakgi"><option>1학기</option><option>2학기</option></select>
 			</td>
 		</tr>
 		<tr align="center">
 			<td width="280" bgcolor="#BDBDBD">반려사유</td>
-			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="boksayu" size="115"></td>
+			<td width="520" align="left" colspan="4">&nbsp;<input type="text" name="boksayu" size="115" value="${bokhak.boksayu }"></td>
 		</tr>
 	</table>
 	<div align="center">
 	<input type="hidden" name="name" value="${member.studentNumber }">
 	<input type="submit" class="btn btn-default" value="신청">
-	<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
+	<!-- <button type="button" class="btn btn-default" onclick="chk_del()">삭제</button> -->
 	</div>
 </form>
 </body>

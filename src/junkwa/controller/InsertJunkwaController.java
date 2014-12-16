@@ -72,6 +72,19 @@ public class InsertJunkwaController {
 		
 		return "redirect:/junkwaList.do";
 	}
+	//상세보기
+	@RequestMapping("junkwaView.do")
+	public String View(HttpServletRequest request,HttpSession session){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		Junkwa junkwa=junkwaDao.getJunkwa(num);
+		request.setAttribute("junkwa", junkwa);
+		request.setAttribute("member", member);
+		return "/junkwa/viewJunkwaForm.jsp";
+	}
+	
+	
 	public JunkwaDao getJunkwaDao() {
 		return junkwaDao;
 	}

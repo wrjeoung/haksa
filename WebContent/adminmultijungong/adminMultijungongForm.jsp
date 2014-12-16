@@ -69,9 +69,9 @@
 	</tbody>
 </table>
 	<div align="center">
-		<button type="button" onclick="chk_up()">신청완료</button>
-		<button type="button" onclick="chk_up2()">신청</button>
-		<button type="button" onclick="chk_del()">삭제</button>
+		<button type="button" class="btn btn-default" onclick="chk_up()">신청완료</button>
+		<button type="button" class="btn btn-default" onclick="chk_up2()">신청</button>
+		<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
 	</div>
 </form>
 </div>

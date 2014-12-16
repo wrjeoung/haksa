@@ -1,5 +1,6 @@
 package bokhak.controller;
 
+import java.awt.print.Book;
 import java.util.Calendar;
 import java.util.List;
 
@@ -76,7 +77,30 @@ public class InsertBokhakController {
 		}
 		return "redirect:/bokhakList.do";
 	}
-	
+	@RequestMapping("bokhakinfomodify.do")
+	public String infoModify(HttpSession session,HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Bokhak bokhak;
+		bokhak=bokhakDao.getBokhak(num);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("bokhak", bokhak);
+		request.setAttribute("member", member);
+		return "/bokhak/modifyBokhakForm.jsp";
+	}
+	@RequestMapping("bokhakinfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Bokhak bokhak,HttpServletRequest request,HttpSession session){
+		bokhak.setBokhak_reg_date(today.getTime());
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		bokhakDao.changeBokhak(bokhak);
+		request.setAttribute("member", member);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("bokhak",bokhak);
+		mv.addObject("member", member);
+		mv.setViewName("redirect:/bokhakList.do");
+		return mv;
+	}
 	public BokhakDao getBokhakDao() {
 		return bokhakDao;
 	}

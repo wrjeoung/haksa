@@ -52,25 +52,28 @@
 		</thead>
 		<tbody>
 			<c:forEach var="vo" items="${list }">
+			<c:url var="viewURL" value="adminjunkwaView.do">
+				<c:param name="num" value="${vo.num }"/>
+			</c:url>
 			<tr>
-				<td>${vo.junkwayear }</td>
-				<td>${vo.junkwahakgi }</td>
-				<td>${vo.junkwahakkwa }</td>
-				<td><fmt:formatDate value="${vo.junkwa_reg_date }" pattern="yyyy-MM-dd HH:mm" />
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwayear }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwahakgi }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwahakkwa }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.junkwa_reg_date }" pattern="yyyy-MM-dd HH:mm" />
 				</td>
-				<td>${vo.junkwachuri }</td>
-				<td>${vo.junkwachuday }</td>
-				<td>${vo.junkwabygo }</td>
-				<td>${vo.name }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwachuri }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwachuday }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwabygo }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.name }</td>
 				<td><input type="checkbox" name="rnum" value="${vo.num}" ></td>
 			</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<div align="center">
-		<button type="button" onclick="chk_up()">신청완료</button>
-		<button type="button" onclick="chk_up2()">신청</button>
-		<button type="button" onclick="chk_del()">삭제</button>
+		<button type="button" class="btn btn-default" onclick="chk_up()">신청완료</button>
+		<button type="button" class="btn btn-default" onclick="chk_up2()">신청</button>
+		<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
 	</div>
 </form>
 </div>

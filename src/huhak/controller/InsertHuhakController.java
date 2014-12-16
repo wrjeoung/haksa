@@ -87,6 +87,35 @@ public class InsertHuhakController {
 		return "redirect:/huhakList.do";
 	}
 	
+	@RequestMapping("huhakinfomodify.do")
+	public String infoModify(HttpSession session,HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Huhak huhak;
+		huhak=huhakDao.getHuhak(num);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("huhak", huhak);
+		request.setAttribute("member", member);
+		return "/huhak/modifyHuhakForm.jsp";
+	}
+	
+	@RequestMapping("/huhakeinfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Huhak huhak,HttpServletRequest request,HttpSession session){
+		System.out.println("2");
+		huhak.setHuhak_reg_date(today.getTime());
+		//huhakDao.insertHuhak(huhak);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		huhakDao.changeHuhak(huhak);
+		request.setAttribute("member", member);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("huhak",huhak);
+		mv.addObject("member",member);
+		mv.setViewName("redirect:/huhakList.do");
+		return mv;
+		
+	}
+	
 	public HuhakDao getHuhakDao() {
 		return huhakDao;
 	}

@@ -122,4 +122,19 @@ public class AdminHuhakDaoImple extends JdbcDaoSupport implements AdminHuhakDao{
 		}
 		
 	}
+	@Override
+	public void changeAdminHuhak(Huhak params) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE huhak SET hugubun=?,husegubun=?,hubokyear=?,hubokhak=?,hugrade=?,hunumber=?,husayu=? WHERE num=?";
+		String hugubun=params.getHugubun();
+		String husegubun=params.getHusegubun();
+		String hubokyear=params.getHubokyear();
+		String hubokhak=params.getHubokhak();
+		String hugrade=params.getHugrade();
+		String hunumber=params.getHunumber();
+		String husayu=params.getHusayu();
+		int num=params.getNum();
+		Object[] objs={hugubun,husegubun,hubokyear,hubokhak,hugrade,hunumber,husayu,num};
+		getJdbcTemplate().update(sql, objs);
+	}
 }

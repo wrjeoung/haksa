@@ -124,4 +124,20 @@ public class HuhakDaoImple extends JdbcDaoSupport implements HuhakDao{
 			}
 		}
 	}
+	@Override
+	public void changeHuhak(Huhak params) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE huhak SET hugubun=?,husegubun=?,hubokyear=?,hubokhak=?,hugrade=?,hunumber=?,husayu=? WHERE num=?";
+		String hugubun=params.getHugubun();
+		String husegubun=params.getHusegubun();
+		String hubokyear=params.getHubokyear();
+		String hubokhak=params.getHubokhak();
+		String hugrade=params.getHugrade();
+		String hunumber=params.getHunumber();
+		String husayu=params.getHusayu();
+		int num=params.getNum();
+		Object[] objs={hugubun,husegubun,hubokyear,hubokhak,hugrade,hunumber,husayu,num};
+		getJdbcTemplate().update(sql, objs);
+		System.out.println("1"+hugubun+"2"+husegubun+"3"+hubokyear+"4"+hubokhak+"5"+hugrade+"6"+hunumber+"7"+husayu+"8"+num);
+	}
 }

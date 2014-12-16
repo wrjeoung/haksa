@@ -13,5 +13,7 @@ public interface AdminHuhakDao {
 	public void deleteAdminHuhak(String value)throws DataAccessException;
 	//상세보기
 	public Huhak getAdminHuhak(int num)throws DataAccessException;
+	//수정
+	public void changeAdminHuhak(Huhak params)throws DataAccessException;
 }
 

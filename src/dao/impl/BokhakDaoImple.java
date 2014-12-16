@@ -112,4 +112,18 @@ public class BokhakDaoImple extends JdbcDaoSupport implements BokhakDao{
 			}
 		}
 	}
+	@Override
+	public void changeBokhak(Bokhak params) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE bokhak SET bokhakgi=?,bokgubun=?,bokyear=?,bokyehakgi=?,boksayu=? WHERE num=?";
+		String bokhakgi=params.getBokhakgi();
+		String bokgubun=params.getBokgubun();
+		String bokyear=params.getBokyear();
+		String bokyehakgi=params.getBokyehakgi();
+		String boksayu=params.getBoksayu();
+		int num=params.getNum();
+		Object[] objs={bokhakgi,bokgubun,bokyear,bokyehakgi,boksayu,num};
+		getJdbcTemplate().update(sql,objs);
+		
+	}
 }

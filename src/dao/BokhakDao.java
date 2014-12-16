@@ -12,4 +12,6 @@ public interface BokhakDao {
 	public void deleteBokhak(String value)throws DataAccessException;
 	//상세보기
 	public Bokhak getBokhak(int num)throws DataAccessException;
+	//수정
+	public void changeBokhak(Bokhak params)throws DataAccessException;
 }

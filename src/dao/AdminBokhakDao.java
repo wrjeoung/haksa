@@ -13,4 +13,6 @@ public interface AdminBokhakDao {
 	public void deleteAdminBokhak(String value)throws DataAccessException;
 	//상세보기
 	public Bokhak getAdminBokhak(int num)throws DataAccessException;
+	//수정
+	public void changeAdminBokhak(Bokhak params)throws DataAccessException;
 }
