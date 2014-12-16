@@ -62,7 +62,7 @@
 				<td>${vo.junkwachuday }</td>
 				<td>${vo.junkwabygo }</td>
 				<td>${vo.name }</td>
-				<td><input type="checkbox" name="rnum" value="${vo.num}" >?=${vo.num}</td>
+				<td><input type="checkbox" name="rnum" value="${vo.num}" ></td>
 			</tr>
 			</c:forEach>
 		</tbody>

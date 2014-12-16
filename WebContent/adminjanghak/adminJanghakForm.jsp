@@ -48,7 +48,7 @@
 		</thead>
 		<tbody>
 		<c:forEach var="list" items="${list }">
-			<c:url var="viewURL" value="janghakView.do">
+			<c:url var="viewURL" value="adminjanghakView.do">
 				<c:param name="num" value="${list.num }"/>
 			</c:url>
 			<tr>
@@ -58,7 +58,7 @@
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakmenu }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${list.janghak_reg_date }" pattern="yyyy-MM-dd HH:mm"/></td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakchuri }</td>
-				<td>${list.name }</td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.name }</td>
 				<td><input type="checkbox" name="rnum" value="${list.num }"></td>
 			</tr>
 		

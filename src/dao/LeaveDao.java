@@ -10,4 +10,6 @@ public interface LeaveDao {
 	void insertLeave(Leave leave)throws DataAccessException;
 	public List getLeaveList(String studentNumber)throws DataAccessException;
 	public void deleteLeave(String value)throws DataAccessException;
+	//상세보기
+	public Leave getLeave(int num)throws DataAccessException;
 }

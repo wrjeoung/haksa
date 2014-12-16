@@ -2,6 +2,8 @@ package dao;
 
 import java.util.List;
 
+import model.Janghak;
+
 import org.springframework.dao.DataAccessException;
 
 public interface AdminJanghakDao {
@@ -9,4 +11,6 @@ public interface AdminJanghakDao {
 	public void updatecomAdminJanghak(String value)throws DataAccessException;
 	public void updatecanAdminJanghak(String value)throws DataAccessException;
 	public void deleteAdminJanghak(String value)throws DataAccessException;
+	//상세보기
+	public Janghak getAdminJanghak(int num)throws DataAccessException;
 }

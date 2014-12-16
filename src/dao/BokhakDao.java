@@ -10,4 +10,6 @@ public interface BokhakDao {
 	void insertBokhak(Bokhak bokhak)throws DataAccessException;
 	public List getBokhakList(String studentNumber)throws DataAccessException;
 	public void deleteBokhak(String value)throws DataAccessException;
+	//상세보기
+	public Bokhak getBokhak(int num)throws DataAccessException;
 }

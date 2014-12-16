@@ -22,8 +22,10 @@
 	}
 	function chk_del(){
 		chk.action = "huhakDelete.do";
+		//chk.location="huhakDelete.do?rnum=${vo.num}";
 		chk.submit();
 	}
+	
 	/* function hugr_check2(){
 		if(document.test2.rnum.checked==true){
 			document.test2.rnum2.value="1";
@@ -31,6 +33,8 @@
 			document.test2.rnum2.value="0";
 		}
 	} */
+	
+
 </script>
 <body>
 <%@ include file="/common/header.jsp"%>
@@ -38,7 +42,45 @@
 	<div class="page-header">
 		<h3>>휴학신청</h3>
 	</div>
-
+<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학과  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.major}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학번  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학년  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.grade}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>성명  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.name}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학적상태  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.state}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>신청가능학점  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>19 학점</strong></p>
+			</div>
+</form>
 <p></p>
 <p class="text-success"><strong>[휴학신청 List]</strong></p>
 <form name="chk">
@@ -59,20 +101,28 @@
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+			<c:url var="viewURL" value="huhakView.do">
+				<c:param name="num" value="${vo.num }"/>
+			</c:url>
 			<tr>
 				<td><fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy"/>
 								</td>
-								<td>${vo.hubokhak }</td>
-								<td>${vo.hugubun }</td>
-								<td>${vo.hugrade }</td>
-								<td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokhak }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hugubun }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hugrade }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>
 								<fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
 								</td>
-								<td>${vo.hubokyear }</td>
-								<td>${vo.hubokhak }</td>
-								<td>${vo.huchuri }</td>
-								<td>${vo.husegubun }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokyear }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokhak }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.huchuri }</td>
+								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.husegubun }</td>
+								<c:if test="${vo.huchuri=='신청' }">
 								<td><input type="checkbox" name="rnum" value="${vo.num}"></td>
+								</c:if>
+								<c:if test="${vo.huchuri=='신청완료' }">
+								<td></td>
+								</c:if>
 			</tr>				
 			<!-- <input type="text" name="rnum2" value="0"> -->
 		</c:forEach>

@@ -112,11 +112,21 @@
        		<property name="huhakDao" ref="huhakDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
+       <!-- 휴학상세보기 -->
+       <bean id="huhakview" class="huhak.controller.ViewHuhakController">
+       		<property name="huhakDao" ref="huhakDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
+       
 	   <bean id="bokhakDao" class="dao.impl.BokhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
 
 	   <bean id="bokhak" class="bokhak.controller.InsertBokhakController">
+	   		<property name="bokhakDao" ref="bokhakDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
+	   </bean>
+	   <bean id="bokhakview" class="bokhak.controller.ViewBokhakController">
 	   		<property name="bokhakDao" ref="bokhakDao"></property>
 	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
@@ -137,7 +147,10 @@
        		<property name="leaveDao" ref="leaveDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
-       
+       <bean id="leaveview" class="leave.controller.ViewLeaveController">
+       		<property name="leaveDao" ref="leaveDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
        
        <bean id="infomodify" class="studentinfo.controller.InfoModifyController">
        	<property name="memberDao" ref="memberDao"></property>
@@ -190,6 +203,7 @@
 	   </bean>
 	   <bean id="janghakView" class="janghak.controller.ViewJanghakController">
 	   		<property name="janghakDao" ref="janghakDao"></property>
+	   		<property name="memberDao" ref="memberDao"></property>
 	   </bean>
 	   <!-- 주전공신청 -->
 	   <bean id="jujungongDao" class="dao.impl.JujungongDaoImple">
@@ -213,6 +227,10 @@
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
 
+	   <bean id="multijungongview" class="multijungong.controller.ViewMultijungongController">
+       		<property name="multijungongDao" ref="multijungongDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
   		<!-- 졸업사정조회 -->
 	   <bean id="graduationDao" class="dao.impl.GraduationDaoImple">
 	   		<property name="dataSource" ref="dataSource"></property>
@@ -236,6 +254,10 @@
 	   <bean id="adminhuhak" class="admin.controller.AdminHuhakController">
        		<property name="adminHuhakDao" ref="adminHuhakDao"></property>
        </bean>
+       <bean id="adminhuhakview" class="admin.controller.AdminHuhakViewController">
+       		<property name="adminHuhakDao" ref="adminHuhakDao"></property>
+       </bean>
+       
        <!-- 관리자복학관리 -->
        <bean id="adminBokhakDao" class="dao.impl.AdminBokhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
@@ -243,6 +265,10 @@
 	   <bean id="adminbokhak" class="admin.controller.AdminBokhakController">
        		<property name="adminBokhakDao" ref="adminBokhakDao"></property>
        </bean>
+       <bean id="adminbokhakview" class="admin.controller.AdminBokhakViewController">
+       		<property name="adminBokhakDao" ref="adminBokhakDao"></property>
+       </bean>
+       
        <!-- 관리자전과관리 -->
        <bean id="adminJunkwaDao" class="dao.impl.AdminJunkwaDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
@@ -255,6 +281,10 @@
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
 	   <bean id="adminleave" class="admin.controller.AdminLeaveController">
+       		<property name="adminLeaveDao" ref="adminLeaveDao"></property>
+       </bean>
+       
+       <bean id="adminleaveview" class="admin.controller.AdminLeaveViewController">
        		<property name="adminLeaveDao" ref="adminLeaveDao"></property>
        </bean>
        <!-- 관리자주전공관리 -->
@@ -271,6 +301,10 @@
 	   <bean id="adminmultijungong" class="admin.controller.AdminMultijungongController">
        		<property name="adminMultijungongDao" ref="adminMultijungongDao"></property>
        </bean>
+       
+       <bean id="adminmultijungongview" class="admin.controller.AdminMultijungongViewController">
+       		<property name="adminMultijungongDao" ref="adminMultijungongDao"></property>
+       </bean>
        <!-- 관리자장학관리 -->
        <bean id="adminJanghakDao" class="dao.impl.AdminJanghakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
@@ -278,6 +312,22 @@
 	   <bean id="adminjanghak" class="admin.controller.AdminJanghakController">
        		<property name="adminJanghakDao" ref="adminJanghakDao"></property>
        </bean>
+       
+       <bean id="adminjanghakview" class="admin.controller.AdminJanghakViewController">
+       		<property name="adminJanghakDao" ref="adminJanghakDao"></property>
+       </bean>
+
+	   <!-- 학점포기 -->
+	   <bean id="creditDao" class="dao.impl.CreditDaoImple">
+       		<property name="dataSource" ref="dataSource"></property>
+	   </bean>      
+
+       <bean id="creditwaiver" class="creditswaiver.controller.CreditswaiverController">
+       		<property name="creditDao" ref="creditDao"></property>
+       		<property name="registerclassDao" ref="registerclassDao"></property>
+       		<property name="memberDao" ref="memberDao"></property> 
+       </bean>
+
 
 		<!-- 등록금납입내역조회 -->
 	   <bean id="tuitionDao" class="dao.impl.TuitionDaoImple">

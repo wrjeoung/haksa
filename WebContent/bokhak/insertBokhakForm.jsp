@@ -23,6 +23,45 @@
 	<div class="page-header">
 		<h3>>복학신청</h3>
 	</div>
+	<form class="form-inline" role="form">
+			<input type="hidden" id="hidden" value="">
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학과  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.major}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학번  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.studentNumber}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학년  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.grade}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>성명  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.name}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>학적상태  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>${member.state}</strong></p>
+			</div>
+			<div class="form-group" style="margin-right:15px;">
+				<p><strong>신청가능학점  : </strong></p>
+			</div>
+			<div class="form-group" style="margin-right:30px;">
+				<p class="text-info"><strong>19 학점</strong></p>
+			</div>
+</form>
 <p></p>
 <p class="text-success"><strong>[복학신청 List]</strong></p>
 <form name="chk">
@@ -42,18 +81,28 @@
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+			<c:url var="viewURL" value="bokhakView.do">
+				<c:param name="num" value="${vo.num }"/>
+			</c:url>
 			<tr>
-			<td><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy"/>
+			<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy"/>
 							</td>
-							<td>${vo.bokhakgi }</td>
-							<td>${vo.bokgubun }</td>
-							<td><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokhakgi }</td>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokgubun }</td>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
 							</td>
-							<td>${vo.bokyear }</td>
-							<td>${vo.bokyehakgi }</td>
-							<td>${vo.bokchuri }</td>
-							<td>${vo.boksayu }</td>
-							<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokyear }</td>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokyehakgi }</td>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokchuri }</td>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.boksayu }</td>
+							
+							<c:if test="${vo.bokchuri=='신청' }">
+							<td><input type="checkbox" name="rnum" value="${vo.num}"></td>
+							</c:if>
+							<c:if test="${vo.bokchuri=='신청완료' }">
+							<td></td>
+							</c:if>
+							
 			</tr>
 		</c:forEach>
 	</tbody>

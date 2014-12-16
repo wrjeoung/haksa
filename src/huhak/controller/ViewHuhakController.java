@@ -1,49 +1,46 @@
-package janghak.controller;
+package huhak.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import model.Huhak;
 import model.Janghak;
 import model.Member;
 
-import org.apache.catalina.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import dao.JanghakDao;
+import dao.HuhakDao;
 import dao.MemberDao;
 
 @Controller
-public class ViewJanghakController {
-	private JanghakDao janghakDao;
-	//세션
+public class ViewHuhakController {
+	private HuhakDao huhakDao;
 	private MemberDao memberDao;
-	@RequestMapping("janghakView.do")
+	
+	@RequestMapping("huhakView.do")
 	public String View(HttpServletRequest request,HttpSession session){
 		int num=Integer.parseInt(request.getParameter("num"));
 		Member member;
 		member=memberDao.selectMember((String)session.getAttribute("memId"));
-		
-		Janghak janghak=janghakDao.getJanghak(num);
-		request.setAttribute("janghak", janghak);
+		Huhak huhak=huhakDao.getHuhak(num);
+		request.setAttribute("huhak", huhak);
 		request.setAttribute("member", member);
-		return "/janghak/JanghakView.jsp";
+		
+		return "/huhak/viewHuhakForm.jsp";
 	}
 	
-	public JanghakDao getJanghakDao() {
-		return janghakDao;
+	
+	public HuhakDao getHuhakDao() {
+		return huhakDao;
 	}
-
-	public void setJanghakDao(JanghakDao janghakDao) {
-		this.janghakDao = janghakDao;
+	public void setHuhakDao(HuhakDao huhakDao) {
+		this.huhakDao = huhakDao;
 	}
-
 	public MemberDao getMemberDao() {
 		return memberDao;
 	}
-
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
-	
 }
