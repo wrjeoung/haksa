@@ -109,6 +109,7 @@
 		        </thead>
 		        <tbody>
 		        <tr>
+		        
 		          <c:forEach var="list4" items="${list4}"> 
 		            <td>${list4.gwamokcode}</td>
 		            <td>${list4.ban}</td> 
@@ -121,27 +122,6 @@
 		            </c:forEach>
 		        </tbody>
 	      </table>
-	      <div class="text-center">
-				<ul class="pagination pagination-sm">
-				<li class="disabled"><span>«</span></li>
-				<li class="active">
-					<a href="#">1</a>
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-				<li>
-					<a href="#">5</a>
-				</li>
-				<li><span>&raquo;</span></li>
-				</ul>
-		 </div>
 		
 				</form>
 		</div>

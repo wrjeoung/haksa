@@ -60,7 +60,7 @@
 		                <li><a href="feelsu.do">필수과목이수조회</a></li>
 		                <li class="divider"></li>
 		                <li class="dropdown-header">등록장학</li>
-		                <li><a href="#">등록금내역 조회</a></li>
+		                <li><a href="tuition.do">등록금내역 조회</a></li>
 		                <li><a href="#">장학금수혜내역 조회</a></li>
 		              </ul>
 		            </li>
@@ -125,11 +125,12 @@
 		                	<li><a href="adminjanghakList.do">교내장학금신청관리</a></li>
 		                	<li><a href="#">학점포기신청관리</a></li>
 		                	<li><a href="tuitionwrite.do">등록금내역 추가</a></li>
-		                	
+		                	<li class="dropdown-header">>성적관리</li>
+		                	<li><a href="hakgiwrite.do">학생성적 입력</a></li>
 		                	<li class="dropdown-header">공지사항</li>
 		            		<li><a href="#">공지사항관리</a></li>
 		            	</ul>
-		            </c:if>
+		            </c:if> 
 		            </c:if>
 		            
 		          </ul>

@@ -166,6 +166,11 @@
        		<property name="hakgiDao" ref="hakgiDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
+       
+        <bean id="hakgiwrite" class="hakgi.controller.HakgiWriteController">
+       		<property name="hakgiDao" ref="hakgiDao"></property>
+       		<property name="memberDao" ref="memberDao"></property> 
+       </bean>
  
  	   <bean id="feelsuDao" class="dao.impl.FeelsuDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
@@ -279,6 +284,10 @@
        		<property name="dataSource" ref="dataSource"></property>
        </bean>
 	   <bean id="tuitionwrite" class="tuition.controller.TuitionWriteController">
+       		<property name="tuitionDao" ref="tuitionDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
+       <bean id="tuition" class="tuition.controller.TuitionController">
        		<property name="tuitionDao" ref="tuitionDao"></property>
        		<property name="memberDao" ref="memberDao"></property>
        </bean>

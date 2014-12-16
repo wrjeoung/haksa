@@ -23,6 +23,7 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		
 		String sql = "SELECT * FROM (select * from registerclass where major='"
 				+ params.get("major") +"') where grade='" + params.get("grade") + "' OR grade='" + params.get("gradeJ") + "'";
+		
 		/*
 		String sql = "SELECT * FROME registerclass where major='"
 				+ "�����а�" +"' AND grade='" + "1" + "'";

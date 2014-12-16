@@ -1,40 +1,50 @@
 package hakgi.controller;
 
+import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import model.Member;
 import model.Sungjuk;
+import model.Hakgi;
 import model.Registerclass;
 import dao.HakgiDao;
 import dao.MemberDao;
 import dao.RegisterclassDao;
 
-
 @Controller
 public class HakgiController {
 	private HakgiDao hakgiDao;
+	private Hakgi hakgi;
 	private RegisterclassDao registerclassDao; 
 	private MemberDao memberDao;
 	int totalCount;
 	@RequestMapping("hakgi.do")
 	public String form(HttpSession session,			
-			HttpServletRequest request) {
-		List<Sungjuk> list = null;
+		HttpServletRequest request) {
 		List<Sungjuk> list2 = null;//년도
 		List<Sungjuk> list3 =null;//학기
-		List<Sungjuk> list5 =null;//학기
+		List<Hakgi> list5 =null;
 		List<Registerclass> list6 =null;
-
+		List<Hakgi> list = null;
+		HashMap params = new HashMap(); 
+		
 		Member member;
 		member = memberDao.selectMember((String)session.getAttribute("memId"));
-		list  = hakgiDao.getSungjuklist();	// 
+		
+		params.put("stnumber", member.getStudentNumber());
+		System.out.println("학번은?? : "+ params);
+
+		list = hakgiDao.getHakgilist(params);
 		list2 = hakgiDao.getAddyearlist(); //
 		list3 = hakgiDao.getAddhakgilist();//
-		list6 = registerclassDao.getList(member.getStudentNumber()); 		  //누적성적 List
-		list5 = registerclassDao.getSumList(member.getStudentNumber()); //총 신청학점.
+		list6 = hakgiDao.getHakgilist(params);
+		list5 = hakgiDao.getTotalList();
 		totalCount = list6.size();
 		System.out.println("리스트6의 총 갯수는? : "+totalCount);
 		request.setAttribute("member", member);
@@ -73,6 +83,22 @@ public class HakgiController {
 
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
+	}
+
+	public Hakgi getHakgi() {
+		return hakgi;
+	}
+
+	public void setHakgi(Hakgi hakgi) {
+		this.hakgi = hakgi;
+	}
+
+	public int getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
 	}
 
 }
