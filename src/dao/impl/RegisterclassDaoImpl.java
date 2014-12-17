@@ -111,5 +111,12 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		String sql = "select sum(credit) from registerforcourses a , registerclass b where a.subjectnum = b.subjectnum and stnumber = '" + stnumber + "'";
 		return getJdbcTemplate().query(sql,rowMapper);
 	}
+
+	@Override
+	public List getTotalList() throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "select * from registerclass";
+		return getJdbcTemplate().queryForList(sql);
+	}
 	
 }
