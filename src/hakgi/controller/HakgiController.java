@@ -2,13 +2,10 @@ package hakgi.controller;
 
 import java.util.HashMap;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import model.Member;
 import model.Sungjuk;
 import model.Hakgi;
@@ -27,16 +24,16 @@ public class HakgiController {
 	@RequestMapping("hakgi.do")
 	public String form(HttpSession session,			
 		HttpServletRequest request) {
+		List<Hakgi> list = null;
 		List<Sungjuk> list2 = null;//년도
 		List<Sungjuk> list3 =null;//학기
 		List<Hakgi> list5 =null;
 		List<Registerclass> list6 =null;
-		List<Hakgi> list = null;
 		HashMap params = new HashMap(); 
-		
+ 
 		Member member;
 		member = memberDao.selectMember((String)session.getAttribute("memId"));
-		
+
 		params.put("stnumber", member.getStudentNumber());
 		System.out.println("학번은?? : "+ params);
 
@@ -48,13 +45,13 @@ public class HakgiController {
 		totalCount = list6.size();
 		System.out.println("리스트6의 총 갯수는? : "+totalCount);
 		request.setAttribute("member", member);
-		request.setAttribute("list3", list3);
-		request.setAttribute("list2", list2);
 		request.setAttribute("list", list);
+		request.setAttribute("list2", list2);
+		request.setAttribute("list3", list3);
 		request.setAttribute("list5", list5);
 		request.setAttribute("list6", list6);
 		request.setAttribute("totalCount", totalCount);
-		
+
 		System.out.println();
 		return "hakgisung/hakgi.jsp";		
 	}
