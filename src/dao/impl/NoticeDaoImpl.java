@@ -150,4 +150,11 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
 		String sql = "DELETE FROM notice where num = "+num;
 		getJdbcTemplate().update(sql);
 	}
+
+	@Override
+	public void updateNotice(Notice notice) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE notice set subject=?, content=? where num=?";
+		getJdbcTemplate().update(sql,new Object[]{notice.getSubject(),notice.getContent(),notice.getNum()});
+	}
 }

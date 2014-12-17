@@ -64,7 +64,12 @@
 
        <bean id="noticeWrite" class="notice.controller.NoticeWriteController">
         <property name="noticeDao" ref="noticeDao"></property>
-       </bean>        
+       </bean>  
+       
+       <bean id="noticeModify" class="notice.controller.NoticeModifyController">
+        <property name="noticeDao" ref="noticeDao"></property>
+       </bean>
+                    
        <bean id="main" class="main.controller.MainController"/>
 
 	   <!-- 수강신청 -->       
