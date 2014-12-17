@@ -324,14 +324,12 @@
        </bean>
 
 	   <!-- 학점포기 -->
-	   <bean id="creditDao" class="dao.impl.CreditDaoImple">
+	   <bean id="creditwaiverDao" class="dao.impl.CreditwaiverDaoImple">
        		<property name="dataSource" ref="dataSource"></property>
 	   </bean>      
 
        <bean id="creditwaiver" class="creditswaiver.controller.CreditswaiverController">
-       		<property name="creditDao" ref="creditDao"></property>
-       		<property name="registerclassDao" ref="registerclassDao"></property>
-       		<property name="memberDao" ref="memberDao"></property> 
+       		
        </bean>
 
 

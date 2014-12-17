@@ -177,7 +177,4 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 				hakgi.getCredit(),hakgi.getEtc(),hakgi.getStnumber(),hakgi.getPercentage()
 		});
 	}
-	
-	
-	
 }
