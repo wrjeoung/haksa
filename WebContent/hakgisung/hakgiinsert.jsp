@@ -62,7 +62,6 @@
 				<td width="100" align="left">&nbsp;<input type="text"
 					name="etc" size="20"></td>
 			</tr>
- 
 
 			<tr align="center">
 				<td width="100" bgcolor="#BDBDBD">학번</td>
