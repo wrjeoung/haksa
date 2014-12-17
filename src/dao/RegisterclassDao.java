@@ -17,4 +17,5 @@ public interface RegisterclassDao {
 	public List getSumList(String stnumber) throws DataAccessException;
 	public List getTotalList() throws DataAccessException;
 	public void insertRegisterclass(Registerclass registerclass) throws DataAccessException;
+	public void deleteList(String[] checkedNumList) throws DataAccessException;
 }

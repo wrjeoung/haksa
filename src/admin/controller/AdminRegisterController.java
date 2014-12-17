@@ -55,6 +55,13 @@ public class AdminRegisterController {
 		return "adminRegister/adminRegisterEnglish.jsp";
 	}
 	
+	@RequestMapping("adminRegisterDelete.do")
+	public String delete(HttpServletRequest request){
+		String[] checkedNumList = request.getParameter("checkedNumList").split(",");
+		registerclassDao.deleteList(checkedNumList);
+		return "redirect:/adminRegisterEnglish.do";
+	}	
+	
 	@RequestMapping("adminRegisterMain.do")
 	public String adminMain(){
 		

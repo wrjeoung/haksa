@@ -131,4 +131,21 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 				registerclass.getMajor(),registerclass.getGrade(),registerclass.getExtranum()});
 	}
 	
+	@Override
+	public void deleteList(String[] checkedNumList) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "DELETE FROM registerclass where";
+		
+		for(int i = 0; i<checkedNumList.length; i++)
+		{
+			sql+=  " subjectnum = '"+checkedNumList[i]+"'";
+			
+			if(checkedNumList.length > 1 && i<checkedNumList.length-1)
+			{
+				sql+= " OR";
+			}
+		}
+		getJdbcTemplate().update(sql);
+	}	
+	
 }
