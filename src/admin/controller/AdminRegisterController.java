@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import model.Registerclass;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import common.pagingAction;
@@ -59,6 +60,17 @@ public class AdminRegisterController {
 		
 		
 		return "adminRegister/adminRegisterMain.jsp";
+	}
+	
+	@RequestMapping("adminRegisterAdd.do")
+	public String add(){
+		return "adminRegister/adminRegisterAdd.jsp";
+	}
+	
+	@RequestMapping("adminRegisterAddPro.do")
+	public String addPro(@ModelAttribute Registerclass registerclass){
+		registerclassDao.insertRegisterclass(registerclass);
+		return "adminRegister/adminRegisterAddPro.jsp";
 	}
 
 	public void setRegisterclassDao(RegisterclassDao registerclassDao) {

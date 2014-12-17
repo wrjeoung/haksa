@@ -118,5 +118,17 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 		String sql = "select * from registerclass";
 		return getJdbcTemplate().queryForList(sql);
 	}
+
+	@Override
+	public void insertRegisterclass(Registerclass registerclass)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO registerclass(subjectnum,subjectname,curriculum,course,credit,fixednum,lecturetime,professor,classroom,etc,major,grade,extranum)"
+				+ " VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		getJdbcTemplate().update(sql, new Object[]{registerclass.getSubjectnum(),registerclass.getSubjectname(),
+				registerclass.getCurriculum(),registerclass.getCourse(),registerclass.getCredit(),registerclass.getFixednum(),
+				registerclass.getLecturetime(),registerclass.getProfessor(),registerclass.getClassroom(),registerclass.getEtc(),
+				registerclass.getMajor(),registerclass.getGrade(),registerclass.getExtranum()});
+	}
 	
 }

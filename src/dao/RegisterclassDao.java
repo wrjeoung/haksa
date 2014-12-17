@@ -2,7 +2,9 @@ package dao;
 
 import java.util.HashMap;
 import java.util.List;
+
 import model.Notice;
+import model.Registerclass;
 
 import org.springframework.dao.DataAccessException;
 
@@ -14,4 +16,5 @@ public interface RegisterclassDao {
 	public List getList(String stnumber) throws DataAccessException;
 	public List getSumList(String stnumber) throws DataAccessException;
 	public List getTotalList() throws DataAccessException;
+	public void insertRegisterclass(Registerclass registerclass) throws DataAccessException;
 }

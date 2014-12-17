@@ -72,6 +72,10 @@
 				<ul class="pagination pagination-sm">
 				${pagingHtml}
 			</div>
+			<p class="text-success">
+				<strong>[수강신청과목 추가]</strong>
+				<button type="button" class="btn btn-default"  style="margin-left:50px;" onclick="javascript:location.href='adminRegisterAdd.do'";>추가</button>
+			</p>
 		</form>
 	</div>
 	<!-- /.container -->
