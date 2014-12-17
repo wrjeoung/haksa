@@ -31,13 +31,13 @@
 	 
 	 var stnumber = studentNumber;
 	 var hidden = document.getElementById("hidden");
-	 
+
 	 console.log("registerClass");
 	 console.log("stnumber : " + stnumber);
 	 console.log("hidden : " + hidden.value);
 	 var str = "registerSubmit.do?subjectnum=" + hidden.value + "&stnumber=" + stnumber;
 	 console.log("str : " + str);
-	 
+
 	 $('#layerpop').modal('hide')
 	 location.href= str;
  }
@@ -46,7 +46,7 @@
 	console.log("sub");
 	var message = "수강 신청하시겠습니까?";
 	var result = confirm(message);
-	
+
 	if(result == true){
 		alert("확인");
 	}
