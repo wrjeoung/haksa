@@ -13,4 +13,6 @@ public interface AdminJunkwaDao {
 	public void deleteAdminJunkwa(String value)throws DataAccessException;
 	//상세보기
 	public Junkwa getAdminJunkwa(int num)throws DataAccessException;
+	//수정
+	public void changeAdminJunkwa(Junkwa params)throws DataAccessException;
 }

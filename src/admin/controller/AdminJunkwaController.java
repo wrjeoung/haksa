@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 import model.Junkwa;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import dao.AdminJunkwaDao;
 import dao.JunkwaDao;
@@ -63,6 +65,23 @@ public class AdminJunkwaController {
 		request.setAttribute("junkwa", junkwa);
 		
 		return "/adminjunkwa/adminJunkwaViewForm.jsp";
+	}
+	@RequestMapping("adminjunkwainfomodify.do")
+	public String infoModify(HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Junkwa junkwa;
+		junkwa=adminJunkwaDao.getAdminJunkwa(num);
+		request.setAttribute("junkwa", junkwa);
+		return "/adminjunkwa/adminJunkwaModifyForm.jsp";
+	}
+	@RequestMapping("adminjunkwainfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Junkwa junkwa,HttpServletRequest request){
+		junkwa.setJunkwa_reg_date(today.getTime());
+		adminJunkwaDao.changeAdminJunkwa(junkwa);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("junkwa",junkwa);
+		mv.setViewName("redirect:/adminjunkwaList.do");
+		return mv;
 	}
 	
 	public AdminJunkwaDao getAdminJunkwaDao() {

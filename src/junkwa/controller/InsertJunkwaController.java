@@ -83,8 +83,31 @@ public class InsertJunkwaController {
 		request.setAttribute("member", member);
 		return "/junkwa/viewJunkwaForm.jsp";
 	}
-	
-	
+	@RequestMapping("junkwainfomodify.do")
+	public String infoModify(HttpSession session,HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Junkwa junkwa;
+		junkwa=junkwaDao.getJunkwa(num);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("junkwa", junkwa);
+		request.setAttribute("member", member);
+		return "/junkwa/modifyJunkwaForm.jsp";
+	}
+	@RequestMapping("junkwainfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Junkwa junkwa,HttpServletRequest request,HttpSession session){
+		//int num=Integer.parseInt(request.getParameter("num"));
+		junkwa.setJunkwa_reg_date(today.getTime());
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		junkwaDao.changeJunkwa(junkwa);
+		request.setAttribute("member", member);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("junkwa",junkwa);
+		mv.addObject("member",member);
+		mv.setViewName("redirect:/junkwaList.do");
+		return mv;
+	}
 	public JunkwaDao getJunkwaDao() {
 		return junkwaDao;
 	}

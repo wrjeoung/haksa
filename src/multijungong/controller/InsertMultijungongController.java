@@ -72,6 +72,30 @@ public class InsertMultijungongController {
 		}
 		return "redirect:/multijungongList.do";
 	}
+	@RequestMapping("multijungongmodify.do")
+	public String infoModify(HttpSession session,HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Multijungong multijungong;
+		multijungong=multijungongDao.getMultijungong(num);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("multijungong", multijungong);
+		request.setAttribute("member", member);
+		return "/multijungong/modifyMultijungongForm.jsp";
+	}
+	@RequestMapping("multijungonginfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Multijungong multijungong,HttpServletRequest request,HttpSession session){
+		multijungong.setMulti_reg_date(today.getTime());
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		multijungongDao.changeMultijungong(multijungong);
+		request.setAttribute("member", member);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("multijungong", multijungong);
+		mv.addObject("member", member);
+		mv.setViewName("redirect:/multijungongList.do");
+		return mv;
+	}
 	
 	public MultijungongDao getMultijungongDao() {
 		return multijungongDao;

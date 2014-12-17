@@ -58,6 +58,7 @@
 						</tr>
 					</tbody>
 				</table>
+				<button type="button" class="btn btn-primary" onclick="javascript:location.href='adminjanghakinfomodify.do?num=${janghak.num }'";>수정</button>
 			</form>
 		</div>
 	</div>

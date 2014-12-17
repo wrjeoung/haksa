@@ -113,4 +113,17 @@ public class JunkwaDaoImple extends JdbcDaoSupport implements JunkwaDao{
 		}
 		
 	}
+	@Override
+	public void changeJunkwa(Junkwa params) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE junkwa SET junkwayear=?,junkwahakgi=?,junkwahakkwa=?,junkwabygo=? WHERE num=?";
+		String junkwayear=params.getJunkwayear();
+		String junkwahakgi=params.getJunkwahakgi();
+		String junkwahakkwa=params.getJunkwahakkwa();
+		String junkwabygo=params.getJunkwabygo();
+		int num=params.getNum();
+		Object[] objs={junkwayear,junkwahakgi,junkwahakkwa,junkwabygo,num};
+		getJdbcTemplate().update(sql,objs);
+		System.out.println("1"+junkwayear+"2"+junkwahakgi+"3"+junkwahakkwa+"4:"+junkwabygo+"5:"+num);
+	}
 }

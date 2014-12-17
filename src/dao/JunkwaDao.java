@@ -12,4 +12,7 @@ public interface JunkwaDao {
 	public void deleteJunkwa(String value)throws DataAccessException;
 	//상세보기
 	public Junkwa getJunkwa(int num)throws DataAccessException;
+	//수정
+	public void changeJunkwa(Junkwa params)throws DataAccessException;
+	
 }

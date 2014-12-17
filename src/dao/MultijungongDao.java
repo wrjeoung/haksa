@@ -12,4 +12,6 @@ public interface MultijungongDao {
 	public void deleteMultijungong(String value)throws DataAccessException;
 	//상세보기
 	public Multijungong getMultijungong(int num)throws DataAccessException;
+	//수정
+	public void changeMultijungong(Multijungong params)throws DataAccessException;
 }
