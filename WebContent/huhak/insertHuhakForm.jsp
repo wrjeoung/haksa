@@ -159,8 +159,7 @@
 	</c:url> --%>
 	<div align="center">
 		
-
-	
+	<input type="hidden" name="name" value="${member.studentNumber }">
 	<input type="submit" class="btn btn-default" value="신청">
 	<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
 	<input type="hidden" value="성적불인정" name="hugrade">

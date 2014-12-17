@@ -316,6 +316,7 @@
        </bean>
 	   <bean id="adminjanghak" class="admin.controller.AdminJanghakController">
        		<property name="adminJanghakDao" ref="adminJanghakDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
        <bean id="adminjanghakview" class="admin.controller.AdminJanghakViewController">

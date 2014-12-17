@@ -43,8 +43,8 @@
 				</tr>
 			</tbody>
 		</table>
+		<button type="button" class="btn btn-primary" onclick="javascript:location.href='adminleaveinfomodify.do?num=${leave.num }'";>수정</button>
 	</form>
 </div>
-
 </body>
 </html>

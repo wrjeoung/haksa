@@ -85,6 +85,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<button type="button" class="btn btn-primary" onclick="javascript:location.href='multijungongmodify.do?num=${multijungong.num }'";>수정</button>
 	</form>
 </div>
 </body>

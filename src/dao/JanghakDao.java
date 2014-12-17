@@ -11,4 +11,6 @@ public interface JanghakDao {
 	public Janghak getJanghak(int num)throws DataAccessException;
 	//삭제
 	public void deleteJanghak(String value)throws DataAccessException;
+	//수정
+	public void changeJanghak(Janghak params)throws DataAccessException;
 }
