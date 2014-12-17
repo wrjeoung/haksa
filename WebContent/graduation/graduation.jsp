@@ -18,7 +18,6 @@
 	<%@ include file="/common/header.jsp"%>
 	<!-- end of header -->
 
-
 	<div class="container">
 		<div class="page-header">
 		  <h3>>졸업사정 조회</h3>
@@ -42,8 +41,7 @@
 			</div>
 			<p></p>
 			
-				<p class="text-success"><strong>[졸업사정조회]</strong></p>
-		
+			<p class="text-success"><strong>[졸업사정조회]</strong></p>		
 		<table class="table table-bordered">
 				<thead>
 		          <tr>
@@ -55,10 +53,10 @@
 		            <th>잔여</th>
 		            <th>제외값</th>
 		            <th>제외사유</th>
-		          </tr>
+		        </tr>
 		        </thead>
 		        <tbody>
-		          <tr>
+		          <tr>+
 		            <td>졸업학점</td>
 		            <td>140</td>
 		            <td>126</td>

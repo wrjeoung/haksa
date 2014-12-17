@@ -28,7 +28,6 @@ public class HakgiController {
 		List<Sungjuk> list2 = null;//년도
 		List<Sungjuk> list3 =null;//학기
 		List<Hakgi> list5 =null;
-		List<Registerclass> list6 =null;
 		HashMap params = new HashMap(); 
  
 		Member member;
@@ -40,16 +39,14 @@ public class HakgiController {
 		list = hakgiDao.getHakgilist(params);
 		list2 = hakgiDao.getAddyearlist(); //
 		list3 = hakgiDao.getAddhakgilist();//
-		list6 = hakgiDao.getHakgilist(params);
-		list5 = hakgiDao.getTotalList();
-		totalCount = list6.size();
+		list5 = hakgiDao.getTotalList(params);
+		totalCount = list.size();
 		System.out.println("리스트6의 총 갯수는? : "+totalCount);
 		request.setAttribute("member", member);
 		request.setAttribute("list", list);
 		request.setAttribute("list2", list2);
 		request.setAttribute("list3", list3);
 		request.setAttribute("list5", list5);
-		request.setAttribute("list6", list6);
 		request.setAttribute("totalCount", totalCount);
 
 		System.out.println();
