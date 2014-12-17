@@ -186,7 +186,9 @@
 								<c:param name="searchWord" value="${searchWord}" />
 							</c:if>
 						</c:url>
+					<c:if test="${memId != null && memId eq admin}">
 		  				<button type="button" class="btn btn-default" onclick="javascript:location.href='${viewURL}'";>글쓰기</button>
+		  			</c:if>
 		  			</div>	  			
 	  			</div>	
 	  				
