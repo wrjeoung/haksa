@@ -13,5 +13,5 @@ public interface RegisterclassDao {
 	public void updateExtraNum(String subjectnum) throws DataAccessException;
 	public List getList(String stnumber) throws DataAccessException;
 	public List getSumList(String stnumber) throws DataAccessException;
-	
+	public List getTotalList() throws DataAccessException;
 }

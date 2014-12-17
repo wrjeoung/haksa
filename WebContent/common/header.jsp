@@ -127,6 +127,10 @@
 		                	<li><a href="tuitionwrite.do">등록금내역 추가</a></li>
 		                	<li class="dropdown-header">>성적관리</li>
 		                	<li><a href="hakgiwrite.do">학생성적 입력</a></li>
+		                	<li class="dropdown-header">공지사항</li>
+		            		<li><a href="#">공지사항관리</a></li>
+		            		<li class="dropdown-header">>수강신청</li>
+		            		<li><a href="adminRegisterMain.do">수강신청관리</a></li>
 		            	</ul>
 		            </c:if> 
 		            </c:if>
