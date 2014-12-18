@@ -63,7 +63,7 @@ public class PwModifyController {
 		member.setPassword(memberDto.getPassword());
 		member.setStudentNumber((String)session.getAttribute("memId"));
 		int result=memberDao.changePw(member);
-		System.out.println("update : "+result);
+		//System.out.println("update : "+result);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/studentinfo/pwmodifypro.jsp");
 		return mv;

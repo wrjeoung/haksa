@@ -129,6 +129,9 @@
 		                	<li><a href="hakgiwrite.do">학생성적 입력</a></li>
 		                	<li class="dropdown-header">공지사항</li>
 		            		<li><a href="#">공지사항관리</a></li>
+		            		<li class="dropdown-header">학생정보</li>
+		            		<li><a href="inputstudentinfo.do">학생정보입력</a></li>
+		            		<li><a href="checkStdInfo.do">학생정보수정</a></li>
 		            	</ul>
 		            </c:if> 
 		            </c:if>

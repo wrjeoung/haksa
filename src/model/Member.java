@@ -9,7 +9,7 @@ public class Member {
 	private String birthday;		// 생일
 	private String major;			// 학부(학과)
 	private String grade;			// 학년
-	private Date entrace_date;		// 입학년도
+	private String entrace_date;	// 입학년도
 	private String tel;				// 전화번호
 	private String cellphone;		// 휴대폰번호
 	private String email;			// 이메일
@@ -92,10 +92,10 @@ public class Member {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	public Date getEntrace_date() {
+	public String getEntrace_date() {
 		return entrace_date;
 	}
-	public void setEntrace_date(Date entrace_date) {
+	public void setEntrace_date(String entrace_date) {
 		this.entrace_date = entrace_date;
 	}
 	public String getTel() {

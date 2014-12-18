@@ -72,7 +72,7 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 				member.setBirthday(rs.getString("birthday"));
 				member.setMajor(rs.getString("major"));
 				member.setGrade(rs.getString("grade"));
-				member.setEntrace_date((rs.getDate("entrance_date")));
+				member.setEntrace_date((rs.getString("entrance_date")));
 				member.setTel(rs.getString("tel"));
 				member.setCellphone(rs.getString("cellphone"));
 				member.setEmail(rs.getString("email"));
@@ -187,5 +187,38 @@ public class MemberDaoImpl extends JdbcDaoSupport implements MemberDao{
 			else
 				return null;
 		}
+	}
+
+	@Override
+	public void insertMember(Member params) throws DataAccessException {
+		String sql = "INSERT INTO student_members(stnumber,pw,name,birthday,major,grade,entrance_date,tel,cellphone,email,address,state) "
+				+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+		String cellphone = params.getHp1()+"-"+params.getHp2()+"-"+params.getHp3();
+		String tel = params.getTel1()+"-"+params.getTel2()+"-"+params.getTel3();
+		getJdbcTemplate().update(sql, new Object[]{params.getStudentNumber(),"1234",params.getName(),params.getBirthday()
+				,params.getMajor(),params.getGrade(),params.getEntrace_date(),tel,cellphone,params.getEmail(),params.getAddress(),params.getState()
+		});		
+	}
+
+	@Override
+	public void updateMember(Member params) throws DataAccessException {
+		String sql="UPDATE student_members SET tel=?, cellphone=?, email=?, address=?, stnumber=?, name=?, birthday=?, major=?, grade=?, entrance_date=?"
+				+ ", state=?"
+				+ " WHERE stnumber=?";
+		String tel = params.getTel1()+"-"+params.getTel2()+"-"+params.getTel3();
+		String cellphone = params.getHp1()+"-"+params.getHp2()+"-"+params.getHp3();
+		String email=params.getEmail();
+		String address=params.getAddress();
+		String stnumber=params.getStudentNumber();
+		String name = params.getName();
+		String birthday = params.getBirthday();
+		String major = params.getMajor();
+		String grade = params.getGrade();
+		String entranceDate = params.getEntrace_date();
+		String state = params.getState();
+
+		Object[] objs ={tel,cellphone,email,address,stnumber,name,birthday,major,grade,entranceDate,state,stnumber};
+		getJdbcTemplate().update(sql, objs);
+		
 	}
 }
