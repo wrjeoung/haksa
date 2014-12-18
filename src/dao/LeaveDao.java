@@ -12,4 +12,6 @@ public interface LeaveDao {
 	public void deleteLeave(String value)throws DataAccessException;
 	//상세보기
 	public Leave getLeave(int num)throws DataAccessException;
+	//수정
+	public void changeLeave(Leave params)throws DataAccessException;
 }

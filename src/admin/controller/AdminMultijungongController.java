@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import model.Multijungong;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import dao.AdminMultijungongDao;
 
@@ -51,6 +53,24 @@ public class AdminMultijungongController {
 		}
 		return "redirect:/adminmultijungongList.do";
 	}
+	@RequestMapping("adminmultijungongmodify.do")
+	public String infoModify(HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Multijungong multijungong;
+		multijungong=adminMultijungongDao.getAdminMultijungong(num);
+		request.setAttribute("multijungong", multijungong);
+		return "/adminmultijungong/adminMultijungongModifyform.jsp";
+	}
+	@RequestMapping("adminmultijungonginfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Multijungong multijungong,HttpServletRequest request){
+		multijungong.setMulti_reg_date(today.getTime());
+		adminMultijungongDao.changeAdminMultijungong(multijungong);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("multijungong", multijungong);
+		mv.setViewName("redirect:/adminmultijungongList.do");
+		return mv;
+	}
+	
 	public AdminMultijungongDao getAdminMultijungongDao() {
 		return adminMultijungongDao;
 	}

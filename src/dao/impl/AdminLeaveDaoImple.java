@@ -119,4 +119,20 @@ public class AdminLeaveDaoImple extends JdbcDaoSupport implements AdminLeaveDao{
 			}
 		}
 	}
+	@Override
+	public void changeAdminLeave(Leave params) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE leave SET leavegubun=?,leavehak=?,leavehak2=?,leavehak3=?,leavegyul=?,leavesayu=?,leavesayu2=?,leaveday=? WHERE num=?";
+		String leavegubun=params.getLeavegubun();
+		String leavehak=params.getLeavehak();
+		String leavehak2=params.getLeavehak2();
+		String leavehak3=params.getLeavehak3();
+		String leavegyul=params.getLeavegyul();
+		String leavesayu=params.getLeavesayu();
+		String leavesayu2=params.getLeavesayu2();
+		String leaveday=params.getLeaveday();
+		int num=params.getNum();
+		Object[] objs={leavegubun,leavehak,leavehak2,leavehak3,leavegyul,leavesayu,leavesayu2,leaveday,num};
+		getJdbcTemplate().update(sql,objs);
+	}
 }

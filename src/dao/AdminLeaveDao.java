@@ -13,4 +13,6 @@ public interface AdminLeaveDao {
 	public void deleteAdminLeave(String value)throws DataAccessException;
 	//상세보기
 	public Leave getAdminLeave(int num)throws DataAccessException;
+	//수정
+	public void changeAdminLeave(Leave params)throws DataAccessException;
 }

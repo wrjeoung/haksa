@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import model.Janghak;
 import model.Member;
+import model.Multijungong;
 
 import org.apache.catalina.Session;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dao.JanghakDao;
 import dao.MemberDao;
+import dao.MultijungongDao;
 
 @Controller
 public class InsertJanghakController {
@@ -72,6 +74,31 @@ public class InsertJanghakController {
 		}
 		return "redirect:/janghakList.do";
 	}
+	@RequestMapping("janghakinfomodify.do")
+	public String infoModify(HttpServletRequest request,HttpSession session){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Janghak janghak;
+		janghak=janghakDao.getJanghak(num);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("janghak", janghak);
+		request.setAttribute("member", member);
+		return "/janghak/modifyJanghakForm.jsp";
+	}
+	@RequestMapping("janghakinfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Janghak janghak,HttpServletRequest request,HttpSession session){
+		janghak.setJanghak_reg_date(today.getTime());
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		janghakDao.changeJanghak(janghak);
+		request.setAttribute("member", member);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("janghak", janghak);
+		mv.addObject("member", member);
+		mv.setViewName("redirect:/janghakList.do");
+		return mv;
+	}
+	
 	public JanghakDao getJanghakDao() {
 		return janghakDao;
 	}

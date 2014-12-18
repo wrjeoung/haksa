@@ -119,4 +119,24 @@ public class MultijungongDaoImple extends JdbcDaoSupport implements Multijungong
 		}
 		
 	}
+	@Override
+	public void changeMultijungong(Multijungong params)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE multijungong SET multigubun=?,multigubun2=?,"
+				+ "multiyear1=?,multiyear2=?,multiyear3=?,multijungong=?,"
+				+ "multigyul=?,multisayu=?,multiday=? WHERE num=?";
+		String multigubun=params.getMultigubun();
+		String multigubun2=params.getMultigubun2();
+		String multiyear1=params.getMultiyear1();
+		String multiyear2=params.getMultiyear2();
+		String multiyear3=params.getMultiyear3();
+		String multijungong=params.getMultijungong();
+		String multigyul=params.getMultigyul();
+		String multisayu=params.getMultisayu();
+		String multiday=params.getMultiday();
+		int num=params.getNum();
+		Object[] objs={multigubun,multigubun2,multiyear1,multiyear2,multiyear3,multijungong,multigyul,multisayu,multiday,num};
+		getJdbcTemplate().update(sql, objs);
+	}
 }

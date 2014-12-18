@@ -64,7 +64,12 @@
 
        <bean id="noticeWrite" class="notice.controller.NoticeWriteController">
         <property name="noticeDao" ref="noticeDao"></property>
-       </bean>        
+       </bean>  
+       
+       <bean id="noticeModify" class="notice.controller.NoticeModifyController">
+        <property name="noticeDao" ref="noticeDao"></property>
+       </bean>
+                    
        <bean id="main" class="main.controller.MainController"/>
 
 	   <!-- 수강신청 -->       
@@ -316,6 +321,7 @@
        </bean>
 	   <bean id="adminjanghak" class="admin.controller.AdminJanghakController">
        		<property name="adminJanghakDao" ref="adminJanghakDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
        
        <bean id="adminjanghakview" class="admin.controller.AdminJanghakViewController">
@@ -347,6 +353,10 @@
        		<property name="memberDao" ref="memberDao"></property>
        </bean>
 
+		<!-- 관리자 수강신청 -->
+		<bean id="adminRegister" class="admin.controller.AdminRegisterController">
+			<property name="registerclassDao" ref="registerclassDao"></property>
+		</bean>
 
        <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
           <property name="maxUploadSize" value="-1" />

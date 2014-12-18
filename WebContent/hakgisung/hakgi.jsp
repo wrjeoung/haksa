@@ -51,10 +51,8 @@
 			<div class="form-group" style="margin-right:30px;">
 				<input class="btn btn-primary" type="button" name="list" value="조회" onclick="javascript:location.href='hakgi2.do'"/>
 			</div>
-
 <p></p>		
 
-			
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학과  : </strong></p>
 			</div>
@@ -145,14 +143,17 @@
 		           </tr>
 		        </thead>
 		        <tbody>
+		     	        
 		        <tr>
-
-		        <c:forEach var="list5" items="${list5}"> 
+		        <c:forEach var="list5" items="${list5}">
+		       <c:if test="${list5.credit != 0}">  
 		            <td>${list5.credit}</td> 
 		            <td>${list5.credit}</td>
 		            <td>${list5.credit}</td>
 		            <td>${list5.credit/totalCount}</td>
+		       </c:if>
 		            </tr>
+
 		            </c:forEach>
 		        </tbody>
 	      </table>

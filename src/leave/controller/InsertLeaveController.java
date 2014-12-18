@@ -71,6 +71,29 @@ public class InsertLeaveController {
 		}
 		return "redirect:/leaveList.do";
 	}
+	@RequestMapping("leaveinfomodify.do")
+	public String infoModify(HttpSession session,HttpServletRequest request){
+		int num=Integer.parseInt(request.getParameter("num"));
+		Leave leave;
+		leave=leaveDao.getLeave(num);
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		request.setAttribute("leave", leave);
+		request.setAttribute("member", member);
+		return "/leave/modifyLeaveForm.jsp";
+	}
+	@RequestMapping("leaveinfoPro.do")
+	public ModelAndView Modify(@ModelAttribute Leave leave,HttpServletRequest request,HttpSession session){
+		leave.setLeave_reg_date(today.getTime());
+		Member member;
+		member=memberDao.selectMember((String)session.getAttribute("memId"));
+		leaveDao.changeLeave(leave);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("leave",leave);
+		mv.addObject("member", member);
+		mv.setViewName("redirect:/leaveList.do");
+		return mv;
+	}
 	
 	public LeaveDao getLeaveDao() {
 		return leaveDao;

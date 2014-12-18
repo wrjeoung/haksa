@@ -13,7 +13,7 @@ public interface HakgiDao {
 	 List getSungjuklist() throws DataAccessException;
 	 List getAddyearlist() throws DataAccessException;
 	 List getAddhakgilist() throws DataAccessException;
-	 List getTotalList() throws DataAccessException;
+	 List getTotalList(HashMap params) throws DataAccessException;
 	 List getHakgilist(HashMap params) throws DataAccessException;
 	 public void insertHakgi(Hakgi hakgi) throws DataAccessException;
 	 

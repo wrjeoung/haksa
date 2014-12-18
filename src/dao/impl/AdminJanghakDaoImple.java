@@ -116,4 +116,17 @@ public class AdminJanghakDaoImple extends JdbcDaoSupport implements AdminJanghak
 		}
 		
 	}
+	@Override
+	public void changeAdminJanghak(Janghak params) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE janghak SET janghakbank=?,janghakbanknum=?,janghakname=?,janghakmenu=?,janghakmy=? WHERE num=?";
+		String janghakbank=params.getJanghakbank();
+		String janghakbanknum=params.getJanghakbanknum();
+		String janghakname=params.getJanghakname();
+		String janghakmenu=params.getJanghakmenu();
+		String janghakmy=params.getJanghakmy();
+		int num=params.getNum();
+		Object[] objs={janghakbank,janghakbanknum,janghakname,janghakmenu,janghakmy,num};
+		getJdbcTemplate().update(sql, objs);
+	}
 }

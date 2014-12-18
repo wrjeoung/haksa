@@ -40,9 +40,9 @@ public class HakgiDaoImpl extends JdbcDaoSupport implements HakgiDao{
 	}
 	
 	@Override
-	public List getTotalList() throws DataAccessException { 
+	public List getTotalList(HashMap params) throws DataAccessException { 
 		RowMapper rowMapper = new HakgiRowMapper4();
-		return getJdbcTemplate().query("SELECT sum(credit) FROM student_grade",rowMapper);
+		return getJdbcTemplate().query("SELECT sum(credit) FROM student_grade where stnumber='" + params.get("stnumber")+ "'" ,rowMapper);
 														
 	}
 	

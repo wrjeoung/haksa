@@ -13,4 +13,6 @@ public interface AdminJanghakDao {
 	public void deleteAdminJanghak(String value)throws DataAccessException;
 	//상세보기
 	public Janghak getAdminJanghak(int num)throws DataAccessException;
+	//수정
+	public void changeAdminJanghak(Janghak params)throws DataAccessException;
 }
