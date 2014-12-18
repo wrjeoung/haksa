@@ -329,7 +329,8 @@
 	   </bean>      
 
        <bean id="creditwaiver" class="creditswaiver.controller.CreditswaiverController">
-       		
+       		<property name="creditwaiverDao" ref="creditwaiverDao"></property>
+       		<property name="memberDao" ref="memberDao"></property>
        </bean>
 
 

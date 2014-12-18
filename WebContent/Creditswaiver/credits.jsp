@@ -51,10 +51,8 @@
 			<div class="form-group" style="margin-right:30px;">
 				<input class="btn btn-primary" type="button" name="list" value="조회" onclick="javascript:location.href='hakgi2.do'"/>
 			</div>
-
 <p></p>		
 
-			
 			<div class="form-group" style="margin-right:15px;">
 				<p><strong>학과  : </strong></p>
 			</div>
@@ -99,23 +97,43 @@
 		            <th>학점</th>
 		            <th>성적등급</th>
 		            <th>비고</th>
-		            <th>포기신청</th>
+		            <th>신청</th>
 		          </tr>
 		        </thead>
 		        <tbody>
 		        <tr>
-		          <c:forEach var="list6" items="${list6}"> 
-		            <td>${list6.subjectnum}</td>
-		            <td> 1반</td> 
-		            <td>${list6.subjectname}</td>
-		            <td>${list6.course}</td>
-		            <td>${list6.credit}</td>
-		            <td>A+</td>
-		            <td>${list6.etc}  </td>
-		            <td>
-		            <a href="javascript:location.href='creditsdelete.do?subjectnum=${list6.subjectnum }'";>포기신청</a>
-		            </td>
-		          </tr>
+		          <c:forEach var="list" items="${list}"> 
+		            <td>${list.subjectnum}</td>
+		            <td>${list.classis }</td> 
+		            <td>${list.subjectname}</td>
+		            <td>${list.course}</td>
+		            <td>${list.credit }</td>
+		            <!-- 90~ -->
+		            <c:if test="${list.percentage >= 90}">
+		            <td>A</td> 
+		            </c:if>
+		            <!-- 80 ~ 89 -->
+		            <c:if test="${list.percentage >= 80 && list.percentage <90}">
+		            <td>B</td> 
+		            </c:if>
+		            <!-- 70~79 -->
+		            <c:if test="${list.percentage >= 70 && list.percentage <80}">
+		            <td>C</td> 
+		            </c:if> 
+		            <!-- 60~69 -->
+		            <c:if test="${list.percentage >= 60 && list.percentage <70}">
+		            <td>D</td> 
+		            </c:if>
+		            <!-- 50~59 -->
+		             <c:if test="${list.percentage >= 50 && list.percentage <60}">
+		            <td>F</td> 
+		            </c:if>
+		            <td>${list.etc}</td>
+		            <c:url var="viewURL" value="creditsView.do">
+						<c:param name="subjectnum" value="${list.subjectnum}" />							
+					</c:url>
+		            <td><a href="${viewURL }">학점포기</a></td>
+		            </tr>
 		            </c:forEach>
 		        </tbody>
 	      </table>
@@ -130,42 +148,20 @@
 		           </tr>
 		        </thead>
 		        <tbody>
+		     	        
 		        <tr>
-
-		        <c:forEach var="list5" items="${list5}"> 
+		        <c:forEach var="list5" items="${list5}">
+		       <c:if test="${list5.credit != 0}">  
 		            <td>${list5.credit}</td> 
 		            <td>${list5.credit}</td>
 		            <td>${list5.credit}</td>
 		            <td>${list5.credit/totalCount}</td>
-		            </tr>
-		            </c:forEach>
-		        </tbody>
-	      </table>
-	      
-	      <div class="text-center">
-				<ul class="pagination pagination-sm">
-				<li class="disabled"><span>«</span></li>
-				<li class="active">
-					<a href="#">1</a> 
-				</li>
-				<li>
-					<a href="#">2</a>
-				</li>
-				<li>
-					<a href="#">3</a>
-				</li>
-				<li>
-					<a href="#">4</a>
-				</li>
-				<li>
-					<a href="#">5</a>
-				</li>
-				<li><span>&raquo;</span></li>
-				</ul>
-		 </div>
-
-		
-				</form>
+		       </c:if>
+		       </tr>
+	</c:forEach>
+</tbody>
+</table>
+</form>
 		</div>
 		<!-- /.container -->
 
@@ -177,6 +173,6 @@
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<!-- <script src="js/respond.js"></script> -->
 		
-		</body>
-		</html>
+</body>
+</html>
 	
