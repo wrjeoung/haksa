@@ -263,6 +263,11 @@
        		<property name="adminHuhakDao" ref="adminHuhakDao"></property>
        </bean>
        
+       <!-- 관리자 학생정보 -->
+        <bean id="inputstudentinfo" class="admin.controller.AdminStudentInfo">
+       		<property name="memberDao" ref="memberDao"></property>
+       </bean>
+       
        <!-- 관리자복학관리 -->
        <bean id="adminBokhakDao" class="dao.impl.AdminBokhakDaoImple">
        		<property name="dataSource" ref="dataSource"></property>

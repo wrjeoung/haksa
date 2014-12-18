@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import model.Registerclass;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import common.pagingAction;
@@ -54,11 +55,29 @@ public class AdminRegisterController {
 		return "adminRegister/adminRegisterEnglish.jsp";
 	}
 	
+	@RequestMapping("adminRegisterDelete.do")
+	public String delete(HttpServletRequest request){
+		String[] checkedNumList = request.getParameter("checkedNumList").split(",");
+		registerclassDao.deleteList(checkedNumList);
+		return "redirect:/adminRegisterEnglish.do";
+	}	
+	
 	@RequestMapping("adminRegisterMain.do")
 	public String adminMain(){
 		
 		
 		return "adminRegister/adminRegisterMain.jsp";
+	}
+	
+	@RequestMapping("adminRegisterAdd.do")
+	public String add(){
+		return "adminRegister/adminRegisterAdd.jsp";
+	}
+	
+	@RequestMapping("adminRegisterAddPro.do")
+	public String addPro(@ModelAttribute Registerclass registerclass){
+		registerclassDao.insertRegisterclass(registerclass);
+		return "adminRegister/adminRegisterAddPro.jsp";
 	}
 
 	public void setRegisterclassDao(RegisterclassDao registerclassDao) {

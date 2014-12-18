@@ -15,6 +15,38 @@
 
 <!-- Custom styles for this template -->
 <link href="dist/customcss/starter-template.css" rel="stylesheet">
+
+<script>
+	function deleteCheck()
+	{
+		var checkth = document.getElementById("checkth");
+		var checktd = document.getElementsByName("checktd");
+		
+		$(checkth).removeAttr("style");
+		
+	    for(var i=0; i<checktd.length; i++){
+	    	$(checktd[i]).removeAttr("style");
+	    }
+	}
+	
+	function deleteList()
+	{
+		var checkBox = document.getElementsByName("chk");
+		var checkedNumList=""; 
+			
+		for(var i = 0; i<checkBox.length;i++)
+		{
+			if(checkBox[i].checked)
+			{
+				var subjectnum = document.getElementById("subjectnum"+i);
+				checkedNumList += subjectnum.childNodes[0].nodeValue+",";
+			}
+		}
+		alert("삭제되었습니다.");
+		document.location.href = "adminRegisterDelete.do?checkedNumList="+checkedNumList;
+	}
+</script>
+
 </head>
 <body>
 	<!-- header -->
@@ -33,6 +65,7 @@
 			<table class="table table-bordered">
 				<thead>
 		          <tr>
+	          	    <th id="checkth" style="display:none;"></th>
 		            <th>학수번호</th>
 		            <th>과목명</th>
 		            <th>교과과정</th>
@@ -49,9 +82,12 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		        	<c:forEach var="list" items="${list}">
+		        	<c:forEach var="list" items="${list}" varStatus="vs">
 		        		<tr>
-		        			<td>${list.subjectnum}</td>
+		        			<td id="checktd" name="checktd" style="display:none;">
+	        					<input type="checkbox" name="chk" id="chk">
+		        			</td>
+		        			<td id="subjectnum${vs.index}">${list.subjectnum}</td>
 			        		<td>${list.subjectname}</td>
 			        		<td>${list.curriculum}</td>
 			        		<td>${list.course}</td>
@@ -71,7 +107,14 @@
 	      <div class="text-center">
 				<ul class="pagination pagination-sm">
 				${pagingHtml}
+				<button type="button" class="btn btn-default" style="margin-left:50px;" onclick="deleteCheck()">삭제</button>
+				<button type="button" class="btn btn-default" onclick="deleteList()">완료</button>
 			</div>
+			<p class="text-success">
+				<strong>[수강신청과목 추가]</strong>
+				<button type="button" class="btn btn-default"  style="margin-left:50px;" onclick="javascript:location.href='adminRegisterAdd.do'";>추가</button>
+				
+			</p>
 		</form>
 	</div>
 	<!-- /.container -->
