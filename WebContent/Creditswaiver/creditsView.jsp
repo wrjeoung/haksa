@@ -72,7 +72,28 @@
 				<td scope="row" bgcolor="#F4F4F4">이수구분</td>
 				<td>${hakgi.course }</td>
 				<td scope="row" bgcolor="#F4F4F4">학점</td>
-				<td>${hakgi.credit }</td>
+				<%-- <td>${hakgi.credit }</td> --%>
+				
+				 <c:if test="${hakgi.percentage >= 90}">
+		            <td>A</td> 
+		            </c:if>
+		            <!-- 80 ~ 89 -->
+		            <c:if test="${hakgi.percentage >= 80 && hakgi.percentage <90}">
+		            <td>B</td> 
+		            </c:if>
+		            <!-- 70~79 -->
+		            <c:if test="${hakgi.percentage >= 70 && hakgi.percentage <80}">
+		            <td>C</td> 
+		            </c:if> 
+		            <!-- 60~69 -->
+		            <c:if test="${hakgi.percentage >= 60 && hakgi.percentage <70}">
+		            <td>D</td> 
+		            </c:if>
+		            <!-- 50~59 -->
+		             <c:if test="${hakgi.percentage >= 50 && hakgi.percentage <60}">
+		            <td>F</td> 
+		            </c:if>
+				
 				<td scope="row" bgcolor="#F4F4F4">비고</td>
 				<td>${hakgi.etc }</td>
 			</tr>

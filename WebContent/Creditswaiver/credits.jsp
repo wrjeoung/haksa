@@ -22,7 +22,7 @@
 
 	<div class="container">
 		<div class="page-header">
-		  <h3>>학기별 성적조회</h3>
+		  <h3>>학점포기신청</h3>
 		</div>
 
 		<form class="form-inline" role="form">
@@ -85,7 +85,7 @@
 			</div>
 
 		<p></p>
-		<p class="text-success"><strong>[누적성적 List]</strong></p>
+		<p class="text-success"><strong>[학점 List]</strong></p>
 		
 		<table class="table table-bordered">
 				<thead>
@@ -132,7 +132,12 @@
 		            <c:url var="viewURL" value="creditsView.do">
 						<c:param name="subjectnum" value="${list.subjectnum}" />							
 					</c:url>
+					<c:if test="${list.percentage>=70 }">
 		            <td><a href="${viewURL }">학점포기</a></td>
+		            </c:if>
+		            <c:if test="${list.percentage<70 }">
+		            <td>대상아님</td>
+		            </c:if>
 		            </tr>
 		            </c:forEach>
 		        </tbody>
