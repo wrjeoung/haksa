@@ -12,7 +12,7 @@
     <meta name="author" content="">
 </head>
 <script type="text/javascript">
-	function chk_up(){
+	/* function chk_up(){
 		chk.action = "adminbokhakUpdateCom.do";
 		chk.submit();
 	}
@@ -23,6 +23,43 @@
 	function chk_del(){
 		chk.action = "adminbokhakDelete.do";
 		chk.submit();
+	} */
+	
+	function chk_del(){
+		var count=0;
+		var rnum=document.getElementsByName('rnum');
+		for(i=0;i<rnum.length;i++){
+			if(rnum[i].checked) { count += 1; }
+		}
+		if(count==0){alert("체크된 항목이 없습니다.");
+		}else{
+			chk.action = "adminbokhakDelete.do";
+			chk.submit();
+		}
+	}
+	function chk_up(){
+		var count=0;
+		var rnum=document.getElementsByName('rnum');
+		for(i=0;i<rnum.length;i++){
+			if(rnum[i].checked) { count += 1; }
+		}
+		if(count==0){ alert("체크된 항목이 없습니다.");
+		}else{
+			chk.action = "adminbokhakUpdateCom.do";
+			chk.submit();
+		}
+	}
+	function chk_up2(){
+		var count=0;
+		var rnum=document.getElementsByName('rnum');
+		for(i=0;i<rnum.length;i++){
+			if(rnum[i].checked) { count += 1; }
+		}
+		if(count==0){ alert("체크된 항목이 없습니다."); 
+		}else{
+			chk.action = "adminbokhakUpdateCan.do";
+			chk.submit();
+		}
 	}
 </script>
 <body>

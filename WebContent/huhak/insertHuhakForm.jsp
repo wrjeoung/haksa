@@ -20,12 +20,24 @@
 			document.test.hugrade.value="성적불인정";
 		}
 	}
-	function chk_del(){
+	/* function chk_del(){
 		chk.action = "huhakDelete.do";
 		//chk.location="huhakDelete.do?rnum=${vo.num}";
 		chk.submit();
+	} */
+	function chk_del(){
+	    var count = 0;
+	    var rnum = document.getElementsByName('rnum');
+	    for(i=0; i<rnum.length;i++){
+	        if(rnum[i].checked) { count += 1; }
+	    }
+	    if(count==0){ alert("체크된 항목이 없습니다."); 
+	    }else{
+	    	chk.action = "huhakDelete.do";
+			//chk.location="huhakDelete.do?rnum=${vo.num}";
+			chk.submit();
+	    }
 	}
-	
 	/* function hugr_check2(){
 		if(document.test2.rnum.checked==true){
 			document.test2.rnum2.value="1";
