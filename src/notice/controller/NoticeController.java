@@ -83,7 +83,22 @@ public class NoticeController {
 		
 		noticeDao.updateReadCount(num);
 		Notice notice = noticeDao.getNotice(num);
-
+		
+		int prevNum = noticeDao.getPrevNum(num);
+		int nextNum = noticeDao.getNextNum(num);
+		
+		//System.out.println("prevNum = "+prevNum);
+		//System.out.println("nextNum = "+nextNum);
+		
+		
+		if(prevNum > 0)
+		{
+			request.setAttribute("prevNum", prevNum);
+		}
+		if(nextNum > 0)
+		{
+			request.setAttribute("nextNum", nextNum);
+		}
 		request.setAttribute("notice", notice);
 		request.setAttribute("currentPage",request.getParameter("currentPage"));
 		return "notice/noticeView.jsp";

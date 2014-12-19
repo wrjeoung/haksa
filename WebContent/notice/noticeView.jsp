@@ -58,7 +58,7 @@
 					</tbody>
 				</table>
 				
-				<c:url var="viewURL" value="noticeList.do">
+				<c:url var="listURL" value="noticeList.do">
 					<c:param name="currentPage" value="${currentPage}" />
 					<c:if test="${param.searchType != null}">
 						<c:param name="searchType" value="${param.searchType}" />
@@ -92,10 +92,29 @@
 					<c:if test="${param.num != null}">
 						<c:param name="num" value="${param.num}" />
 					</c:if>												
-				</c:url>								
+				</c:url>
+				
+				<c:url var="viewURL" value="noticeView.do">
+					<c:param name="currentPage" value="${currentPage}" />
+					<c:if test="${param.searchType != null}">
+						<c:param name="searchType" value="${param.searchType}" />
+					</c:if>
+					<c:if test="${param.searchWord != null}">
+						<c:param name="searchWord" value="${param.searchWord}" />
+					</c:if>						
+				</c:url>													
+				
+				<div align="left">
+					<c:if test="${prevNum != null}">
+						<button type="button" class="btn btn-default" onclick="javascript:location.href='${viewURL}&num=${prevNum}'";>이전글</button>
+					</c:if>
+					<c:if test="${nextNum != null}">
+						<button type="button" class="btn btn-default" onclick="javascript:location.href='${viewURL}&num=${nextNum}'";>다음글</button>
+					</c:if>
+				</div>
 				
 				<div align="right">
-  					<button type="button" class="btn btn-primary" onclick="javascript:location.href='${viewURL}'";>목록</button>
+  					<button type="button" class="btn btn-primary" onclick="javascript:location.href='${listURL}'";>목록</button>
   				<c:if test="${memId != null && memId eq admin}">
   					<button type="button" class="btn btn-primary" onclick="javascript:alert('삭제되었습니다.');javascript:location.href='${delteURL}'";>삭제</button>
   					<button type="button" class="btn btn-primary" onclick="javascript:location.href='${modifyURL}'";>수정</button>

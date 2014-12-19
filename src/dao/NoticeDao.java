@@ -13,4 +13,6 @@ public interface NoticeDao {
 	public void updateNotice(Notice notice) throws DataAccessException;
 	public void updateReadCount(int num) throws DataAccessException;
 	public void deleteNotice(int num) throws DataAccessException;
+	public int getPrevNum(int num) throws DataAccessException;
+	public int getNextNum(int num) throws DataAccessException;
 }

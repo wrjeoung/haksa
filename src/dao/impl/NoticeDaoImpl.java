@@ -123,11 +123,11 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
 
     }	
     public Integer getMaxNum()  throws DataAccessException {
-    	Integer maxId =  (Integer)getJdbcTemplate().query("SELECT max(num) as num FROM notice",new NoticeMaxNumExtractor());
+    	Integer maxId =  (Integer)getJdbcTemplate().query("SELECT max(num) as num FROM notice",new NoticeNumExtractor());
        	return maxId;
     }
     
-    protected class NoticeMaxNumExtractor implements ResultSetExtractor {
+    protected class NoticeNumExtractor implements ResultSetExtractor {
         public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
             if (rs.next()) {
                 return rs.getInt(1);
@@ -156,5 +156,18 @@ public class NoticeDaoImpl extends JdbcDaoSupport implements NoticeDao {
 		// TODO Auto-generated method stub
 		String sql = "UPDATE notice set subject=?, content=? where num=?";
 		getJdbcTemplate().update(sql,new Object[]{notice.getSubject(),notice.getContent(),notice.getNum()});
+	}
+
+	@Override
+	public int getPrevNum(int num) throws DataAccessException {
+		// TODO Auto-generated method stub
+		Integer prevNum =  (Integer)getJdbcTemplate().query("SELECT max(num) as num FROM notice where num < "+num,new NoticeNumExtractor());
+		return prevNum ;
+	}
+
+	@Override
+	public int getNextNum(int num) throws DataAccessException {
+		Integer nextNum =  (Integer)getJdbcTemplate().query("SELECT min(num) as num FROM notice where num > "+num,new NoticeNumExtractor());
+		return nextNum ;
 	}
 }
