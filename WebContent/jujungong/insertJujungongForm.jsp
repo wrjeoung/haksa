@@ -134,6 +134,7 @@ String formatDate2=dateFormat2.format(nowDate);
 </table>
 </form>
 </div>
+<c:if test="${member.state!='졸업' && member.state!='자퇴' }">
 <form action="insertJujungongPro.do" method="post" enctype="multipart/form-data" onSubmit="" name="">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
 		<tr align="center">
@@ -198,6 +199,7 @@ String formatDate2=dateFormat2.format(nowDate);
 	<button type="button" class="btn btn-default" onclick="chk_del()">취소</button>
 	</div>
 </form>
+</c:if>
 </body>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
     <script src="//code.jquery.com/jquery.js"></script>
