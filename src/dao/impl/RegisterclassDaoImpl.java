@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import dao.RegisterclassDao;
+import dao.impl.NoticeDaoImpl.NoticeRowMapper;
 
 public class RegisterclassDaoImpl extends JdbcDaoSupport implements RegisterclassDao {
 
@@ -146,6 +147,24 @@ public class RegisterclassDaoImpl extends JdbcDaoSupport implements Registerclas
 			}
 		}
 		getJdbcTemplate().update(sql);
-	}	
+	}
+
+	@Override
+	public List<String> getSubjectNum(String stnumber) throws DataAccessException {
+		String sql = "select b.subjectnum from registerforcourses a , registerclass b where a.subjectnum = b.subjectnum and stnumber = '" + stnumber + "'";
+		RowMapper rowMapper = new SubjectNameRowMapper();
+		List<String> query = getJdbcTemplate().query(sql,rowMapper);
+		return query;
+	}
 	
+	protected class SubjectNameRowMapper implements RowMapper {
+		private List sbNameList = new ArrayList();
+
+		@Override
+		public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+			String str;
+			str = rs.getString("subjectnum");
+			return str;
+		}
+	}
 }

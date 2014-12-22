@@ -1,7 +1,9 @@
 package registerclass.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,7 +18,8 @@ public class SubmitController {
 	
 	@RequestMapping("registerSubmit.do")
 	public String form(
-			HttpServletRequest request){
+			HttpServletRequest request,
+			HttpSession session){
 		String subjectnum;
 		String stnumber;
 		
@@ -28,8 +31,23 @@ public class SubmitController {
 		request.setAttribute("studentNumber", request.getParameter("studentNumber"));
 		*/
 		//registerclassDao.insertRegisterclass(request.getParameter("subjectnum"), request.getParameter("studentNumber"));
-		registerForCoursesDao.insertRegisterclass(subjectnum, stnumber);
-		registerclassDao.updateExtraNum(subjectnum);
+		List<String> list;
+		list = registerclassDao.getSubjectNum((String)session.getAttribute("memId"));
+		boolean chkDupli = false;
+		
+		for(String str : list) {
+			if(str.equals(subjectnum)) {
+				chkDupli = true;
+			}
+		}
+		//System.out.println("SubmitController chkDupli : "+chkDupli);
+		if(chkDupli == false)
+		{	
+			registerForCoursesDao.insertRegisterclass(subjectnum, stnumber);
+			registerclassDao.updateExtraNum(subjectnum);
+		}
+		request.setAttribute("chkDupli", chkDupli);
+		
 		return "registerclass/submit.jsp";
 	}
 
