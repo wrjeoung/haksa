@@ -128,4 +128,16 @@ public class AdminBokhakDaoImple extends JdbcDaoSupport implements AdminBokhakDa
 		getJdbcTemplate().update(sql,objs);
 		
 	}
+	@Override
+	public void updateBokhakMember(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE student_members SET state='재학중' WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
+	@Override
+	public void updateBokhakMember2(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE student_members SET state='휴학중' WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
 }

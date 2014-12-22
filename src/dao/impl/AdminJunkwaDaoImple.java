@@ -126,4 +126,11 @@ public class AdminJunkwaDaoImple extends JdbcDaoSupport implements AdminJunkwaDa
 		getJdbcTemplate().update(sql,objs);
 		System.out.println("1"+junkwayear+"2"+junkwahakgi+"3"+junkwahakkwa+"4:"+junkwabygo+"5:"+num);
 	}
+	@Override
+	public void updateAdminJunkwaMember(String junkwahakkwa, String name)
+			throws DataAccessException {
+		// TODO Auto-generated method stub 
+		String sql="UPDATE student_members SET major='"+junkwahakkwa+"'"+"WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
 }

@@ -33,18 +33,26 @@ public class AdminBokhakController {
 	@RequestMapping("adminbokhakUpdateCom.do")
 	public String UpdateCom(HttpServletRequest request){
 		String[] rnum=request.getParameterValues("rnum");
+		
+		String stnumber=request.getParameter("stnumber");
+		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminBokhakDao.updatecomAdminBokhak(value);
+			adminBokhakDao.updateBokhakMember(name);
 		}
 		return "redirect:/adminbokhakList.do";
 	}
 	@RequestMapping("adminbokhakUpdateCan.do")
 	public String UpdateCan(HttpServletRequest request){
 		String[] rnum=request.getParameterValues("rnum");
+		
+		String stnumber=request.getParameter("stnumber");
+		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminBokhakDao.updatecanAdminBokhak(value);
+			adminBokhakDao.updateBokhakMember2(name);
 		}
 		return "redirect:/adminbokhakList.do";
 	}

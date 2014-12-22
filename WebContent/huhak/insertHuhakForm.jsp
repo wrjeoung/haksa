@@ -146,7 +146,7 @@
 </form>
 </div>
 <!-- 신청하기 -->
-<c:if test="${member.state!='휴학중' && member.state!='졸업' }">
+<c:if test="${member.state!='휴학중' && member.state!='졸업' && member.state!='자퇴' }">
 <form action="insertHuhakPro.do" method="post" enctype="multipart/form-data" onSubmit="" name="test">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
 		<tr align="center">
@@ -176,7 +176,7 @@
 		
 	<input type="hidden" name="name" value="${member.studentNumber }">
 	<input type="submit" class="btn btn-default" value="신청">
-	<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
+	<button type="button" class="btn btn-default" onclick="chk_del()">취소</button>
 	<input type="hidden" value="성적불인정" name="hugrade">
 	</div>
 </form>

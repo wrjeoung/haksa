@@ -15,4 +15,8 @@ public interface AdminLeaveDao {
 	public Leave getAdminLeave(int num)throws DataAccessException;
 	//수정
 	public void changeAdminLeave(Leave params)throws DataAccessException;
+	//자퇴
+	public void updateLeaveMember(String name)throws DataAccessException;
+	//되돌리기
+	public void updateLeaveMember2(String name)throws DataAccessException;
 }

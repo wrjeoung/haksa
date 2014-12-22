@@ -15,4 +15,8 @@ public interface AdminBokhakDao {
 	public Bokhak getAdminBokhak(int num)throws DataAccessException;
 	//수정
 	public void changeAdminBokhak(Bokhak params)throws DataAccessException;
+	//회원상태(재학중으로 변경)
+	public void updateBokhakMember(String name)throws DataAccessException;
+	//회원상태(휴학중으로 되돌리기)
+	public void updateBokhakMember2(String name)throws DataAccessException;
 }

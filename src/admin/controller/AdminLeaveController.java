@@ -29,18 +29,27 @@ public class AdminLeaveController {
 	@RequestMapping("adminleaveUpdateCom.do")
 	public String UpdateCom(HttpServletRequest request){
 		String[] rnum=request.getParameterValues("rnum");
+		//자퇴
+		String stnumber=request.getParameter("stnumber");
+		String name=request.getParameter("name");
+		
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminLeaveDao.updatecomAdminLeave(value);
+			adminLeaveDao.updateLeaveMember(name);
 		}
 		return "redirect:/adminleaveList.do";
 	}
 	@RequestMapping("adminleaveUpdateCan.do")
 	public String UpdateCan(HttpServletRequest request){
 		String[] rnum=request.getParameterValues("rnum");
+		//되돌리기
+		String stnumber=request.getParameter("stnumber");
+		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminLeaveDao.updatecanAdminLeave(value);
+			adminLeaveDao.updateLeaveMember2(name);
 		}
 		return "redirect:/adminleaveList.do";
 	}

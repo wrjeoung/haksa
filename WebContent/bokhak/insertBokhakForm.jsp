@@ -122,7 +122,7 @@
 </table>
 </form>
 </div>
-<c:if test="${member.state!='졸업' && member.state=='휴학중'}">
+<c:if test="${member.state!='졸업' && member.state=='휴학중' && member.state!='자퇴'}">
 <form action="insertBokhakPro.do" method="post" enctype="multipart/form-data" onsubmit="" name="test">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
 		<tr align="center">
@@ -150,7 +150,7 @@
 	<div align="center">
 	<input type="hidden" name="name" value="${member.studentNumber }">
 	<input type="submit" class="btn btn-default" value="신청">
-	<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
+	<button type="button" class="btn btn-default" onclick="chk_del()">취소</button>
 	</div>
 </form>
 </c:if>

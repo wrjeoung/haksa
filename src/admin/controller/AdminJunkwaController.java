@@ -32,9 +32,14 @@ public class AdminJunkwaController {
 	@RequestMapping("adminjunkwaUpdateCom.do")
 	public String UpdateCom(HttpServletRequest request){
 		String[] rnum=request.getParameterValues("rnum");
+		
+		String junkwahakkwa=request.getParameter("junkwahakkwa");
+		String name=request.getParameter("name");
+		
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminJunkwaDao.updatecomAdminJunkwa(value);
+			adminJunkwaDao.updateAdminJunkwaMember(junkwahakkwa, name);
 		}
 		return "redirect:/adminjunkwaList.do"; 
 	}

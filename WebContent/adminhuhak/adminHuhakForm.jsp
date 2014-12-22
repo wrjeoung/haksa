@@ -71,6 +71,7 @@
 <p></p>
 <p class="text-success"><strong>[휴학신청관리]</strong></p>
 <form name="chk">
+
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -106,14 +107,15 @@
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.huchuri }</td>
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.husegubun }</td>
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.name }</td>
-								<td><input type="checkbox" name="rnum" value="${vo.num }"></td>
+								<td><input type="checkbox" name="rnum" value="${vo.num }">
+								<input type="hidden" name="name" value="${vo.name }"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	<div align="center">
 		<button type="button" class="btn btn-default" onclick="chk_up()">신청완료</button>
-		<button type="button"  class="btn btn-default" onclick="chk_up2()">신청</button>
+		<button type="button"  class="btn btn-default" onclick="chk_up2()">되돌리기</button>
 		<button type="button"  class="btn btn-default" onclick="chk_del()">삭제</button>
 	</div>
 </form>

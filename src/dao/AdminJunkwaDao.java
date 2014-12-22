@@ -15,4 +15,6 @@ public interface AdminJunkwaDao {
 	public Junkwa getAdminJunkwa(int num)throws DataAccessException;
 	//수정
 	public void changeAdminJunkwa(Junkwa params)throws DataAccessException;
+	//전과
+	public void updateAdminJunkwaMember(String junkwahakkwa,String name)throws DataAccessException;
 }

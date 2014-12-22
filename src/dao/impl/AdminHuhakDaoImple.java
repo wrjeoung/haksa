@@ -137,4 +137,18 @@ public class AdminHuhakDaoImple extends JdbcDaoSupport implements AdminHuhakDao{
 		Object[] objs={hugubun,husegubun,hubokyear,hubokhak,hugrade,hunumber,husayu,num};
 		getJdbcTemplate().update(sql, objs);
 	}
+	@Override
+	public void updateHuhakMember(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE student_members SET state='휴학중' WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
+	@Override
+	public void updateHuhakMember2(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE student_members SET state='재학중' WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
+	
+	
 }

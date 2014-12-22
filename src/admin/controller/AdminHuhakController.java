@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import model.Huhak;
+import model.Member;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +21,6 @@ import dao.HuhakDao;
 public class AdminHuhakController {
 	private AdminHuhakDao adminHuhakDao;
 	Calendar today=Calendar.getInstance();
-	
 	@RequestMapping("/adminhuhakList.do")
 	public String form1(HttpServletRequest request){
 		List<Huhak> list=null;
@@ -32,19 +32,25 @@ public class AdminHuhakController {
 	}
 	@RequestMapping("updateCom.do")
 	public String UpdateCom(HttpServletRequest request){
+		String stnumber=request.getParameter("stnumber");
 		String[] rnum=request.getParameterValues("rnum");
+		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminHuhakDao.updatecomAdminHuhak(value);
+			adminHuhakDao.updateHuhakMember(name);
 		}
 		return "redirect:/adminhuhakList.do";
 	}
 	@RequestMapping("updateCan.do")
 	public String UpdateCan(HttpServletRequest request){
 		String[] rnum=request.getParameterValues("rnum");
+		String stnumber=request.getParameter("stnumber");
+		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
 			adminHuhakDao.updatecanAdminHuhak(value);
+			adminHuhakDao.updateHuhakMember2(name);
 		}
 		return "redirect:/adminhuhakList.do";
 	}
@@ -84,6 +90,4 @@ public class AdminHuhakController {
 	public void setAdminHuhakDao(AdminHuhakDao adminHuhakDao) {
 		this.adminHuhakDao = adminHuhakDao;
 	}
-	
-	
 }

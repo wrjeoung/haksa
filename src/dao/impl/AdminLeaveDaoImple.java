@@ -135,4 +135,16 @@ public class AdminLeaveDaoImple extends JdbcDaoSupport implements AdminLeaveDao{
 		Object[] objs={leavegubun,leavehak,leavehak2,leavehak3,leavegyul,leavesayu,leavesayu2,leaveday,num};
 		getJdbcTemplate().update(sql,objs);
 	}
+	@Override
+	public void updateLeaveMember(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE student_members SET state='자퇴' WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
+	@Override
+	public void updateLeaveMember2(String name) throws DataAccessException {
+		// TODO Auto-generated method stub
+		String sql="UPDATE student_members SET state='재학중' WHERE stnumber='"+name+"'";
+		getJdbcTemplate().update(sql);
+	}
 }

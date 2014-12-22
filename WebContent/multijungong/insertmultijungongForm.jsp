@@ -188,7 +188,7 @@ String formatDate2=dateFormat2.format(nowDate);
 	<div align="center">
 	<input type="hidden"  value="${member.studentNumber }" name="name">
 	<input type="submit" class="btn btn-default" value="신청">
-	<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
+	<button type="button" class="btn btn-default" onclick="chk_del()">취소</button>
 	</div>
 </form>
 </body>

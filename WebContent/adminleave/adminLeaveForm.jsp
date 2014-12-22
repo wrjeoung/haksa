@@ -104,14 +104,15 @@
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leaveday }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavechuri }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.name }</td>
-				<td><input type="checkbox" name="rnum" value="${list.num }"></td>
+				<td><input type="checkbox" name="rnum" value="${list.num }">
+				<input type="hidden" name="name" value="${list.name }"></td>
 			</tr>
 		</c:forEach>
 		</tbody>
 	</table>
 	<div align="center">
 		<button type="button" class="btn btn-default" onclick="chk_up()">신청완료</button>
-		<button type="button" class="btn btn-default" onclick="chk_up2()">신청</button>
+		<button type="button" class="btn btn-default" onclick="chk_up2()">되돌리기</button>
 		<button type="button" class="btn btn-default" onclick="chk_del()">삭제</button>
 	</div>
 </form>	

@@ -15,5 +15,9 @@ public interface AdminHuhakDao {
 	public Huhak getAdminHuhak(int num)throws DataAccessException;
 	//수정
 	public void changeAdminHuhak(Huhak params)throws DataAccessException;
+	//회원상태(휴학중으로 수정)
+	public void updateHuhakMember(String name)throws DataAccessException;
+	//회원상태(재학중으로 수정)
+	public void updateHuhakMember2(String name)throws DataAccessException;
 }
 
