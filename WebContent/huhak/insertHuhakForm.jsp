@@ -8,10 +8,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>휴학신청</title>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+
 </head>
+	
 <script type="text/javascript">
 	function hugr_check(){
 		if(document.test.hugr.checked==true){
@@ -38,6 +41,7 @@
 			chk.submit();
 	    }
 	}
+	
 	/* function hugr_check2(){
 		if(document.test2.rnum.checked==true){
 			document.test2.rnum2.value="1";
@@ -45,9 +49,7 @@
 			document.test2.rnum2.value="0";
 		}
 	} */
-	
-
-</script>
+	</script>
 <body>
 <%@ include file="/common/header.jsp"%>
 <div class="container">
@@ -144,6 +146,7 @@
 </form>
 </div>
 <!-- 신청하기 -->
+<c:if test="${member.state!='휴학중' && member.state!='졸업' }">
 <form action="insertHuhakPro.do" method="post" enctype="multipart/form-data" onSubmit="" name="test">
 	<table border="1" width="1100" cellspacing="0" cellpadding="0" align="center">
 		<tr align="center">
@@ -151,7 +154,7 @@
 			<td width="280" bgcolor="#BDBDBD">휴학<br/>세부구분</td><td width="520" align="left">&nbsp;<select name="husegubun"><option value="개인사정">개인사정</option></select></td>
 		</tr>
 		<tr align="center">
-			<td width="280" bgcolor="#BDBDBD">복학<br/>예상년도</td><td width="520" align="left">&nbsp;<input type="text" name="hubokyear" size="20"></td>
+			<td width="280" bgcolor="#BDBDBD">복학<br/>예상년도</td><td width="520" align="left">&nbsp;<div><p><input type="text" name="hubokyear" size="20"/></p></div></td>
 			<td width="280" bgcolor="#BDBDBD">복학<br/>예상학기</td>
 			<td width="320" align="left">
 				&nbsp;<select name="hubokhak"><option value="1학기">1학기</option><option value="2학기">2학기</option></select>
@@ -177,7 +180,10 @@
 	<input type="hidden" value="성적불인정" name="hugrade">
 	</div>
 </form>
+</c:if>
 </body>
+<div class="demo-description">
+	</div>
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->

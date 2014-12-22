@@ -138,7 +138,8 @@ String formatDate2=dateFormat2.format(nowDate);
 		<tr align="center">
 			<td width="280" bgcolor="#BDBDBD">변동구분</td>
 			<td width="520" align="left" colspan="4">
-			&nbsp;<select name="multigubun"><option value="전공신청">전공신청</option></select>
+			&nbsp;<select name="multigubun"><option value="전공신청">전공신청</option>
+			<option value="전공포기">전공포기</option></select>
 			&nbsp;<select name="multigubun2"><option value="다중전공">다중전공</option>
 			<option value="복수전공">복수전공</option>
 			<option value="연계전공">연계전공</option></select></td>
