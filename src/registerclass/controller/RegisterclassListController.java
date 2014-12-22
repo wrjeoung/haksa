@@ -24,7 +24,7 @@ public class RegisterclassListController {
 	private int blockPage = 5;    // �� ȭ�鿡 ������ ������ ��
 	private String pagingHtml;    // ����¡�� ������ HTML
 	private pagingAction page;    // ����¡ Ŭ����
-
+	
 	@RequestMapping("registerclassList.do")
 	public String form(
 			HttpSession session,
@@ -38,6 +38,7 @@ public class RegisterclassListController {
 		totalCount = list.size();
 		System.out.println("totalCount : " + totalCount);
 
+		/*
 		if(request.getParameter("currentPage") == null){
 			currentPage = 1;
 		}else{
@@ -54,7 +55,7 @@ public class RegisterclassListController {
 			lastCount=page.getEndCount()+1;
 
 		list=list.subList(page.getStartCount(), lastCount);
-
+		*/
 		request.setAttribute("list", list);
 		request.setAttribute("member", member);
 		request.setAttribute("currentPage",currentPage);
@@ -72,7 +73,5 @@ public class RegisterclassListController {
 
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
-	}
-
-	
+	}	
 }
