@@ -33,7 +33,7 @@ public class Jujungong2DaoImple extends JdbcDaoSupport implements Jujungong2Dao{
 	@Override
 	public List getJujungongList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from jujungong where name='"+studentNumber+"'";
+		String sql="select * from jujungong where name='"+studentNumber+"'"+"order by num desc";
 		RowMapper rowMapper=new JujungongRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 	}

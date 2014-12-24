@@ -34,7 +34,7 @@ public class LeaveDaoImple extends JdbcDaoSupport implements LeaveDao{
 	@Override
 	public List getLeaveList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from leave where name='"+studentNumber+"'";
+		String sql="select * from leave where name='"+studentNumber+"'"+"order by num desc";
 		RowMapper rowMapper=new LeaveRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 	}

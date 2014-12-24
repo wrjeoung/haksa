@@ -93,15 +93,17 @@
 	</thead>
 	<tbody>
 		<c:forEach var="list" items="${list }">
+		<c:if test="${list.janghakchuri!='신청완료' }">
 			<c:url var="viewURL" value="janghakView.do">
 				<c:param name="num" value="${list.num }"/>
 			</c:url>
+			</c:if>
 			<tr>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakbank }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakbanknum }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakname }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakmenu }</td>
-				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${list.janghak_reg_date }" pattern="yyyy-MM-dd HH:mm"/></td>
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${list.janghak_reg_date }" pattern="yyyy-MM-dd"/></td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.janghakchuri }</td>
 				<%-- <td><input type="checkbox" name="rnum" value="${list.num }"></td> --%>
 				

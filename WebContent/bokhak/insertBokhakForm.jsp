@@ -94,15 +94,17 @@
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+		<c:if test="${vo.bokchuri!='신청완료' }">
 			<c:url var="viewURL" value="bokhakView.do">
 				<c:param name="num" value="${vo.num }"/>
 			</c:url>
+			</c:if>
 			<tr>
 			<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy"/>
 							</td>
 							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokhakgi }</td>
 							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokgubun }</td>
-							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
+							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.bokhak_reg_date }" pattern="yyyy-MM-dd"/>
 							</td>
 							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokyear }</td>
 							<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.bokyehakgi }</td>

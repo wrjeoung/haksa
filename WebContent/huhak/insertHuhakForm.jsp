@@ -115,9 +115,11 @@
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+		<c:if test="${vo.huchuri!='신청완료' }">
 			<c:url var="viewURL" value="huhakView.do">
 				<c:param name="num" value="${vo.num }"/>
 			</c:url>
+			</c:if>
 			<tr>
 				<td><fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy"/>
 								</td>
@@ -125,7 +127,7 @@
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hugubun }</td>
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hugrade }</td>
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>
-								<fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy-MM-dd HH:mm"/>
+								<fmt:formatDate value="${vo.huhak_reg_date }" pattern="yyyy-MM-dd"/>
 								</td>
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokyear }</td>
 								<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.hubokhak }</td>

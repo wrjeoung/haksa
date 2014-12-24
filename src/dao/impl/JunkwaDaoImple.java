@@ -33,7 +33,7 @@ public class JunkwaDaoImple extends JdbcDaoSupport implements JunkwaDao{
 	@Override
 	public List getJunkwaList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from junkwa where name='"+studentNumber+"'";
+		String sql="select * from junkwa where name='"+studentNumber+"'"+"order by num desc";
 		RowMapper rowMapper=new JunkwaRowMapper();
 		
 		return getJdbcTemplate().query(sql, rowMapper);

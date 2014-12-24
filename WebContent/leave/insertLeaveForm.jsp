@@ -108,9 +108,11 @@ String formatDate2=dateFormat2.format(nowDate);
 	</thead>
 	<tbody>
 		<c:forEach var="list" items="${list }">
+		<c:if test="${list.leavechuri != '신청완료' }">
 			<c:url var="viewURL" value="leaveView.do">
 				<c:param name="num" value="${list.num }"/>
 			</c:url>
+			</c:if>
 			<tr>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavegubun }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${list.leavehak }</td>

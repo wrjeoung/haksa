@@ -33,7 +33,7 @@ public class JanghakDaoImple extends JdbcDaoSupport implements JanghakDao{
 	@Override
 	public List getJanghakList(String studentNumber) throws DataAccessException {
 		// TODO Auto-generated method stub
-		String sql="select * from janghak where name='"+studentNumber+"'";
+		String sql="select * from janghak where name='"+studentNumber+"'"+"order by num desc";
 		RowMapper rowMapper=new JanghakRowMapper();
 		return getJdbcTemplate().query(sql, rowMapper);
 		

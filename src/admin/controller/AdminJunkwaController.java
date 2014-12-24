@@ -38,6 +38,7 @@ public class AdminJunkwaController {
 		
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
+			
 			adminJunkwaDao.updatecomAdminJunkwa(value);
 			adminJunkwaDao.updateAdminJunkwaMember(junkwahakkwa, name);
 		}

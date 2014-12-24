@@ -107,9 +107,11 @@ String formatDate2=dateFormat2.format(nowDate);
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+		<c:if test="${vo.multichuri!='신청완료' }">
 			<c:url var="viewURL" value="multijungongView.do">
 				<c:param name="num" value="${vo.num }"/>
 			</c:url>
+			</c:if>
 			<tr>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multigubun } / ${vo.multigubun2 }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.multiyear1 } / ${vo.multiyear2 } / ${vo.multiyear3 }</td>

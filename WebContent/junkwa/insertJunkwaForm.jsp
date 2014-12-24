@@ -107,14 +107,16 @@
 	</thead>
 	<tbody>
 		<c:forEach var="vo" items="${list }">
+		<c:if test="${vo.junkwachuri!='신청완료' }">
 			<c:url var="viewURL" value="junkwaView.do">
 				<c:param name="num" value="${vo.num }"/>
 			</c:url>
+		</c:if>
 			<tr>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwayear }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwahakgi }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwahakkwa }</td>
-				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.junkwa_reg_date }" pattern="yyyy-MM-dd HH:mm" />
+				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";><fmt:formatDate value="${vo.junkwa_reg_date }" pattern="yyyy-MM-dd" />
 				</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwachuri }</td>
 				<td style="cursor: pointer;" onclick="javascript:location.href='${viewURL}'";>${vo.junkwachuday }</td>

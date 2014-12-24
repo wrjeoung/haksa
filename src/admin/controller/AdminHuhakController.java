@@ -37,8 +37,9 @@ public class AdminHuhakController {
 		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
-			adminHuhakDao.updatecomAdminHuhak(value);
 			adminHuhakDao.updateHuhakMember(name);
+			adminHuhakDao.updatecomAdminHuhak(value);
+			
 		}
 		return "redirect:/adminhuhakList.do";
 	}
@@ -49,8 +50,9 @@ public class AdminHuhakController {
 		String name=request.getParameter("name");
 		for(int i=0;i<rnum.length;i++){
 			String value=rnum[i];
-			adminHuhakDao.updatecanAdminHuhak(value);
 			adminHuhakDao.updateHuhakMember2(name);
+			adminHuhakDao.updatecanAdminHuhak(value);
+			
 		}
 		return "redirect:/adminhuhakList.do";
 	}
